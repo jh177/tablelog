@@ -12,8 +12,8 @@ class Greeting extends React.Component{
 
     const sessionLinks = () => (
       <nav className="login-signup">
-        <button onClick={() => openModal('signup')}>Signup</button>
-        <button onClick={() => openModal('login')}>Login</button>
+        <button onClick={() => openModal('signup')} id="btn-sign-up">Sign up</button>
+        <button onClick={() => openModal('login')} id="btn-sign-in">Sign in</button>
       </nav>
     )
 

@@ -24,9 +24,22 @@ class SessionForm extends React.Component {
     }
   }
 
+  renderErrors() {
+    console.log(this.props.errors)
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     const { formType, otherForm, openModal, closeModal } = this.props
-    const title = (formType === "signup") ? "Please sign up" : "Please sign in"
+    const title = (formType === "signup") ? "Welcome to OpenTable!" : "Please sign in"
     
     const nameInfo = (formType === "signup") ? (
       <div>
@@ -63,28 +76,32 @@ class SessionForm extends React.Component {
           <div onClick={closeModal} className="close-x">X</div>
           {title}
           <br />
-          <br />
-          <label>Email:
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.handleInput('email')}
-            />
-          </label>
-          <br />
-          <label>Password:
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.handleInput('password')}
-            />
-          </label>
-          <br />
-          {nameInfo}
-          <br />
-          {signupLink}
-          <br />
-          <button>Submit</button>
+          {this.renderErrors()}
+          <div>
+            <br />
+            <label>Email:
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.handleInput('email')}
+              />
+            </label>
+            <br />
+            <label>Password:
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.handleInput('password')}
+              />
+            </label>
+            <br />
+            {nameInfo}
+            <br />
+            {signupLink}
+            <br />
+            <input type="submit" value="Submit"/>
+          </div>
+
         </form>
       </div>
     )
