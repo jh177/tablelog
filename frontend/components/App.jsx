@@ -11,7 +11,7 @@ const App = () => (
     <Modal/>
     <header>
       <Link to="/" className="header-link">
-        <h1>TableLog</h1>
+        <img src="app/assets/images/tablelog-logo-1.png" alt="logo" />
       </Link>
       <GreetingContainer/>
     </header>

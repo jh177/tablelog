@@ -10,12 +10,19 @@ class SessionForm extends React.Component {
       lname: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDemoLogin = this.handleDemoLogin.bind(this)
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    console.log(user)
     this.props.processForm(user).then(this.props.closeModal);
+  }
+
+  handleDemoLogin(e){
+    e.preventDefault();
+    this.props.demoLogin().then(this.props.closeModal);
   }
 
   handleInput(type) {
@@ -25,7 +32,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    console.log(this.props.errors)
+    // console.log(this.props.errors)
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -39,8 +46,9 @@ class SessionForm extends React.Component {
 
   render() {
     const { formType, otherForm, openModal, closeModal } = this.props
-    const title = (formType === "signup") ? "Welcome to OpenTable!" : "Please sign in"
-    
+    const title = (formType === "signup") ? "Welcome to TableLog!" : "Please sign in"
+
+
     const nameInfo = (formType === "signup") ? (
       <div>
         <label>First Name:
@@ -81,7 +89,7 @@ class SessionForm extends React.Component {
             <br />
             <label>Email:
               <input
-                type="text"
+                type="email"
                 value={this.state.email}
                 onChange={this.handleInput('email')}
               />
@@ -100,6 +108,7 @@ class SessionForm extends React.Component {
             {signupLink}
             <br />
             <input type="submit" value="Submit"/>
+            <input type="submit" value="Demo User" onClick={this.handleDemoLogin}/>
           </div>
 
         </form>

@@ -12,14 +12,17 @@ const mapStateToProps = (state) => ({
   // link: < Link to="/signup">Sign up link</Link >
 })
 
+const demoUser = {email: "demo@tablelog.com", password: "123456"}
+
 const mapDispatchToProps = (dispatch) => ({
   processForm: (user) => dispatch(login(user)),
   otherForm: (
     <button onClick={()=>dispatch(openModal("signup"))}>
       New to OpenTable? Create an account
     </button>),
-    closeModal: () => dispatch(closeModal()),
-    openModal: () => dispatch(openModal("signup"))
+  closeModal: () => dispatch(closeModal()),
+  openModal: () => dispatch(openModal("signup")),
+  demoLogin: () => dispatch(login(demoUser))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm)
