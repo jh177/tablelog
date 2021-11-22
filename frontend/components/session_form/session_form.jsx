@@ -15,7 +15,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
   }
 
   handleInput(type) {
@@ -25,8 +25,9 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const { formType, link } = this.props
-    const title = (formType === "signup") ? "Sign Up" : "Log in"
+    const { formType, otherForm, openModal, closeModal } = this.props
+    const title = (formType === "signup") ? "Please sign up" : "Please sign in"
+    
     const nameInfo = (formType === "signup") ? (
       <div>
         <label>First Name:
@@ -47,12 +48,21 @@ class SessionForm extends React.Component {
         <br />
       </div>) : null;
 
+    const signupLink = (formType === "login") ? (
+      <div>
+        <span>New to TableLog?</span>
+        <div onClick={openModal} className="link-create-account">
+          Create an account
+        </div>
+      </div>
+    ) : null;
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <div onClick={closeModal} className="close-x">X</div>
           {title}
           <br />
-          {link}
           <br />
           <label>Email:
             <input
@@ -71,6 +81,9 @@ class SessionForm extends React.Component {
           </label>
           <br />
           {nameInfo}
+          <br />
+          {signupLink}
+          <br />
           <button>Submit</button>
         </form>
       </div>

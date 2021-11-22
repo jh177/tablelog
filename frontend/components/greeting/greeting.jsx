@@ -12,14 +12,14 @@ class Greeting extends React.Component{
 
     const sessionLinks = () => (
       <nav className="login-signup">
-        <button onClick={() => openModal('login')}>Login</button>
         <button onClick={() => openModal('signup')}>Signup</button>
+        <button onClick={() => openModal('login')}>Login</button>
       </nav>
     )
 
     const personalGreeting = () => (
       <hgroup className="header-group">
-        <h2 className="header-name">Hi, {currentUser.username}!</h2>
+        <h2 className="header-name">Welcome {currentUser.fname} {currentUser.lname}!</h2>
         <button className="header-button" onClick={logout}>Log Out</button>
       </hgroup>
     )
