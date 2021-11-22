@@ -7,25 +7,45 @@ class Greeting extends React.Component{
   }
 
   render(){
-    const {currentUser, logout} = this.props
-    const display = currentUser ? (
-      <div>
-        <h1>Welcome {currentUser.fname} {currentUser.lname}!</h1>
-        <button onClick={()=>logout()}>Log Out</button>
-      </div>
-    ) : (
-      <div>
-        <Link to="/signup">Sign Up</Link>
-        <br />
-        <Link to="/login">Log In</Link>
-      </div>
+    const {currentUser, logout, openModal} = this.props
+
+
+    const sessionLinks = () => (
+      <nav className="login-signup">
+        <button onClick={() => openModal('login')}>Login</button>
+        <button onClick={() => openModal('signup')}>Signup</button>
+      </nav>
+    )
+
+    const personalGreeting = () => (
+      <hgroup className="header-group">
+        <h2 className="header-name">Hi, {currentUser.username}!</h2>
+        <button className="header-button" onClick={logout}>Log Out</button>
+      </hgroup>
     )
 
     return (
-      <div>
-        {display}
-      </div>
+      currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
     )
+    // const {currentUser, logout, openModal} = this.props
+    // const display = currentUser ? (
+    //   <div>
+    //     <h1>Welcome {currentUser.fname} {currentUser.lname}!</h1>
+    //     <button onClick={()=>logout()}>Log Out</button>
+    //   </div>
+    // ) : (
+    //   <div>
+    //     <Link to="/signup">Sign Up</Link>
+    //     <br />
+    //     <Link to="/login">Log In</Link>
+    //   </div>
+    // )
+
+    // return (
+    //   <div>
+    //     {display}
+    //   </div>
+    // )
   }
 }
 
