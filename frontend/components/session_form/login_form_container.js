@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 // import SessionForm from "./session_form";
-import { login, receiveErrors } from "../../actions/session_actions"
+import { login, removeErrors } from "../../actions/session_actions"
 import { Link } from "react-router-dom";
 import React from "react";
 import { openModal, closeModal } from "../../actions/modal_actions";
@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
   closeModal: () => dispatch(closeModal()),
   openModal: () => dispatch(openModal("signup")),
   demoLogin: () => dispatch(login(demoUser)),
+  removeErrors: ()=>dispatch(removeErrors())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
