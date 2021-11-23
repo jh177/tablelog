@@ -47,31 +47,33 @@ class SessionForm extends React.Component {
   render() {
     const { formType, otherForm, openModal, closeModal } = this.props
     const title = (formType === "signup") ? "Welcome to TableLog!" : "Please sign in"
-
+    const btnText = (formType === "signup") ? "Create Account" : "Sign In"
 
     const nameInfo = (formType === "signup") ? (
       <div>
-        <label>First Name:
+        {/* <label>First Name: */}
           <input
             type="text"
+            placeholder="First Name *"
             value={this.state.fname}
             onChange={this.handleInput('fname')}
           />
-        </label>
+        {/* </label> */}
         <br />
-        <label>Last Name:
+        {/* <label>Last Name: */}
           <input
             type="text"
+            placeholder="Last Name *"
             value={this.state.lname}
             onChange={this.handleInput('lname')}
           />
-        </label>
+        {/* </label> */}
         <br />
       </div>) : null;
 
     const signupLink = (formType === "login") ? (
       <div>
-        <span>New to TableLog?</span>
+        <h4>New to TableLog?</h4>
         <div onClick={openModal} className="link-create-account">
           Create an account
         </div>
@@ -79,39 +81,44 @@ class SessionForm extends React.Component {
     ) : null;
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div onClick={closeModal} className="close-x">X</div>
-          {title}
-          <br />
-          {this.renderErrors()}
-          <div>
+      <div className="session-form-container">
+        <div onClick={closeModal} className="close-x">X</div>
+        <div className="session-form">
+          <form onSubmit={this.handleSubmit} className="session-form">
+            <h3 className="session-form-title">{title}</h3>
             <br />
-            <label>Email:
+            {this.renderErrors()}
+            <div>
+              <br />
+              {/* <label>Email: */}
               <input
                 type="email"
+                placeholder="Enter email *"
                 value={this.state.email}
                 onChange={this.handleInput('email')}
               />
-            </label>
-            <br />
-            <label>Password:
+              {/* </label> */}
+              <br />
+              {/* <label>Password: */}
               <input
                 type="password"
+                placeholder="Enter password *"
                 value={this.state.password}
                 onChange={this.handleInput('password')}
               />
-            </label>
-            <br />
-            {nameInfo}
-            <br />
-            {signupLink}
-            <br />
-            <input type="submit" value="Submit"/>
-            <input type="submit" value="Demo User" onClick={this.handleDemoLogin}/>
-          </div>
+              {/* </label> */}
+              <br />
+              {nameInfo}
+              <br />
+              {signupLink}
+              <br />
+              <input type="submit" value={btnText} />
+            </div>
 
-        </form>
+            <input type="submit" value="Demo User" onClick={this.handleDemoLogin} />
+
+          </form>
+        </div>
       </div>
     )
   }

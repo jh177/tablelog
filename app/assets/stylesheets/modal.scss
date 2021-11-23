@@ -1,11 +1,14 @@
+$background-color: #f7f7f7;
+
 .modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.56);
   z-index: 10;
+  display: block;
 }
 
 .modal-child {
@@ -13,9 +16,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 400px;
-  background-color: white;
+  background-color: $background-color;
+  font-family: sans-serif;
+  width: 28.75rem;
+  max-height: none;
 }
 
 .modal-child > div {
@@ -33,4 +37,26 @@
 
 .link-create-account:hover{
   cursor: pointer;
+}
+
+.close-x{
+  height: 1.5rem;
+    width: 1.5rem;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    z-index: 1;
+    position: absolute;
+    right: 16px;
+}
+
+.session-form{
+  padding: 10px, 10px;
+}
+
+.session-form-title{
+  font-size: 1.5rem;
+  line-height: 1.165;
 }

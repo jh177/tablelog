@@ -5,15 +5,20 @@ import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 import { AuthRoute } from "../util/route_util";
 import Modal from "./modal/modal";
+import SubHeader from "./subheader/sub_header";
 
 const App = () => (
   <div>
     <Modal/>
     <header>
-      <Link to="/" className="header-link">
-        <img src="app/assets/images/tablelog-logo-1.png" alt="logo" />
-      </Link>
-      <GreetingContainer/>
+      <SubHeader/>
+      <div className="main-header">
+        <Link to="/" className="header-link">
+          <img src="https://cdn.otstatic.com/cfe/7/images/opentable-logo-153e80.svg" alt="logo" />
+          {/* <img src="../../assets/images/tablelog-logo-1.png" alt="logo" /> */}
+        </Link>
+        <GreetingContainer/>
+      </div>
     </header>
 
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
