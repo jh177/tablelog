@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
   // formType: "login",
 })
 
-const demoUser = {email: "demo@tablelog.com", password: "123456"}
+const demoUser = {email: "demo@tablelog.com", password: "12345678"}
 
 const mapDispatchToProps = (dispatch) => ({
   processForm: (user) => dispatch(login(user)),
