@@ -16,7 +16,6 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    console.log(user)
     this.props.processForm(user).then(this.props.closeModal);
   }
 
@@ -32,7 +31,6 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    // console.log(this.props.errors)
     return (
       <ul>
         {this.props.errors.map((error, i) => (
