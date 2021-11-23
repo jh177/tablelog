@@ -12,10 +12,12 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
-  validates :email, presence: true, uniqueness: true
-  validates :fname, :lname, presence: true
+  validates :email, presence: {message: "Please enter your Email"}
+  validates :email, uniqueness: true
+  validates :fname, presence: {message: "Please enter your first name."}
+  validates :lname, presence: {message: "Please enter your last name."}
   validates :password_digest, :session_token, presence: true
-  validates :password, length: { minimum: 6}, allow_nil: true
+  validates :password, length: { minimum: 8, message: "Passwords must be 8 characters or more."}, allow_nil: true
 
   after_initialize :ensure_session_token
 

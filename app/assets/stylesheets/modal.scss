@@ -28,7 +28,7 @@ $background-color: #f7f7f7;
 }
 
 .link-create-account {
-  color: red;
+  color: #b8222d;
   font-weight: 700px; 
 }
 
@@ -51,22 +51,110 @@ $background-color: #f7f7f7;
 
 .modal-content{
   margin: auto;
-  width: 24rem;
+  // width: 24rem;
+  padding: 30px 20px 50px 20px;
+  // padding-bottom: 50px;
 }
 
 .session-form-container {
   width: 100%;
 }
 
-// .session-form{
-//   padding: 10px, 10px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
+.login-form, .signup-form{
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  padding-bottom: 0.5rem;
+}
 
-// .session-form-title{
-//   font-size: 1.5rem;
-//   line-height: 1.165;
-// }
+.login-form-title, .signup-form-title{
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  font-size: 1.2rem;
+}
 
+.login-form input, .signup-form input{
+  -webkit-appearance: none!important;
+  outline: 0;
+  font-weight: 500;
+  display: block;
+  background: #fff;
+  font-size: .875rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 3px;
+  width: 100%;
+  height: 3rem;
+  text-indent: 10px;
+}
+
+.login-form input:hover, .signup-form input:hover{
+  border: 1px solid rgba(0,0,0,.24);
+}
+
+.login-form input:focus, .signup-form input:focus{
+  border: 2px solid rgba(0,0,0,.5);
+}
+
+#log-in-btn, #signup-btn{
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0 0 1rem;
+  // position: relative;
+  text-decoration: none;
+  text-align: center;
+  outline: 0;
+  border-radius: 3px;
+  // display: inline-block;
+  background-color: #da3743;
+  border-color: #b8222d;
+  color: #fff;
+  transition: background-color 300ms ease-out;
+  font-size: 1rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#log-in-btn:hover, #signup-btn:hover{
+  -webkit-filter: brightness(80%);
+}
+
+.demo-user-link h3{
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  padding-top: 0.5rem;
+}
+
+#demo-user-btn{
+  -webkit-appearance: none!important;
+  outline: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  display: block;
+  background: #fff;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 3px;
+  width: 100%;
+  height: 3rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+#demo-user-btn:hover{
+  border: 2px solid #b8222d;
+}
+
+.login-error, .signup-error{
+  list-style-type: none;
+  color:#b8222d;
+  font-size: 0.8rem;
+  padding-bottom: 10px;
+}
+
+#signup-link{
+  padding-top: 1rem;
+  display: flex;
+}

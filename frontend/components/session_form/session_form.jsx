@@ -30,20 +30,23 @@ class SessionForm extends React.Component {
     }
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+  // renderErrors() {
+  //   return (
+  //     <ul>
+  //       {this.props.errors.map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {error}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
+  renderError(field){
+    return this.props.errors.filter(error=>error.includes(field))
   }
 
   render() {
-    const { formType, otherForm, openModal, closeModal } = this.props
+    const { formType, openModal, closeModal } = this.props
     const title = (formType === "signup") ? "Welcome to TableLog!" : "Please sign in"
     const btnText = (formType === "signup") ? "Create Account" : "Sign In"
 
@@ -55,6 +58,9 @@ class SessionForm extends React.Component {
             value={this.state.fname}
             onChange={this.handleInput('fname')}
           />
+          <li className="session-error">
+            {this.renderError("Fname")}
+          </li>
         <br />
           <input
             type="text"
@@ -62,6 +68,9 @@ class SessionForm extends React.Component {
             value={this.state.lname}
             onChange={this.handleInput('lname')}
           />
+          <li className="session-error">
+            {this.renderError("Lname")}
+          </li>
         <br />
       </div>) : null;
 
@@ -80,8 +89,6 @@ class SessionForm extends React.Component {
         <div className="session-form-container">
           <h3 className="session-form-title">{title}</h3>
           <form onSubmit={this.handleSubmit} className="session-form">
-            <br />
-            {this.renderErrors()}
             <div>
               <br />
               <input
@@ -90,6 +97,9 @@ class SessionForm extends React.Component {
                 value={this.state.email}
                 onChange={this.handleInput('email')}
               />
+              <li className="session-error">
+                {this.renderError("Email")}
+              </li>
               <br />
               <input
                 type="password"
@@ -97,6 +107,12 @@ class SessionForm extends React.Component {
                 value={this.state.password}
                 onChange={this.handleInput('password')}
               />
+              <li className="session-error">
+                {this.renderError("Password")}
+              </li>
+              <li className="session-error">
+                {this.renderError("Your")}
+              </li>
               <br />
               {nameInfo}
               <br />
