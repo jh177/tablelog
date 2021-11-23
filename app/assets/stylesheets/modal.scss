@@ -20,10 +20,7 @@ $background-color: #f7f7f7;
   font-family: sans-serif;
   width: 28.75rem;
   max-height: none;
-}
-
-.modal-child > div {
-  padding: 10px 10px 10px 10px
+  border-radius: 4px;
 }
 
 .close-x:hover{
@@ -52,11 +49,24 @@ $background-color: #f7f7f7;
     right: 16px;
 }
 
-.session-form{
-  padding: 10px, 10px;
+.modal-content{
+  margin: auto;
+  width: 24rem;
 }
 
-.session-form-title{
-  font-size: 1.5rem;
-  line-height: 1.165;
+.session-form-container {
+  width: 100%;
 }
+
+// .session-form{
+//   padding: 10px, 10px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
+// .session-form-title{
+//   font-size: 1.5rem;
+//   line-height: 1.165;
+// }
+

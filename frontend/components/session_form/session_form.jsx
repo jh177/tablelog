@@ -49,23 +49,19 @@ class SessionForm extends React.Component {
 
     const nameInfo = (formType === "signup") ? (
       <div>
-        {/* <label>First Name: */}
           <input
             type="text"
             placeholder="First Name *"
             value={this.state.fname}
             onChange={this.handleInput('fname')}
           />
-        {/* </label> */}
         <br />
-        {/* <label>Last Name: */}
           <input
             type="text"
             placeholder="Last Name *"
             value={this.state.lname}
             onChange={this.handleInput('lname')}
           />
-        {/* </label> */}
         <br />
       </div>) : null;
 
@@ -79,32 +75,28 @@ class SessionForm extends React.Component {
     ) : null;
 
     return (
-      <div className="session-form-container">
+      <div className="modal-content">
         <div onClick={closeModal} className="close-x">X</div>
-        <div className="session-form">
+        <div className="session-form-container">
+          <h3 className="session-form-title">{title}</h3>
           <form onSubmit={this.handleSubmit} className="session-form">
-            <h3 className="session-form-title">{title}</h3>
             <br />
             {this.renderErrors()}
             <div>
               <br />
-              {/* <label>Email: */}
               <input
                 type="email"
                 placeholder="Enter email *"
                 value={this.state.email}
                 onChange={this.handleInput('email')}
               />
-              {/* </label> */}
               <br />
-              {/* <label>Password: */}
               <input
                 type="password"
                 placeholder="Enter password *"
                 value={this.state.password}
                 onChange={this.handleInput('password')}
               />
-              {/* </label> */}
               <br />
               {nameInfo}
               <br />
@@ -112,10 +104,9 @@ class SessionForm extends React.Component {
               <br />
               <input type="submit" value={btnText} />
             </div>
-
-            <input type="submit" value="Demo User" onClick={this.handleDemoLogin} />
-
           </form>
+          
+            <input type="submit" value="Demo User" onClick={this.handleDemoLogin} />
         </div>
       </div>
     )
