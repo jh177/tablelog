@@ -15,7 +15,7 @@ const receiveRestaurant = (restaurant) => ({
 
 export const requestRestaurants = () => dispatch => (
   RestaurantAPIUtil.fecthAllRestaurants()
-    .then(restaurants => dispatch(receiveAllRestaurants(restaurant)))
+    .then(restaurants => dispatch(receiveAllRestaurants(restaurants)))
 )
 
 export const requestRestaurant = (restaurantId) => dispatch => (

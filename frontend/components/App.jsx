@@ -6,6 +6,7 @@ import SignupFormContainer from "./session_form/signup_form_container";
 import { AuthRoute } from "../util/route_util";
 import Modal from "./modal/modal";
 import SubHeader from "./subheader/sub_header";
+import RestaurantIndexContainer from "./restaurants/restaurant_index_container";
 
 const App = () => (
   <div>
@@ -20,7 +21,7 @@ const App = () => (
         <GreetingContainer/>
       </div>
     </header>
-
+    <Route exact path="/" component={RestaurantIndexContainer} />
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
     {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
     {/* <Route exact path="/" component={} /> */}

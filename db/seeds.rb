@@ -8,10 +8,29 @@
 
 
 User.delete_all
+Restaurant.delete_all
 
 demo = User.create!(
   email: "demo@tablelog.com",
   password: "12345678",
   fname: "Demo",
   lname: "User"
+)
+
+
+
+restaurant1 = Restaurant.create!(
+  name: "Meizhou Dongpo Restaurant",
+  description: "Storied Sichuanese cuisine and authentic Meizhou innovations",
+  category: "Chinese",
+  address: "10250 Santa Monica Blvd. Suite 200A Suite 200A Los Angeles, CA 90067",
+  city: "Los Angeles"
+)
+
+restaurant2 = Restaurant.create!(
+  name: "Terra",
+  description: "Rooftop restaurant featuring a wood-burning Italian grill",
+  category: "Italian",
+  address: "10250 Santa Monica Blvd Los Angeles, CA 90067",
+  city: "Los Angeles"
 )
