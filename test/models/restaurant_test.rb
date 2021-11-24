@@ -10,6 +10,8 @@
 #  city        :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  lat         :float            not null
+#  lng         :float            not null
 #
 require 'test_helper'
 
