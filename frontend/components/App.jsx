@@ -1,12 +1,13 @@
 import React from "react";
 import GreetingContainer from "./greeting/greeting_container";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch} from "react-router-dom";
 import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 import { AuthRoute } from "../util/route_util";
 import Modal from "./modal/modal";
 import SubHeader from "./subheader/sub_header";
 import RestaurantIndexContainer from "./restaurants/restaurant_index_container";
+import RestaurantShowContainer from "./restaurants/restaurant_show_container";
 
 const App = () => (
   <div>
@@ -21,7 +22,11 @@ const App = () => (
         <GreetingContainer/>
       </div>
     </header>
-    <Route exact path="/" component={RestaurantIndexContainer} />
+    
+    <Switch>
+      <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
+      <Route exact path="/" component={RestaurantIndexContainer} />
+    </Switch>
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
     {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
     {/* <Route exact path="/" component={} /> */}

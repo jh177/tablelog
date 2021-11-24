@@ -6,10 +6,23 @@ class RestaurantShow extends React.Component{
     super(props)
   }
 
+  componentDidMount(){
+    this.props.requestRestaurant(this.props.match.params.restaurantId);
+  }
+
   render(){
-    
+    if (!this.props.restaurant) {
+      return null;
+    }
+    const {restaurant} = this.props
     return (
-      <h1>restaurant</h1>
+      <div>
+        <h1>{restaurant.name}</h1>
+        <span>{restaurant.category}</span>
+        <p>{restaurant.description}</p>
+        <p>{restaurant.address}</p>
+        <p>{restaurant.city}</p>
+      </div>
     )
   }
 }

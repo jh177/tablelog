@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class RestaurantIndexItem extends React.Component{
   constructor(props){
@@ -9,8 +10,8 @@ class RestaurantIndexItem extends React.Component{
     const {restaurant} = this.props
     return (
       <li>
-        <h3>{restaurant.name}</h3>
-        <span>{restaurant.category}</span>
+        <Link to={`/restaurants/${restaurant.id}`}>{restaurant.name}</Link>
+        &nbsp;<span>{restaurant.category}</span>&nbsp;
         <span>{restaurant.city}</span>
       </li>
     )

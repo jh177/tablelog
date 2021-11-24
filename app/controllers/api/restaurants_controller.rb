@@ -14,6 +14,10 @@ class Api::RestaurantsController < ApplicationController
     end
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+  end
+
   def restaurant_params
     params.require(:restaurant).permit(:name, :description, :category, :address, :city)
   end

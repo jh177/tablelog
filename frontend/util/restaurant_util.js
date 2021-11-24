@@ -8,6 +8,7 @@ export const fecthAllRestaurants = () => (
 export const fecthRestaurant = (restaurantId) => (
   $.ajax({
     url: `/api/restaurants/${restaurantId}`,
-    method: "get"
+    method: "get",
+    error: (err) => console.log(err)
   })
 )
