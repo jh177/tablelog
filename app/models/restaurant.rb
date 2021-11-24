@@ -14,4 +14,6 @@
 class Restaurant < ApplicationRecord
   validates :name, :description, :category, :address, :city, presence:true
   validates :name, uniqueness: { scope: :address, message: "should not have duplicate names for one address" }
+
+  has_many_attached :photos
 end

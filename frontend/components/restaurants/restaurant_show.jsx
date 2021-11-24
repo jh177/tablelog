@@ -15,6 +15,13 @@ class RestaurantShow extends React.Component{
       return null;
     }
     const {restaurant} = this.props
+
+    const photos = restaurant.photoUrls.map((photoUrl) => (
+      <li>
+        <img src={photoUrl}/>
+      </li>
+    ))
+
     return (
       <div>
         <h1>{restaurant.name}</h1>
@@ -22,6 +29,9 @@ class RestaurantShow extends React.Component{
         <p>{restaurant.description}</p>
         <p>{restaurant.address}</p>
         <p>{restaurant.city}</p>
+        <ul>
+          {photos}
+        </ul>
       </div>
     )
   }

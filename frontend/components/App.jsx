@@ -16,7 +16,8 @@ const App = () => (
       <SubHeader/>
       <div className="main-header">
         <Link to="/" className="header-link">
-          <img src="https://cdn.otstatic.com/cfe/7/images/opentable-logo-153e80.svg" alt="logo" />
+          <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/tablelog-logo-1.png" alt="logo" />
+          {/* <img src="https://cdn.otstatic.com/cfe/7/images/opentable-logo-153e80.svg" alt="logo" /> */}
           {/* <img src="../../assets/images/tablelog-logo-1.png" alt="logo" /> */}
         </Link>
         <GreetingContainer/>
