@@ -101,7 +101,12 @@ class RestaurantShow extends React.Component{
               <ReseravationForm/>
             </div>
             <div className="restaurant-show-map">
-              <RestaurantMap restaurant={restaurant}/>
+                <RestaurantMap restaurant={restaurant}/>
+              <div className="restaurant-show-map-address">
+                <a href={`https://www.google.com/maps/dir/?api=1&destination=${restaurant.address}`} target="_blank">
+                  <span id="restaurant-show-map-address">{restaurant.address}</span>
+                </a>
+              </div>
             </div>
             <div className="restaurant-show-more-details">
               <p>Neighborhood</p>

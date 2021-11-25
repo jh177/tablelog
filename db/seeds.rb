@@ -21,7 +21,7 @@ restaurant1 = Restaurant.create!(
   name: "Meizhou Dongpo Restaurant",
   description: "Meizhou Dongpo has been serving millions of Chinese customers across China through its now 110 locations since 1996. We are now proudly providing such experience to the U.S. diners. Our masterful chefs from China strive to share the storied Sichuanese cuisine and authentic Meizhou innovations with each and every one of you. ",
   category: "Chinese",
-  address: "10250 Santa Monica Blvd. Suite 200A Los Angeles, CA 90067",
+  address: "10250 Santa Monica Blvd., Suite 200A, Los Angeles, CA 90067",
   city: "Los Angeles",
   lat: 34.05917194123745,
   lng: -118.41887672671965
@@ -59,7 +59,7 @@ restaurant2 = Restaurant.create!(
   name: "Terra - Eataly",
   description: "Located on the third floor of Eataly Los Angeles, Terra is a rooftop restaurant featuring a wood-burning Italian grill and views of the Hollywood Hills. Named for 'earth' in Italian, Terra's menu is centered around the grill, resulting in earthy dishes paired perfectly with botanical cocktails, premium Italian wines, and more.l",
   category: "Italian",
-  address: "10250 Santa Monica Blvd Los Angeles, CA 90067",
+  address: "10250 Santa Monica Blvd, Los Angeles, CA 90067",
   city: "Los Angeles",
   lat: 34.05919860658435, 
   lng: -118.41885526617024
@@ -90,7 +90,7 @@ restaurant4 = Restaurant.create!(
   name: "Sea Harbour",
   description: "This highly regarded Cantonese restaurant could easily glide solely on its reputation, and yet, its devoted chefs bring the goods again and again. One of the first of its kind to offer dim sum à la carte, rather than by an actual cart, items arrive piping hot, fresh from the steamer.",
   category: "Chinese",
-  address: "3939 Rosemead Blvd Rosemead, CA 91770",
+  address: "3939 Rosemead Blvd, Rosemead, CA 91770",
   city: "Los Angeles",
   lat: 34.080006013852824,
   lng: -118.07346412487877
@@ -105,7 +105,7 @@ restaurant5 = Restaurant.create!(
   name: "Master Ha",
   description: "Authentic Korean Cuisine BRING YOU CLOSER TO KOREAN CULTURES AND FOODS. Just like history of Korean cuisine has evolved together with its people, culture and tradition, Master Ha Restaurant has evolved keeping its original taste of Korea.",
   category: "Korean",
-  address: "1147 S Western Ave Los Angeles, CA 90006",
+  address: "1147 S Western Ave, Los Angeles, CA 90006",
   city: "Los Angeles",
   lat: 34.049808176587185,
   lng: -118.30960463839052

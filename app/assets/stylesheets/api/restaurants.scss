@@ -162,9 +162,23 @@
 .restaurant-show-map{
   box-shadow: 0 2px 8px lightgrey;
   margin-bottom: 24px;
+  height: 320px;
 }
 
-.map-container {
+.restaurent-show-map {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-show-map-address{
+  padding: 16px 8px;
+}
+
+#restaurant-show-map-address{
   width: 100%;
-  height: 320px;
+  font-size: 14px;
+  color: #da3743;
+  font-weight: 500;
+  line-height: 20px;
+
 }
