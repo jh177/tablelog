@@ -10,6 +10,8 @@
 #  updated_at    :datetime         not null
 #  date          :date             not null
 #  time          :string           not null
+#  phone         :string           not null
+#  email         :string           not null
 #
 require 'test_helper'
 

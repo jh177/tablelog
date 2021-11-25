@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_065339) do
+ActiveRecord::Schema.define(version: 2021_11_25_185342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_11_25_065339) do
     t.datetime "updated_at", null: false
     t.date "date", null: false
     t.string "time", null: false
+    t.string "phone", null: false
+    t.string "email", null: false
     t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

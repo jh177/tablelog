@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ReseravationForm from "./reservation_form";
+import ReservationSearchFormContainer from "./reservation_search_form_container";
 import RestaurantMap from "./restaurant_map";
 
 
@@ -98,7 +98,7 @@ class RestaurantShow extends React.Component{
 
           <div className="restaurant-show-right">
             <div className="restaurant-show-reservation-form">
-              <ReseravationForm/>
+              <ReservationSearchFormContainer restaurant={restaurant}/>
             </div>
             <div className="restaurant-show-map">
                 <RestaurantMap restaurant={restaurant}/>
