@@ -8,7 +8,7 @@ class ReservationForm extends React.Component{
   render(){
     return(
       <div>
-        this will be a form
+        this is a reservation form
       </div>
     )
   }

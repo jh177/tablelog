@@ -1,5 +1,8 @@
 import React from "react";
 import { timeSlots } from "../../util/reservation_util";
+import {Link} from "react-router-dom";
+import {ProtectedRoute} from "../../util/route_util";
+import ReservationForm from "../../components/reservations/reservation_form"
 
 let today = new Date().toJSON().slice(0, 10);
 
@@ -9,30 +12,37 @@ class ReservationSearchForm extends React.Component {
     this.state = {
       partySize: 2,
       date: today,
-      time: ""
+      time: "12:00 AM",
+      timeAvails: []
     }
     this.handleInput = this.handleInput.bind(this)
+    this.handleClickFind = this.handleClickFind.bind(this)
   }
 
   handleInput(type) {
     return (e) => {
-    this.setState({ [type]: e.target.value });
+      this.setState({ [type]: e.target.value });
     }
+  }
+
+  handleClickFind(){
+    let index = timeSlots.indexOf(this.state.time)
+    let times = []
+    for (let i=0; i<=2; i++){
+      times.push(timeSlots[(index+i)%48])
+    }
+    this.setState({timeAvails: times})
   }
 
   render() {
     const {currentUser, openModal} = this.props
     
-    let timeOptions = timeSlots.map((time, i)=>(
+    const timeOptions = timeSlots.map((time, i)=>(
       <option key={i} value={time}>{time}</option>
     ))
-
-    // const sessionButtons = () => (
-      
-    // )
     
     const button = currentUser ? 
-      (<button>
+      (<button onClick={this.handleClickFind}>
         Find a table
       </button>) : (
       <nav className="login-signup">
@@ -40,6 +50,13 @@ class ReservationSearchForm extends React.Component {
         <button onClick={() => openModal('login')} id="btn-sign-in">Sign in</button>
       </nav>
       )
+    
+
+    const options = this.state.timeAvails ? (
+        this.state.timeAvails.map((time) => (
+          <Link to={`/booking/${this.props.restaurant.id}`}
+            >{time}</Link>))
+    ) : (null)
 
     return (
       <div className="restaurant-show-reservation-search">
@@ -68,7 +85,11 @@ class ReservationSearchForm extends React.Component {
           </label>
           <br />
           {button}
-          {/* {options} */}
+          {options}
+          <ProtectedRoute
+            path="/booking/:restaurantId"
+            component={ReservationForm}
+          />
       </div>
     )
   }
