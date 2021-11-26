@@ -10,7 +10,8 @@ import {
 import ReservationShow from "./reservation_show";
 
 const mSTP = (state, ownProps) => ({
-  reservation: state.entities.reservations[ownProps.match.params.reservationId]
+  reservation: state.entities.reservations[ownProps.match.params.reservationId],
+  currentUser: state.entities.users[state.session.id]
 })
 
 const mDTP = (dispatch) => ({

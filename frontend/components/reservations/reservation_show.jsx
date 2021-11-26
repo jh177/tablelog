@@ -1,5 +1,5 @@
 import React from "react";
-
+import { withRouter } from "react-router";
 
 class ReservationShow extends React.Component{
   constructor(props){
@@ -7,11 +7,20 @@ class ReservationShow extends React.Component{
   }
 
   componentDidMount(){
-    debugger
+    // debugger
     this.props.requestReservation(this.props.match.params.reservationId);
   }
 
   render(){
+    if (!this.props.reservation) {
+      return null;
+    }
+    
+    if (this.props.reservation.user_id !== this.props.currentUser.id) {
+      this.props.history.push("/")
+    }
+    // debugger
+
     return(
       <div>
         this is showing reservation info and buttons:
@@ -21,4 +30,4 @@ class ReservationShow extends React.Component{
   }
 }
 
-export default ReservationShow
+export default withRouter(ReservationShow);
