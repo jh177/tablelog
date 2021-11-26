@@ -1,7 +1,7 @@
 import React from "react";
 import { timeSlots } from "../../util/reservation_util";
 import {Link} from "react-router-dom";
-import {ProtectedRoute} from "../../util/route_util";
+import { ProtectedRoute, AuthRoute } from "../../util/route_util";
 import ReservationForm from "../../components/reservations/reservation_form"
 
 let today = new Date().toJSON().slice(0, 10);
@@ -53,10 +53,11 @@ class ReservationSearchForm extends React.Component {
     
 
     const options = this.state.timeAvails ? (
-        this.state.timeAvails.map((time) => (
+        this.state.timeAvails.map((time, i) => (
           <Link to={`/booking/${this.props.restaurant.id}`}
-            >{time}</Link>))
+            key={i}>{time}</Link>))
     ) : (null)
+
 
     return (
       <div className="restaurant-show-reservation-search">
@@ -86,14 +87,13 @@ class ReservationSearchForm extends React.Component {
           <br />
           {button}
           {options}
-          <ProtectedRoute
+          {/* <ProtectedRoute
             path="/booking/:restaurantId"
             component={ReservationForm}
-          />
+          /> */}
       </div>
     )
   }
-
 }
 
 export default ReservationSearchForm;

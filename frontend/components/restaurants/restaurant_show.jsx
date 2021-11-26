@@ -100,6 +100,7 @@ class RestaurantShow extends React.Component{
             <div className="restaurant-show-reservation-form">
               <ReservationSearchFormContainer restaurant={restaurant}/>
             </div>
+            
             <div className="restaurant-show-map">
                 <RestaurantMap restaurant={restaurant}/>
               <div className="restaurant-show-map-address">

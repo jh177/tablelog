@@ -3,11 +3,12 @@ import GreetingContainer from "./greeting/greeting_container";
 import { Route, Link, Switch} from "react-router-dom";
 import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
-import { AuthRoute } from "../util/route_util";
+import { ProtectedRoute, AuthRoute } from "../util/route_util";
 import Modal from "./modal/modal";
 import SubHeader from "./subheader/sub_header";
 import RestaurantIndexContainer from "./restaurants/restaurant_index_container";
 import RestaurantShowContainer from "./restaurants/restaurant_show_container";
+import ReservationForm from "./reservations/reservation_form";
 
 const App = () => (
   <div>
@@ -26,6 +27,7 @@ const App = () => (
     
     <Switch>
       <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
+      <ProtectedRoute exact path="/booking/:restaurantId" component={ReservationForm}/>
       <Route exact path="/" component={RestaurantIndexContainer} />
     </Switch>
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}

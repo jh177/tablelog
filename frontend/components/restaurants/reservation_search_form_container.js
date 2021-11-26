@@ -10,4 +10,4 @@ const mDTP = (dispatch) => ({
   openModal: modal => dispatch(openModal(modal))
 })
 
-export default connect(mSTP, mDTP)(ReservationSearchForm)
+export default connect(mSTP, mDTP)(ReservationSearchForm);
