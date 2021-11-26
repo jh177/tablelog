@@ -12,12 +12,17 @@ class ReservationForm extends React.Component{
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.navigateToReservationView = this.navigateToReservationView.bind(this);
   }
 
   componentDidMount(){
     this.props.requestRestaurant(this.props.match.params.restaurantId);
   }
 
+  // navigateToReservationView(){
+  //   const url = `/booking/view/${this.props.restaurant.id}`
+  //   this.props.history.push(url)
+  // }
 
   handleSubmit(e){
     
@@ -32,7 +37,11 @@ class ReservationForm extends React.Component{
     })
     window.reservation = reservation;
     // debugger
-    this.props.createReservation(reservation);
+    this.props.createReservation(reservation)
+      .then((response) => {
+        this.props.history.push(`/booking/view/${response.reservation.id}`)
+      })
+    // this.navigateToReservationView()
   }
 
   handleInput(type) {

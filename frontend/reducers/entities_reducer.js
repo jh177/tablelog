@@ -6,7 +6,7 @@ import usersReducer from "./users_reducer";
 const entitiesReducer = combineReducers({
   users: usersReducer,
   restaurants: RestaurantsReducer,
-  reservation: ReservationReducer
+  reservations: ReservationReducer
 })
 
 export default entitiesReducer;
