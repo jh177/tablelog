@@ -8,7 +8,7 @@ import Modal from "./modal/modal";
 import SubHeader from "./subheader/sub_header";
 import RestaurantIndexContainer from "./restaurants/restaurant_index_container";
 import RestaurantShowContainer from "./restaurants/restaurant_show_container";
-import ReservationForm from "./reservations/reservation_form";
+import ReservationFormContainer from "./reservations/reservation_form_container";
 
 const App = () => (
   <div>
@@ -27,7 +27,7 @@ const App = () => (
     
     <Switch>
       <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
-      <ProtectedRoute exact path="/booking/:restaurantId" component={ReservationForm}/>
+      <ProtectedRoute exact path="/booking/:restaurantId" component={ReservationFormContainer}/>
       <Route exact path="/" component={RestaurantIndexContainer} />
     </Switch>
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}

@@ -22,8 +22,11 @@ class ReservationSearchForm extends React.Component {
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
+      // window.localStorage.setItem(type, e.target.value);
     }
   }
+
+  
 
   handleClickFind(){
     let index = timeSlots.indexOf(this.state.time)
@@ -52,12 +55,28 @@ class ReservationSearchForm extends React.Component {
       )
     
 
+    // const options = this.state.timeAvails ? (
+    //     this.state.timeAvails.map((time, i) => (
+    //       <Link to={`/booking/${this.props.restaurant.id}`}
+    //         key={i} restaurant={this.props.restaurant}>{time}</Link>))
+    // ) : (null)
+
     const options = this.state.timeAvails ? (
-        this.state.timeAvails.map((time, i) => (
-          <Link to={`/booking/${this.props.restaurant.id}`}
-            key={i}>{time}</Link>))
+      this.state.timeAvails.map((time, i) => (
+        <Link to={{
+          pathname: `/booking/${this.props.restaurant.id}`,
+          state: {
+            restaurant: this.props.restaurant,
+            date: this.state.date,
+            time: time,
+            partySize: this.state.partySize
+          }
+        }} key={i}>{time}</Link>
+        )
+      )
     ) : (null)
 
+    // debugger
 
     return (
       <div className="restaurant-show-reservation-search">
