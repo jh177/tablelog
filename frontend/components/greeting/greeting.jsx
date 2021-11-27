@@ -20,6 +20,7 @@ class Greeting extends React.Component{
     const personalGreeting = () => (
       <hgroup className="header-group">
         <h2 className="header-name">Welcome {currentUser.fname} {currentUser.lname}!</h2>
+        <Link to="/profile">Profile</Link>
         <button className="header-button" onClick={logout}>Log Out</button>
       </hgroup>
     )

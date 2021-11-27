@@ -33,7 +33,7 @@ export const removeReservationErrors = () => ({
 
 
 export const requestReservations = () => dispatch => (
-  ReservationAPIUtil.fetchReservations()
+  ReservationAPIUtil.fetchAllReservations()
     .then(reservations => dispatch(receiveAllReservations(reservations)))
 )
 

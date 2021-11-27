@@ -13,6 +13,7 @@ import ReservationShowContainer from "./reservations/reservation_show_container"
 import ReservationModifyContainer from "./reservations/reservation_modify_container";
 import ReservationFormEditContainer from "./reservations/reservation_form_edit_container";
 import ReservationCancelContainer from "./reservations/reservation_cancel_container";
+import ProfileContainer from "./profile/profile_container";
 
 const App = () => (
   <div>
@@ -36,6 +37,7 @@ const App = () => (
       <ProtectedRoute exact path="/booking/:restaurantId/modify/:reservationId" component={ReservationModifyContainer}/>
       <ProtectedRoute exact path="/booking/:restaurantId/:reservationId/edit" component={ReservationFormEditContainer}/>
       <ProtectedRoute exact path="/booking/:restaurantId/cancel/:reservationId" component={ReservationCancelContainer}/>
+      <ProtectedRoute exact path="/profile" component={ProfileContainer}/>
       <Route exact path="/" component={RestaurantIndexContainer} />
     </Switch>
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
