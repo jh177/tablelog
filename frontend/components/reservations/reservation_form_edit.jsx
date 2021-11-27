@@ -1,42 +1,31 @@
 import React from "react";
 import { withRouter } from "react-router";
 
-class ReservationForm extends React.Component{
-  constructor(props){
+class ReservationFormEdit extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       phone: ""
-      // time: "",
-      // date: new Date().toJSON().slice(0, 10),
-      // partySize: 0,
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.navigateToReservationView = this.navigateToReservationView.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.requestRestaurant(this.props.match.params.restaurantId);
+    this.props.requestReservation(this.props.match.params.reservationId);
   }
 
-  // navigateToReservationView(){
-  //   const url = `/booking/view/${this.props.restaurant.id}`
-  //   this.props.history.push(url)
-  // }
 
-  handleSubmit(e){
-    
+  handleSubmit(e) {
     e.preventDefault();
-    const reservation = Object.assign({}, this.state, {
-      user_id: this.props.currentUser.id,
-      restaurant_id: this.props.restaurant.id,
-      date: new Date(localStorage.getItem("date")),
-      time: localStorage.getItem("time"),
-      party_size: parseInt(localStorage.getItem("partySize")),
-      email: this.props.currentUser.email
-    })
-    window.reservation = reservation;
-    this.props.createReservation(reservation)
+    const reservation = Object.assign({}, this.props.reservation)
+    reservation["phone"] = this.state.phone;
+    reservation["date"] = new Date(localStorage.getItem("date"));
+    reservation["time"] = localStorage.getItem("time");
+    reservation["party_size"] = parseInt(localStorage.getItem("partySize"));
+    console.log(reservation)
+    this.props.updateReservation(reservation)
       .then((response) => {
         this.props.history.push(`/booking/${this.props.restaurant.id}/view/${response.reservation.id}`)
       })
@@ -50,18 +39,16 @@ class ReservationForm extends React.Component{
   }
 
 
-  render(){
-    if (!this.props.restaurant) {return null}
-    // let restaurant;
+  render() {
+    if (!this.props.reservation || !this.props.restaurant) {
+      return null;
+    }
 
-    // if (this.props.restaurant) { 
-    //   restaurant = this.props.restaurant
-    //   localStorage.setItem("restaurant", JSON.stringify(this.props.restaurant));
+    if (this.props.reservation.user_id !== this.props.currentUser.id) {
+      this.props.history.push("/")
+    }
 
-    // } else {
-    //   restaurant = JSON.parse(window.localStorage.getItem("restaurant"))
-    // }
-    const {restaurant} = this.props
+    const { restaurant } = this.props
 
     let date;
     let time;
@@ -92,14 +79,14 @@ class ReservationForm extends React.Component{
 
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="phone">
-            <input 
+            <input
               type="phone"
               placeholder="Phone Number"
               value={this.state.phone}
               onChange={this.handleInput('phone')}
             />
           </label>
-          <input type="submit" value="Complete Reservation"/>
+          <input type="submit" value="Complete Reservation" />
         </form>
       </div>
     )
@@ -107,4 +94,4 @@ class ReservationForm extends React.Component{
 
 }
 
-export default withRouter(ReservationForm);
+export default withRouter(ReservationFormEdit);

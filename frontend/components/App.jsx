@@ -10,6 +10,8 @@ import RestaurantIndexContainer from "./restaurants/restaurant_index_container";
 import RestaurantShowContainer from "./restaurants/restaurant_show_container";
 import ReservationFormContainer from "./reservations/reservation_form_container";
 import ReservationShowContainer from "./reservations/reservation_show_container";
+import ReservationModifyContainer from "./reservations/reservation_modify_container";
+import ReservationFormEditContainer from "./reservations/reservation_form_edit_container";
 
 const App = () => (
   <div>
@@ -29,7 +31,10 @@ const App = () => (
     <Switch>
       <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
       <ProtectedRoute exact path="/booking/:restaurantId" component={ReservationFormContainer}/>
-      <ProtectedRoute exact path="/booking/view/:reservationId" component={ReservationShowContainer}/>
+      <ProtectedRoute exact path="/booking/:restaurantId/view/:reservationId" component={ReservationShowContainer}/>
+      <ProtectedRoute exact path="/booking/:restaurantId/modify/:reservationId" component={ReservationModifyContainer}/>
+      <ProtectedRoute exact path="/booking/:restaurantId/:reservationId/edit" component={ReservationFormEditContainer}/>
+      <ProtectedRoute exact path="/booking/:restaurantId/cancel/:reservationId" component={ReservationShowContainer}/>
       <Route exact path="/" component={RestaurantIndexContainer} />
     </Switch>
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}

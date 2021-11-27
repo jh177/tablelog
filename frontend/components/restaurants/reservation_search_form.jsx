@@ -22,7 +22,6 @@ class ReservationSearchForm extends React.Component {
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
-      // window.localStorage.setItem(type, e.target.value);
     }
   }
 
@@ -82,7 +81,7 @@ class ReservationSearchForm extends React.Component {
       <div className="restaurant-show-reservation-search">
         <h2>Make a reservation</h2>
         
-        <form className="restaurant-show-reservation-search-form"></form>
+        <form className="restaurant-show-reservation-search-form">
           <label htmlFor="party-size">Party Size
           <select value={this.state.partySize} onChange={this.handleInput("partySize")}>
               <option value="1">1</option>
@@ -105,11 +104,12 @@ class ReservationSearchForm extends React.Component {
           </label>
           <br />
           {button}
-          {options}
           {/* <ProtectedRoute
             path="/booking/:restaurantId"
             component={ReservationForm}
           /> */}
+        </form>
+        {options}
       </div>
     )
   }

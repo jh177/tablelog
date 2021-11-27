@@ -1,13 +1,8 @@
 import { connect } from "react-redux";
+import ReservationModify from "./reservation_modify";
 import { requestRestaurant } from "../../actions/restaurant_actions";
-import { 
-  requestReservation, 
-  requestReservations,
-  createReservation,
-  updateReservation,
-  deleteReservation
-} from "../../actions/reservation_actions";
-import ReservationShow from "./reservation_show";
+import { requestReservation, updateReservation } from "../../actions/reservation_actions";
+
 
 const mSTP = (state, ownProps) => ({
   reservation: state.entities.reservations[ownProps.match.params.reservationId],
@@ -17,7 +12,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch) => ({
   requestRestaurant: (restaurantId) => dispatch(requestRestaurant(restaurantId)),
-  requestReservation: (reservationId) => dispatch(requestReservation(reservationId))
+  requestReservation: (reservationId) => dispatch(requestReservation(reservationId)),
+  updateReservation: (reservation) => dispatch(updateReservation(reservation))
 })
 
-export default connect(mSTP, mDTP)(ReservationShow);
+export default connect(mSTP, mDTP)(ReservationModify);
