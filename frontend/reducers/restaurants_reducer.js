@@ -4,7 +4,8 @@ import {
 } from "../actions/restaurant_actions";
 import {
   RECEIVE_RESERVATION
-} from "../actions/reservation_actions"
+} from "../actions/reservation_actions";
+import { RECEIVE_USER } from "../actions/user_actions";
 
 const RestaurantsReducer = (state={}, action) => {
   Object.freeze(state);
@@ -17,6 +18,9 @@ const RestaurantsReducer = (state={}, action) => {
       return nextState;
     case RECEIVE_RESERVATION:
       nextState = Object.assign({}, action.payload.restaurant);
+      return nextState;
+    case RECEIVE_USER:
+      nextState = Object.assign({}, action.payload.restaurants);
       return nextState;
     default:
       return state;

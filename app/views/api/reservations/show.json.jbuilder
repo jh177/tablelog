@@ -4,10 +4,12 @@ end
 
 json.restaurant do
   json.set! @reservation.restaurant.id do
-    json.extract! @reservation.restaurant, :id, :name, :description, :category, :address, :city, :lat, :lng
+    json.partial! 'api/restaurants/restaurant', restaurant: @reservation.restaurant
   end
 end
 
-json.user do 
-  json.extract! @reservation.user, :email, :id, :fname, :lname
+json.user do
+  json.set! @reservation.user.id do
+    json.partial! 'api/users/user', user: @reservation.user
+  end
 end
