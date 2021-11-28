@@ -19,14 +19,16 @@ class Profile extends React.Component{
     console.log(this.props.reservations)
     console.log(this.props.restaurants)
 
+    let ids = this.props.restaurants.map((restaurant)=> restaurant.id)
+
     const reservationItems = this.props.reservations.map((reservation) => (
       <ProfileReservationItem 
         key={reservation.id} 
         reservation={reservation}
-        restaurant={this.props.restaurants[reservation.restaurant_id]} />
+        restaurant={this.props.restaurants[ids.indexOf(reservation.restaurant_id)]} />
     ))
     
-    debugger
+    // debugger
 
     return(
       <div>
