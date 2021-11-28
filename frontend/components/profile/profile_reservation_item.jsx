@@ -14,6 +14,9 @@ class ProfileReservationItem extends React.Component {
         <h3>{reservation.date}</h3>
         <h3>{reservation.time}</h3>
         <h3>{reservation.party_size}</h3>
+        <Link to={`/booking/modify/${reservation.id}`}>Modify</Link>
+        <br />
+        <Link to={`/booking/cancel/${reservation.id}`}>Cancel</Link>
       </li>
     )
   }

@@ -38,7 +38,7 @@ class ReservationForm extends React.Component{
     window.reservation = reservation;
     this.props.createReservation(reservation)
       .then((response) => {
-        this.props.history.push(`/booking/view/${response.reservation.id}`)
+        this.props.history.push(`/booking/view/${response.payload.reservation.id}`)
       })
     // this.navigateToReservationView()
   }
