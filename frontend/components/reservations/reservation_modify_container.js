@@ -6,12 +6,12 @@ import { requestReservation, updateReservation } from "../../actions/reservation
 
 const mSTP = (state, ownProps) => ({
   reservation: state.entities.reservations[ownProps.match.params.reservationId],
-  restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
+  restaurant: Object.values(state.entities.restaurants)[0],
   currentUser: state.entities.users[state.session.id]
 })
 
 const mDTP = (dispatch) => ({
-  requestRestaurant: (restaurantId) => dispatch(requestRestaurant(restaurantId)),
+  // requestRestaurant: (restaurantId) => dispatch(requestRestaurant(restaurantId)),
   requestReservation: (reservationId) => dispatch(requestReservation(reservationId)),
   updateReservation: (reservation) => dispatch(updateReservation(reservation))
 })

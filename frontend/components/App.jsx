@@ -33,10 +33,10 @@ const App = () => (
     <Switch>
       <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
       <ProtectedRoute exact path="/booking/:restaurantId" component={ReservationFormContainer}/>
-      <ProtectedRoute exact path="/booking/:restaurantId/view/:reservationId" component={ReservationShowContainer}/>
-      <ProtectedRoute exact path="/booking/:restaurantId/modify/:reservationId" component={ReservationModifyContainer}/>
-      <ProtectedRoute exact path="/booking/:restaurantId/:reservationId/edit" component={ReservationFormEditContainer}/>
-      <ProtectedRoute exact path="/booking/:restaurantId/cancel/:reservationId" component={ReservationCancelContainer}/>
+      <ProtectedRoute exact path="/booking/view/:reservationId" component={ReservationShowContainer}/>
+      <ProtectedRoute exact path="/booking/modify/:reservationId" component={ReservationModifyContainer}/>
+      <ProtectedRoute exact path="/booking/edit/:reservationId" component={ReservationFormEditContainer}/>
+      <ProtectedRoute exact path="/booking/cancel/:reservationId" component={ReservationCancelContainer}/>
       <ProtectedRoute exact path="/profile" component={ProfileContainer}/>
       <Route exact path="/" component={RestaurantIndexContainer} />
     </Switch>

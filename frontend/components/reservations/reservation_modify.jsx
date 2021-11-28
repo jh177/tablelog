@@ -21,7 +21,7 @@ class ReservationModify extends React.Component{
 
   componentDidMount() {
     this.props.requestReservation(this.props.match.params.reservationId);
-    this.props.requestRestaurant(this.props.match.params.restaurantId);
+    // this.props.requestRestaurant(this.props.match.params.restaurantId);
   }
 
   handleInput(type) {
@@ -40,6 +40,8 @@ class ReservationModify extends React.Component{
   }
 
   render(){
+
+    // console.log(this.props)
     if (!this.props.reservation || !this.props.restaurant) {
       return null;
     }
@@ -50,6 +52,8 @@ class ReservationModify extends React.Component{
 
     const { reservation, restaurant} = this.props;
 
+    // debugger
+
     const timeOptions = timeSlots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
     ))
@@ -57,7 +61,7 @@ class ReservationModify extends React.Component{
     const options = this.state.timeAvails ? (
       this.state.timeAvails.map((time, i) => (
         <Link to={{
-          pathname: `/booking/${restaurant.id}/${reservation.id}/edit`,
+          pathname: `/booking/edit/${reservation.id}`,
           state: {
             restaurant: this.props.restaurant,
             date: this.state.date,

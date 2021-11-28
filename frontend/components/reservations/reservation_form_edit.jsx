@@ -12,7 +12,7 @@ class ReservationFormEdit extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestRestaurant(this.props.match.params.restaurantId);
+    // this.props.requestRestaurant(this.props.match.params.restaurantId);
     this.props.requestReservation(this.props.match.params.reservationId);
   }
 
@@ -27,7 +27,8 @@ class ReservationFormEdit extends React.Component {
     console.log(reservation)
     this.props.updateReservation(reservation)
       .then((response) => {
-        this.props.history.push(`/booking/${this.props.restaurant.id}/view/${response.reservation.id}`)
+        console.log(response)
+        this.props.history.push(`/booking/view/${response.payload.reservation.id}`)
       })
     // this.navigateToReservationView()
   }

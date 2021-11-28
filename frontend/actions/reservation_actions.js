@@ -12,9 +12,9 @@ const receiveAllReservations = (reservations) => ({
   reservations
 })
 
-const receiveReservation = (reservation) => ({
+const receiveReservation = (payload) => ({
   type: RECEIVE_RESERVATION,
-  reservation
+  payload
 })
 
 const removeReservation = (reservationId) => ({
@@ -39,7 +39,7 @@ export const requestReservations = () => dispatch => (
 
 export const requestReservation = (reservationId) => dispatch => (
   ReservationAPIUtil.fetchReservation(reservationId)
-    .then(reservation => dispatch(receiveReservation(reservation)))
+    .then(payload => dispatch(receiveReservation(payload)))
 )
 
 export const createReservation = (reservation) => dispatch => (

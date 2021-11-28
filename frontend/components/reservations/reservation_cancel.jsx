@@ -9,7 +9,7 @@ class ReservationCancel extends React.Component{
 
   componentDidMount() {
     this.props.requestReservation(this.props.match.params.reservationId);
-    this.props.requestRestaurant(this.props.match.params.restaurantId);
+    // this.props.requestRestaurant(this.props.match.params.restaurantId);
   }
 
   handleClick(){

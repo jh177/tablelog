@@ -3,7 +3,9 @@ json.reservation do
 end
 
 json.restaurant do
-  json.extract! @reservation.restaurant, :id, :name, :description, :category, :address, :city, :lat, :lng
+  json.set! @reservation.restaurant.id do
+    json.extract! @reservation.restaurant, :id, :name, :description, :category, :address, :city, :lat, :lng
+  end
 end
 
 json.user do 

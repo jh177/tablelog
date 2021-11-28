@@ -10,15 +10,18 @@ class ReservationShow extends React.Component{
   componentDidMount(){
     // debugger
     this.props.requestReservation(this.props.match.params.reservationId);
+    this.props.requestRestaurant(this.props.match.params.restaurantId);
   }
 
   render(){
-    if (!this.props.reservation) return null;
+    if (!this.props.reservation || !this.props.restaurant) {
+      return null;
+    }
+
 
     if (this.props.reservation.user_id !== this.props.currentUser.id) {
       this.props.history.push("/")
     }
-    // debugger
 
     const {reservation, restaurant, currentUser} = this.props;
 
@@ -40,9 +43,9 @@ class ReservationShow extends React.Component{
         <span>{reservation.time}</span>
         <br />
 
-        <Link to={`/booking/modify/${reservation.id}`}>Modify</Link>
+        <Link to={`/booking/${restaurant.id}/modify/${reservation.id}`}>Modify</Link>
 
-        <Link to={`/booking/cancel/${reservation.id}`}>Cancel</Link>
+        <Link to={`/booking/${restaurant.id}/cancel/${reservation.id}`}>Cancel</Link>
 
         <br />
         <button>Get directions</button>
