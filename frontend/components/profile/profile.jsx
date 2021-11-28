@@ -16,7 +16,6 @@ class Profile extends React.Component{
 
   render(){
 
-    debugger
     if (this.props.restaurants.length===0 || this.props.reservations.length===0) return null;
     
     console.log(this.props.reservations)
