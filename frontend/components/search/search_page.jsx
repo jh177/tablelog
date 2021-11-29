@@ -14,15 +14,27 @@ class SearchPage extends React.Component{
       partySize: localStorage.getItem("partySize"),
       date: localStorage.getItem("date"),
       time: localStorage.getItem("time"),
-      searchTerm: localStorage.getItem("searchTerm")
+      searchTerm: localStorage.getItem("searchTerm"),
+      updated: false,
     };
-    this.handleInput = this.handleInput.bind(this)
+    // this.updated = false;
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this); 
   }
 
   handleInput(type) {
+    // this.updated = false;
     return (e) => {
+      // this.setState({updated: false})
       this.setState({ [type]: e.target.value });
     }
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    // this.updated=true;
+    this.setState({updated: !this.state.updated})
+    console.log(this.state.updated)
   }
 
   render(){
@@ -65,14 +77,14 @@ class SearchPage extends React.Component{
         </div>
 
         <div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input
               type="text"
               placeholder="Location or Cuisine"
               value={this.state.searchTerm}
               onChange={this.handleInput("searchTerm")}
             />
-            <button>Find a Table</button>
+            <input type="submit" value="Find a Table" id="log-in-btn"/>
           </form>
         </div>
       </div>
@@ -82,6 +94,7 @@ class SearchPage extends React.Component{
           <RestaurantIndexContainer
             searchTerm={this.state.searchTerm}
             time={this.state.time}
+            updated={this.state.updated}
           />
         </div>
       </div>

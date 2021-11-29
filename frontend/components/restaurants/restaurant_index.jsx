@@ -6,8 +6,11 @@ class RestaurantIndex extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      searchTerm: localStorage.getItem("searchTerm")
+      searchTerm: localStorage.getItem("searchTerm"),
+      // updated: this.props.updated
     }
+    this.prevUpdatedStatus = this.props.updated
+    this.prevTime = this.props.time
   }
 
   componentDidMount(){
@@ -18,18 +21,32 @@ class RestaurantIndex extends React.Component{
   //   this.setState({ searchTerm: props.searchTerm })
   // }
 
-  // componentDidUpdate(){
-  //   this.props.requestRestaurants(this.state.searchTerm);
-  // }
+  componentDidUpdate(prevProps, prevState){
+    // debugger
+    this.prevUpdatedStatus = prevProps.updated
+    this.prevTime = prevProps.time
+    if (this.props.updated !== prevProps.updated) {
+      this.props.requestRestaurants(this.props.searchTerm)
+        .then(console.log(this.props.restaurants))
+    }
+    // debugger
+  }
 
   render(){
 
     // debugger
+    let time;
+
+    if (this.prevUpdatedStatus !== this.props.updated) {
+      time=this.props.time
+    } else {
+      time=this.prevTime
+    }
     
     const restaurantItems = this.props.restaurants.map((restaurant, i) => (
       <li key={i}>
         <RestaurantIndexItem key={restaurant.id} restaurant={restaurant}/>
-        <Times key={i+10000} time={this.props.time} restaurant={restaurant}/>
+        <Times key={i+10000} time={time} restaurant={restaurant}/>
       </li>
       
     ))
