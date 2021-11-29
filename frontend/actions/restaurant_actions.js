@@ -13,8 +13,8 @@ const receiveRestaurant = (restaurant) => ({
   restaurant
 })
 
-export const requestRestaurants = () => dispatch => (
-  RestaurantAPIUtil.fecthAllRestaurants()
+export const requestRestaurants = (searchTerm) => dispatch => (
+  RestaurantAPIUtil.fecthAllRestaurants(searchTerm)
     .then(restaurants => dispatch(receiveAllRestaurants(restaurants)))
 )
 

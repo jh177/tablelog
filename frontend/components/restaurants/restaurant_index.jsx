@@ -7,7 +7,7 @@ class RestaurantIndex extends React.Component{
   }
 
   componentDidMount(){
-    this.props.requestRestaurants();
+    this.props.requestRestaurants(localStorage.getItem("searchTerm"));
   }
 
   render(){
