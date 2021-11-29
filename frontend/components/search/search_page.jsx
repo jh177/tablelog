@@ -17,24 +17,21 @@ class SearchPage extends React.Component{
       searchTerm: localStorage.getItem("searchTerm"),
       updated: false,
     };
-    // this.updated = false;
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this); 
   }
 
   handleInput(type) {
-    // this.updated = false;
     return (e) => {
-      // this.setState({updated: false})
       this.setState({ [type]: e.target.value });
+      localStorage.setItem(type, e.target.value);
     }
   }
 
   handleSubmit(e){
     e.preventDefault();
-    // this.updated=true;
     this.setState({updated: !this.state.updated})
-    console.log(this.state.updated)
+    // console.log(this.state.updated)
   }
 
   render(){
