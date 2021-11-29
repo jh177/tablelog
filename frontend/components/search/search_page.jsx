@@ -1,5 +1,6 @@
 import React from "react";
-import SearchBox from "./search_box";
+import SearchPageSearchBox from "./search_page_search_box";
+import RestaurantIndexContainer from "../restaurants/restaurant_index_container";
 
 class SearchPage extends React.Component{
   constructor(props){
@@ -8,10 +9,12 @@ class SearchPage extends React.Component{
 
   render(){
 
+    // debugger
+
     return(
       <div>
-        <SearchBox/>
-        list of restaurants     
+        <SearchPageSearchBox/>
+        <RestaurantIndexContainer/> 
       </div>
     )
   }

@@ -1,7 +1,8 @@
-export const fecthAllRestaurants = () => (
+export const fecthAllRestaurants = (searchTerm) => (
   $.ajax({
     url: "/api/restaurants",
-    method: "get"
+    method: "get",
+    data: {searchTerm}
   })
 )
 

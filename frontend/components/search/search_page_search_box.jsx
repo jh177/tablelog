@@ -2,35 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
 
-let today = new Date().toJSON().slice(0,10);
+let today = new Date().toJSON().slice(0, 10);
 
-class SearchBox extends React.Component{
-  constructor(props){
+class SearchPageSearchBox extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-      partySize: 2,
-      date: today,
-      time: "12:00 AM",
-      searchTerm: ""
+      partySize: localStorage.getItem("partySize"),
+      date: localStorage.getItem("date"),
+      time: localStorage.getItem("time"),
+      filter: ""
     };
     this.handleInput = this.handleInput.bind(this)
-
   }
 
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
-      localStorage.setItem(type, e.target.value);
     }
   }
 
-  render(){
+  render() {
 
     const timeOptions = timeSlots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
     ))
 
-    return(
+    // debugger
+
+    return (
       <div className="search-box">
         <h1>Find your table for any occasion</h1>
         <div>
@@ -41,7 +41,7 @@ class SearchBox extends React.Component{
             </label>
             <br />
             <label htmlFor="time">Time
-              <select onChange={this.handleInput("time")}>
+              <select value={localStorage.getItem("time")} onChange={this.handleInput("time")}>
                 {timeOptions}
               </select>
             </label>
@@ -60,21 +60,21 @@ class SearchBox extends React.Component{
 
         <div>
           <form>
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="Location or Cuisine"
-              value={this.state.searchTerm}
-              onChange={this.handleInput("searchTerm")}
+              value={this.state.filter}
+              onChange={this.handleInput("filter")}
             />
             <Link to={{
-              pathname: `/search/${this.state.searchTerm}`,
+              pathname: `/search/${this.state.filter}`,
               state: {
                 date: this.state.date,
                 time: this.state.time,
                 partySize: this.state.partySize,
-                searchTerm: this.state.searchTerm
+                filter: this.state.filter
               }
-            }}>Let's go</Link>
+            }}>Find a Table</Link>
           </form>
         </div>
       </div>
@@ -82,4 +82,4 @@ class SearchBox extends React.Component{
   }
 }
 
-export default SearchBox
+export default SearchPageSearchBox;

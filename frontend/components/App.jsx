@@ -41,7 +41,7 @@ const App = () => (
       <ProtectedRoute exact path="/booking/edit/:reservationId" component={ReservationFormEditContainer}/>
       <ProtectedRoute exact path="/booking/cancel/:reservationId" component={ReservationCancelContainer}/>
       <ProtectedRoute exact path="/search" component={SearchPageContainer}/>
-      <ProtectedRoute exact path="/search/:filter" component={SearchPageContainer}/>
+      <ProtectedRoute exact path="/search/:searchTerm" component={SearchPageContainer}/>
       <ProtectedRoute exact path="/profile" component={ProfileContainer}/>
       <Route exact path="/" component={Landing} />
     </Switch>
