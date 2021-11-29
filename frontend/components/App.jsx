@@ -16,6 +16,7 @@ import ReservationCancelContainer from "./reservations/reservation_cancel_contai
 import ProfileContainer from "./profile/profile_container";
 import SearchBox from "./search/search_box";
 import SearchPageContainer from "./search/search_page_container";
+import SearchPage from "./search/search_page";
 import Landing from "./landing/landing";
 
 const App = () => (
@@ -24,7 +25,7 @@ const App = () => (
     <header>
       <SubHeader/>
       <div className="main-header">
-        <Link to="/" className="header-link">
+        <Link to="/" className="header-link" onClick={()=>{localStorage.setItem("searchTerm", "")}}>
           <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/tablelog-logo-1.png" alt="logo" />
           {/* <img src="https://cdn.otstatic.com/cfe/7/images/opentable-logo-153e80.svg" alt="logo" /> */}
           {/* <img src="../../assets/images/tablelog-logo-1.png" alt="logo" /> */}
@@ -40,8 +41,8 @@ const App = () => (
       <ProtectedRoute exact path="/booking/modify/:reservationId" component={ReservationModifyContainer}/>
       <ProtectedRoute exact path="/booking/edit/:reservationId" component={ReservationFormEditContainer}/>
       <ProtectedRoute exact path="/booking/cancel/:reservationId" component={ReservationCancelContainer}/>
-      <ProtectedRoute exact path="/search" component={SearchPageContainer}/>
-      <ProtectedRoute exact path="/search/:searchTerm" component={SearchPageContainer}/>
+      <ProtectedRoute exact path="/search" component={SearchPage}/>
+      <ProtectedRoute exact path="/search/:searchTerm" component={SearchPage}/>
       <ProtectedRoute exact path="/profile" component={ProfileContainer}/>
       <Route exact path="/" component={Landing} />
     </Switch>

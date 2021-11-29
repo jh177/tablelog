@@ -11,7 +11,6 @@ class Landing extends React.Component{
     return(
     <div>
       <SearchBox/>
-      <RestaurantIndexContainer/>
     </div>
     )
   }

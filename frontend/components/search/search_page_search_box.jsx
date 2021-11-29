@@ -11,7 +11,7 @@ class SearchPageSearchBox extends React.Component {
       partySize: localStorage.getItem("partySize"),
       date: localStorage.getItem("date"),
       time: localStorage.getItem("time"),
-      filter: ""
+      searchTerm: ""
     };
     this.handleInput = this.handleInput.bind(this)
   }
@@ -63,16 +63,16 @@ class SearchPageSearchBox extends React.Component {
             <input
               type="text"
               placeholder="Location or Cuisine"
-              value={this.state.filter}
-              onChange={this.handleInput("filter")}
+              value={this.state.searchTerm}
+              onChange={this.handleInput("searchTerm")}
             />
             <Link to={{
-              pathname: `/search/${this.state.filter}`,
+              pathname: `/search/${this.state.searchTerm}`,
               state: {
                 date: this.state.date,
                 time: this.state.time,
                 partySize: this.state.partySize,
-                filter: this.state.filter
+                searchTerm: this.state.searchTerm
               }
             }}>Find a Table</Link>
           </form>
