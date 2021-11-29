@@ -9,11 +9,11 @@ class RestaurantIndexItem extends React.Component{
   render(){
     const {restaurant} = this.props
     return (
-      <li>
+      <div>
         <Link to={`/restaurants/${restaurant.id}`}>{restaurant.name}</Link>
         &nbsp;<span>{restaurant.category}</span>&nbsp;
         <span>{restaurant.city}</span>
-      </li>
+      </div>
     )
   }
 }

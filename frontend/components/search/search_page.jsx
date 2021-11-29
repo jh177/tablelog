@@ -47,7 +47,7 @@ class SearchPage extends React.Component{
             </label>
             <br />
             <label htmlFor="time">Time
-              <select value={localStorage.getItem("time")} onChange={this.handleInput("time")}>
+              <select value={this.state.time} onChange={this.handleInput("time")}>
                 {timeOptions}
               </select>
             </label>
