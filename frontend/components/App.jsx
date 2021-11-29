@@ -14,6 +14,9 @@ import ReservationModifyContainer from "./reservations/reservation_modify_contai
 import ReservationFormEditContainer from "./reservations/reservation_form_edit_container";
 import ReservationCancelContainer from "./reservations/reservation_cancel_container";
 import ProfileContainer from "./profile/profile_container";
+import SearchBox from "./search/search_box";
+import SearchPageContainer from "./search/search_page_container";
+import Landing from "./landing/landing";
 
 const App = () => (
   <div>
@@ -29,7 +32,7 @@ const App = () => (
         <GreetingContainer/>
       </div>
     </header>
-    
+        
     <Switch>
       <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
       <ProtectedRoute exact path="/booking/:restaurantId" component={ReservationFormContainer}/>
@@ -37,8 +40,10 @@ const App = () => (
       <ProtectedRoute exact path="/booking/modify/:reservationId" component={ReservationModifyContainer}/>
       <ProtectedRoute exact path="/booking/edit/:reservationId" component={ReservationFormEditContainer}/>
       <ProtectedRoute exact path="/booking/cancel/:reservationId" component={ReservationCancelContainer}/>
+      <ProtectedRoute exact path="/search" component={SearchPageContainer}/>
+      <ProtectedRoute exact path="/search/:filter" component={SearchPageContainer}/>
       <ProtectedRoute exact path="/profile" component={ProfileContainer}/>
-      <Route exact path="/" component={RestaurantIndexContainer} />
+      <Route exact path="/" component={Landing} />
     </Switch>
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
     {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
