@@ -27,7 +27,7 @@ class RestaurantIndex extends React.Component{
     this.prevTime = prevProps.time
     if (this.props.updated !== prevProps.updated) {
       this.props.requestRestaurants(this.props.searchTerm)
-        .then(console.log(this.props.restaurants))
+        // .then(console.log(this.props.restaurants))
     }
     // debugger
   }

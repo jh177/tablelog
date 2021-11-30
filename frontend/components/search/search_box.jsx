@@ -31,51 +31,57 @@ class SearchBox extends React.Component{
     ))
 
     return(
-      <div className="search-box">
+      <div className="landing-search-box">
         <h1>Find your table for any occasion</h1>
-        <div>
-          <form>
-            <label htmlFor="date">Date
-              <input type="date" value={this.state.date} min={today}
-                onChange={this.handleInput("date")} />
-            </label>
-            <br />
-            <label htmlFor="time">Time
-              <select onChange={this.handleInput("time")}>
-                {timeOptions}
-              </select>
-            </label>
-            <br />
-            <label htmlFor="party-size">Party Size
-              <select value={this.state.partySize} onChange={this.handleInput("partySize")}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </label>
-          </form>
-        </div>
+        
+        <div className="landing-search-box-form-container">
+          <div>
+            <div className="landing-search-box-form">
+              <div className="landing-search-box-form-inputs-1">
+                <div className="search-box-form-date">
+                  <input id="date-input" type="date" value={this.state.date} min={today}
+                    onChange={this.handleInput("date")} />
+                </div>
+                <div className="search-box-form-time">
+                  <select id="time-input" onChange={this.handleInput("time")}>
+                    {timeOptions}
+                  </select>
+                </div>
+                <div>
+                  <select id="size-input" value={this.state.partySize} onChange={this.handleInput("partySize")}>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="5">5 People</option>
+                  </select>
+                </div>
+              </div>
 
-        <div>
-          <form>
-            <input 
-              type="text" 
-              placeholder="Location or Cuisine"
-              value={this.state.searchTerm}
-              onChange={this.handleInput("searchTerm")}
-            />
-            <Link to={{
-              pathname: `/search/${this.state.searchTerm}`,
-              state: {
-                date: this.state.date,
-                time: this.state.time,
-                partySize: this.state.partySize,
-                searchTerm: this.state.searchTerm
-              }
-            }}>Let's go</Link>
-          </form>
+              <div class="landing-search-box-form-inputs-2">
+                <input
+                  id="search-input"
+                  type="text"
+                  placeholder="Location or Cuisine"
+                  value={this.state.searchTerm}
+                  onChange={this.handleInput("searchTerm")}
+                />
+              </div>
+
+              <div class="landing-search-box-form-button">
+                <Link to={{
+                  pathname: "/search",
+                  // pathname: `/search/${this.state.searchTerm}`,
+                  state: {
+                    date: this.state.date,
+                    time: this.state.time,
+                    partySize: this.state.partySize,
+                    searchTerm: this.state.searchTerm
+                  }
+                }}>Let's go</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )
