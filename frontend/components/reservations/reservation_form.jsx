@@ -137,12 +137,12 @@ class ReservationForm extends React.Component{
               id="reservation-diner-button"
               type="submit"
               value="Complete Reservation"
-              onSubmit={this.handleSubmit}>Complete Reservation</button>
+              onClick={this.handleSubmit}>Complete Reservation</button>
           </div>
         </div>
 
         <div className="reservation-extra-info">
-          <h2>Want to check the direction before you book?</h2>
+          <h2>What to know before you go</h2>
           <div>
             <h3>Direction Link</h3>
           </div>
