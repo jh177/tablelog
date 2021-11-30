@@ -44,18 +44,25 @@ class RestaurantIndex extends React.Component{
     }
     
     const restaurantItems = this.props.restaurants.map((restaurant, i) => (
-      <li key={i}>
-        <RestaurantIndexItem key={restaurant.id} restaurant={restaurant}/>
-        <Times key={i+10000} time={time} restaurant={restaurant}/>
-      </li>
+      <div className="restaurant-item-container" key={i}>
+        <RestaurantIndexItem 
+          key={restaurant.id} 
+          restaurant={restaurant}
+          time={time}
+        />
+        {/* <Times key={i+10000} time={time} restaurant={restaurant}/> */}
+      </div>
       
     ))
 
     return(
       <div className="restaurant-list-container">
-        <h2>{this.props.restaurants.length} restaurants available</h2>
-        <br />
-        <ul>{restaurantItems}</ul>
+        <div className="restaurant-list-number">
+          <h2>{this.props.restaurants.length} restaurants available</h2>
+        </div>
+        <div className="restaurant-list">
+          {restaurantItems}
+        </div>
       </div>
     )
   }

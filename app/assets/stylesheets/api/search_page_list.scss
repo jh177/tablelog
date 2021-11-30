@@ -1,0 +1,128 @@
+
+.search-page-main{
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  padding: 16px 16px 0;
+}
+
+.search-page-nav{
+  width: 225px;
+  margin-right: 32px;
+}
+
+.search-page-list{
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-list-number{
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 16px;
+  padding-top: 16px;
+  height: 44px;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.restaurant-list-number h2{
+  color: #2d333f;
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.restaurant-item-container{
+  display: flex;
+  padding: 0 0 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  height: 250px;
+}
+
+.restaurant-item{
+  display: flex;
+}
+
+.restaurant-left{
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.restaurant-left img{
+  border-radius: 4px;
+  position: absolute;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+
+.restaurant-right{
+  margin-left: 16px;
+}
+
+.restaurant-name{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 4px;
+}
+
+.restaurant-name a{
+  cursor: pointer;
+  color: #247f9e;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.restaurant-info-details{
+    display: flex;
+    color: #2d333f;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    width: calc(100% - 2.1875rem);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: 4px;
+}
+
+.restaurant-info-details li{
+  margin-left: 5px;
+}
+
+.restaurant-info-details li span{
+  position: relative;
+  left: -10px;
+}
+
+.restaurant-times{
+  height: 64px;
+  margin-top: 8px;
+}
+
+.restaurant-times ul{
+  display: flex;
+}
+
+.restaurant-times ul a{
+  background: #da3743;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 4px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 6px;
+  width: 80px;
+}

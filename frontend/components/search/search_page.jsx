@@ -3,7 +3,7 @@ import SearchPageSearchBox from "./search_page_search_box";
 import RestaurantIndexContainer from "../restaurants/restaurant_index_container";
 import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
-
+import SearchPageNav from "./search_page_nav"
 
 let today = new Date().toJSON().slice(0, 10);
 
@@ -45,7 +45,7 @@ class SearchPage extends React.Component{
     // debugger
 
     return(
-      <div className="search-page-main">
+      <div className="search-page-container">
 
         <div className="search-page-header">
           <div className="search-page-form-container">
@@ -103,7 +103,10 @@ class SearchPage extends React.Component{
         </div>
         
 
-        <div className="search-page-list-container">
+        <div className="search-page-main">
+          <div className="search-page-nav">
+            <SearchPageNav/>
+          </div>
           <div className="search-page-list">
             <RestaurantIndexContainer
               searchTerm={this.state.searchTerm}

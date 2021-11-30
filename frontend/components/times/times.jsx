@@ -28,6 +28,8 @@ class Times extends React.Component{
       )
     )
 
+    // debugger
+
     return(
       <ul>
         {options}
