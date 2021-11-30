@@ -1,0 +1,1 @@
+json.extract! review, :id, :user_id, :restaurant_id, :reservation_id, :overall, :food, :service, :ambience, :value, :noice, :body, :recommend

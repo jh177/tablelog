@@ -8,9 +8,9 @@ const receiveAllRestaurants = (restaurants) => ({
   restaurants
 })
 
-const receiveRestaurant = (restaurant) => ({
+const receiveRestaurant = (payload) => ({
   type: RECEIVE_RESTAURANT,
-  restaurant
+  payload
 })
 
 export const requestRestaurants = (searchTerm) => dispatch => (
@@ -20,5 +20,5 @@ export const requestRestaurants = (searchTerm) => dispatch => (
 
 export const requestRestaurant = (restaurantId) => dispatch => (
   RestaurantAPIUtil.fecthRestaurant(restaurantId)
-    .then(restaurant => dispatch(receiveRestaurant(restaurant)))
+    .then(payload => dispatch(receiveRestaurant(payload)))
 )
