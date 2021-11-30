@@ -58,7 +58,7 @@ class SearchBox extends React.Component{
                 </div>
               </div>
 
-              <div class="landing-search-box-form-inputs-2">
+              <div className="landing-search-box-form-inputs-2">
                 <input
                   id="search-input"
                   type="text"
@@ -68,7 +68,7 @@ class SearchBox extends React.Component{
                 />
               </div>
 
-              <div class="landing-search-box-form-button">
+              <div className="landing-search-box-form-button">
                 <Link to={{
                   pathname: "/search",
                   // pathname: `/search/${this.state.searchTerm}`,

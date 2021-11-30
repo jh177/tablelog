@@ -45,55 +45,74 @@ class SearchPage extends React.Component{
     // debugger
 
     return(
-      <div>
-         <div className="search-box">
-        <h1>Find your table for any occasion</h1>
-        <div>
-          <form>
-            <label htmlFor="date">Date
-              <input type="date" value={this.state.date} min={today}
-                onChange={this.handleInput("date")} />
-            </label>
-            <br />
-            <label htmlFor="time">Time
-              <select value={this.state.time} onChange={this.handleInput("time")}>
-                {timeOptions}
-              </select>
-            </label>
-            <br />
-            <label htmlFor="party-size">Party Size
-              <select value={this.state.partySize} onChange={this.handleInput("partySize")}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </label>
-          </form>
-        </div>
+      <div className="search-page-main">
 
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              placeholder="Location or Cuisine"
-              value={this.state.searchTerm}
-              onChange={this.handleInput("searchTerm")}
+        <div className="search-page-header">
+          <div className="search-page-form-container">
+            <div className="search-page-form">
+              <div className="search-page-form-inputs-1">
+
+                <div className="search-page-form-date">
+                  <input type="date" value={this.state.date} min={today}
+                    onChange={this.handleInput("date")} />
+                </div>
+
+                <div className="search-page-form-time">
+                  <select
+                    id="search-page-time-input"
+                    value={this.state.time}
+                    onChange={this.handleInput("time")}>
+                    {timeOptions}
+                  </select>
+                </div>
+
+                <div>
+                  <select
+                    id="search-page-size-input"
+                    value={this.state.partySize}
+                    onChange={this.handleInput("partySize")}>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="5">5 People</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="search-page-form-inputs-2">
+                  <input
+                    id="search-page-search-input"
+                    type="text"
+                    placeholder="Location or Cuisine"
+                    value={this.state.searchTerm}
+                    onChange={this.handleInput("searchTerm")}
+                  />
+              </div>
+
+              <div className="search-page-form-button">
+                  <button
+                    type="submit"
+                    id="search-page-find-btn"
+                    onClick={this.handleSubmit}>
+                    <h2>Find a Table</h2>
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div className="search-page-list-container">
+          <div className="search-page-list">
+            <RestaurantIndexContainer
+              searchTerm={this.state.searchTerm}
+              time={this.state.time}
+              updated={this.state.updated}
             />
-            <input type="submit" value="Find a Table" id="log-in-btn"/>
-          </form>
+          </div>
         </div>
-      </div>
-      <br />
 
-        <div>
-          <RestaurantIndexContainer
-            searchTerm={this.state.searchTerm}
-            time={this.state.time}
-            updated={this.state.updated}
-          />
-        </div>
       </div>
     )
   }
