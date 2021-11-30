@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 
 class ReservationForm extends React.Component{
   constructor(props){
@@ -89,31 +90,58 @@ class ReservationForm extends React.Component{
           <h2>You're almost done!</h2>
 
           <div className="reservation-details">
-            <h1>{restaurant.name}</h1>
-            <h2>Date: {displayDate}</h2>
-            <h2>Time: {time}</h2>
-            <h2>Party Size: {partySize}</h2>
+            <div className="reservation-details-left">
+              <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+            </div>
+            <div className="reservation-details-right">
+              <div className="reservation-details-restaurant-name">
+                <Link to={`/restaurants/${restaurant.id}`}>{restaurant.name}</Link>
+              </div>
+              <div className="reservation-details-date-time">
+                <div className="reservation-details-date">
+                  <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/calendar-icon.svg" alt="date" />
+                  <p>{displayDate}</p>
+                </div>
+                <div className="reservation-details-time">
+                  <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/clock-icon.svg" alt="date" />
+
+                  <p>{time}</p>
+                </div>
+                <div className="reservation-details-party-size">
+                  <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/user-icon.svg" alt="date" />
+                  <p>{partySize} people</p>
+                </div>
+              </div>
+            </div>
           </div>
 
+          <h2 id="diner-details">Diner Details</h2>
+
+          <div className="diner-name">{this.props.currentUser.fname} {this.props.currentUser.lname}</div>
 
           <div className="reservation-diner-details">
-            <div>
+            <div className="reservation-diner-details-phone-email">
+              <div className="reservation-diner-details-phone">
                 <input 
                   type="phone"
                   placeholder="Phone Number"
                   value={this.state.phone}
                   onChange={this.handleInput('phone')}
                 />
+              </div>
+              <div className="reservation-diner-details-email">
                 <input value={this.props.currentUser.email} disabled="disabled"/>
-              <button
-                type="submit"
-                value="Complete Reservation"
-                onSubmit={this.handleSubmit}>Complete Reservation</button>
+              </div>
             </div>
+            <button
+              id="reservation-diner-button"
+              type="submit"
+              value="Complete Reservation"
+              onSubmit={this.handleSubmit}>Complete Reservation</button>
           </div>
         </div>
 
-        <div className="reservation-what-to-know">
+        <div className="reservation-extra-info">
           <h2>Want to check the direction before you book?</h2>
           <div>
             <h3>Direction Link</h3>

@@ -7,3 +7,192 @@
   margin: 32px auto 5rem;
   justify-content: center;
 }
+
+.reservation-form{
+  width: 636px;
+}
+
+.reservation-form>h2{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0 0 16px;
+  flex: 1 100%;
+  min-height: 24px;
+  color: #2d333f;
+}
+
+.reservation-details{
+  height: 64px;
+  margin-bottom: 16px;
+  color: #2d333f;
+  display: flex;
+}
+
+.reservation-details-left{
+  display: flex;
+  margin-right: 16px;
+}
+
+.reservation-details-left>img{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4px;
+}
+
+.reservation-details-right{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.reservation-details-restaurant-name{
+  display: flex;
+  color: #2d333f;
+  text-decoration: none;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.reservation-details-restaurant-name>a{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.reservation-details-date-time{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.reservation-details-date{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-right: 24px;
+}
+
+.reservation-details-date-time img{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.reservation-details-date-time p{
+  display: flex;
+  margin: 0 0.5rem;
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 16px;
+  justify-content: center;
+}
+
+.reservation-details-time{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-right: 24px;
+}
+
+.reservation-details-party-size{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-right: 24px;
+}
+
+#diner-details{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 16px 0;
+  flex: 1 100%;
+}
+
+.diner-name{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 8px 0;
+}
+
+.reservation-diner-details-phone-email{
+  display: flex;
+  justify-content: space-between;
+}
+
+.reservation-diner-details-phone{
+  padding-bottom: 16px;
+  padding-right: 16px;
+  color: #2d333f;
+}
+
+.reservation-diner-details-phone>input{
+  background: #fff;
+  border-radius: 4px;
+  font-size: 16px;
+  border: 0.0625rem solid #d8d9db;
+  line-height: 24px;
+  box-sizing: border-box;
+  width: 308px;
+  color: #2d333f;
+  height: 48px;
+  padding-left: 10px;
+}
+
+.reservation-extra-info{
+  width: 302px;
+  margin-left: 32px;
+}
+
+.reservation-diner-details-email{
+  padding-left: 0;
+}
+
+.reservation-diner-details-email>input{
+  background: lightgrey;
+  border-radius: 4px;
+  font-size: 16px;
+  border: 0.0625rem solid #d8d9db;
+  line-height: 24px;
+  box-sizing: border-box;
+  width: 308px;
+  color: #2d333f;
+  height: 48px;
+  padding-left: 10px;
+}
+
+#reservation-diner-button{
+  margin: 16px 0;
+  width: 100%;
+  background-color: #da3743;
+  color: #fff;
+  border-radius: 4px;
+  -webkit-appearance: button;
+  height: 3rem;
+  font-weight: 700;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+#reservation-diner-button:hover{
+  -webkit-filter: brightness(80%)
+}
+
+.reservation-extra-info>h2{
+  margin: 16px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+.reservation-extra-info>div{
+  margin: 16px 0 0;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
