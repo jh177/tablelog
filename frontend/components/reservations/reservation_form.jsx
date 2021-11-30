@@ -81,26 +81,44 @@ class ReservationForm extends React.Component{
     }
     // localStorage.setItem("restaurant", JSON.stringify(this.props.restaurant));
     // debugger
-    let displayDate = new Date(date).toLocaleString();
+    let displayDate = new Date(date).toLocaleString().slice(0, 9);
 
     return (
-      <div>
-        <h1>{restaurant.name}</h1>
-        <h2>Date: {displayDate}</h2>
-        <h2>Time: {time}</h2>
-        <h2>Party Size: {partySize}</h2>
+      <div className="reservation-page-main">
+        <div className="reservation-form">
+          <h2>You're almost done!</h2>
 
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="phone">
-            <input 
-              type="phone"
-              placeholder="Phone Number"
-              value={this.state.phone}
-              onChange={this.handleInput('phone')}
-            />
-          </label>
-          <input type="submit" value="Complete Reservation"/>
-        </form>
+          <div className="reservation-details">
+            <h1>{restaurant.name}</h1>
+            <h2>Date: {displayDate}</h2>
+            <h2>Time: {time}</h2>
+            <h2>Party Size: {partySize}</h2>
+          </div>
+
+
+          <div className="reservation-diner-details">
+            <div>
+                <input 
+                  type="phone"
+                  placeholder="Phone Number"
+                  value={this.state.phone}
+                  onChange={this.handleInput('phone')}
+                />
+                <input value={this.props.currentUser.email} disabled="disabled"/>
+              <button
+                type="submit"
+                value="Complete Reservation"
+                onSubmit={this.handleSubmit}>Complete Reservation</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="reservation-what-to-know">
+          <h2>Want to check the direction before you book?</h2>
+          <div>
+            <h3>Direction Link</h3>
+          </div>
+        </div>
       </div>
     )
   }
