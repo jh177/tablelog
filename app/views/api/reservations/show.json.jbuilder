@@ -13,3 +13,9 @@ json.user do
     json.partial! 'api/users/user', user: @reservation.user
   end
 end
+
+json.review do
+  json.set! @reservation.review.id do
+    json.partial! 'api/reviews/review', review: @reservation.review
+  end
+end

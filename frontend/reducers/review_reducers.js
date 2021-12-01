@@ -4,6 +4,7 @@ import {
   REMOVE_REVIEW
 } from "../actions/review_actions";
 import { RECEIVE_RESTAURANT } from "../actions/restaurant_actions";
+import { RECEIVE_RESERVATION } from "../actions/reservation_actions";
 
 
 const ReviewReducer = (state={}, action) =>{
@@ -20,6 +21,9 @@ const ReviewReducer = (state={}, action) =>{
       return nextState;
     case RECEIVE_RESTAURANT:
       nextState = Object.assign({}, action.payload.reviews);
+      return nextState;
+    case RECEIVE_RESERVATION:
+      nextState = Object.assign({}, action.payload.review);
       return nextState;
     default:
       return state
