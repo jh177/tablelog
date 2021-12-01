@@ -36,7 +36,7 @@ class RestaurantShow extends React.Component{
       return null;
     }
 
-    const { restaurant } = this.props
+    const { restaurant, reviews} = this.props
 
     const photos = restaurant.photoUrls.map((photoUrl, i) => (
       <li key={i}>
@@ -44,17 +44,17 @@ class RestaurantShow extends React.Component{
       </li>
     ))
 
-    const ratingDisplay = (this.props.restaurant.average_rating) ? (
+    const ratingDisplay = (restaurant.average_rating) ? (
       <div>
-        {this.props.restaurant.average_rating}
+        {restaurant.average_rating}
       </div>
     ) : "no ratings yet"
 
     // debugger
 
-    const reviewsDisplay = (this.props.reviews) ? (
+    const reviewsDisplay = (reviews) ? (
       // "hello"
-        this.props.reviews.map((review, i)=>(
+        reviews.map((review, i)=>(
           <li key={i}>
             {review.body}
           </li>
@@ -85,8 +85,8 @@ class RestaurantShow extends React.Component{
               <div className="restaurant-show-overview" ref={this.overviewRef}>
                 <h1>{restaurant.name}</h1>
                 <ul className="restaurant-show-details-snapshot">
-                  <li>ratings</li>
-                  <li># of reviews</li>
+                  <li>{restaurant.average_rating} ratings</li>
+                  <li>{reviews.length} reviews</li>
                   <li>{restaurant.category}</li>
                 </ul>
                 <div className="restaurant-show-description">{restaurant.description}</div>
