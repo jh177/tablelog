@@ -44,6 +44,24 @@ class RestaurantShow extends React.Component{
       </li>
     ))
 
+    const ratingDisplay = (this.props.restaurant.average_rating) ? (
+      <div>
+        {this.props.restaurant.average_rating}
+      </div>
+    ) : "no ratings yet"
+
+    // debugger
+
+    const reviewsDisplay = (this.props.reviews) ? (
+      // "hello"
+        this.props.reviews.map((review, i)=>(
+          <li key={i}>
+            {review.body}
+          </li>
+        ))
+      ) : "no reviews yet"
+
+
     return (
       <div className="restaurant-show">
         <div className="restaurant-show-header-img">
@@ -85,10 +103,10 @@ class RestaurantShow extends React.Component{
 
               <div className="restaurant-show-reviews" ref={this.reviewsRef}>
                 <div className="restaurant-show-reviews-ratings">
-                  ratings placeholder
+                  {ratingDisplay}
                 </div>
                 <div className="restaurant-show-reviews-list">
-                  reviews placeholder
+                  {reviewsDisplay}
                 </div>
               </div>
             
