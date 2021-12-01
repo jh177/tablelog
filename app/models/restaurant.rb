@@ -26,4 +26,24 @@ class Restaurant < ApplicationRecord
     reviews.average(:overall)
   end
 
+  def average_food
+    reviews.average(:food)
+  end
+
+  def average_service
+    reviews.average(:service)
+  end
+
+  def average_ambience
+    reviews.average(:ambience)
+  end
+
+  def average_value
+    reviews.average(:value)
+  end
+
+  def average_noise
+    reviews.average(:noise)
+  end
+
 end
