@@ -4,10 +4,18 @@ json.user do
   end
 end
 
-json.reservations do
-  @user.reservations.each do |reservation|
+@user.reservations.each do |reservation|
+  json.reservations do
     json.set! reservation.id do 
       json.partial! 'api/reservations/reservation', reservation: reservation
+    end
+  end
+
+  if reservation.review.present?
+    json.reviews do
+      json.set! reservation.review.id do
+        json.extract! reservation.review, :overall, :body
+      end
     end
   end
 end

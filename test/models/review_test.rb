@@ -11,7 +11,7 @@
 #  service        :integer          not null
 #  ambience       :integer          not null
 #  value          :integer          not null
-#  noice          :integer          not null
+#  noise          :integer          not null
 #  body           :text             not null
 #  recommend      :boolean          not null
 #  created_at     :datetime         not null

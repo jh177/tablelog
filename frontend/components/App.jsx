@@ -18,6 +18,8 @@ import SearchBox from "./search/search_box";
 import SearchPageContainer from "./search/search_page_container";
 import SearchPage from "./search/search_page";
 import Landing from "./landing/landing";
+import ReviewFormContainer from "./review/review_form_container";
+
 
 const App = () => (
   <div>
@@ -42,6 +44,7 @@ const App = () => (
       <ProtectedRoute exact path="/booking/edit/:reservationId" component={ReservationFormEditContainer}/>
       <ProtectedRoute exact path="/booking/cancel/:reservationId" component={ReservationCancelContainer}/>
       <ProtectedRoute exact path="/profile" component={ProfileContainer}/>
+      <ProtectedRoute exact path="/feedback/:reservationId" component={ReviewFormContainer}/>
       <Route exact path="/search/:searchTerm" component={SearchPage}/>
       <Route exact path="/search" component={SearchPage}/>
       <Route exact path="/" component={Landing} />

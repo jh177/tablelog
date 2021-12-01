@@ -18,9 +18,9 @@ class Profile extends React.Component{
 
     if (this.props.restaurants.length===0 || this.props.reservations.length===0) return null;
     
-    console.log(this.props.reservations)
-    console.log(this.props.restaurants)
-
+    // console.log(this.props.reservations)
+    // console.log(this.props.restaurants)
+    // debugger
     let ids = this.props.restaurants.map((restaurant)=> restaurant.id)
 
     const reservationItems = this.props.reservations.map((reservation) => (

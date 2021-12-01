@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_215125) do
+ActiveRecord::Schema.define(version: 2021_12_01_062234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_215125) do
     t.integer "service", null: false
     t.integer "ambience", null: false
     t.integer "value", null: false
-    t.integer "noice", null: false
+    t.integer "noise", null: false
     t.text "body", null: false
     t.boolean "recommend", null: false
     t.datetime "created_at", null: false
