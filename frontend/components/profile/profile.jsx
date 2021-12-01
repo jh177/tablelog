@@ -31,6 +31,7 @@ class Profile extends React.Component{
         reservation={reservation}
         restaurant={this.props.restaurants[ids.indexOf(reservation.restaurant_id)]}
         review={review}
+        deleteReview={this.props.deleteReview}
         />
 
       }

@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 class ProfileReservationItem extends React.Component {
   constructor(props) {
     super(props)
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick(reviewId){
+    this.props.deleteReview(reviewId)
+  }
+
 
   render() {
     const { reservation, restaurant, review} = this.props
@@ -13,15 +19,18 @@ class ProfileReservationItem extends React.Component {
       <Link to={`/feedback/${reservation.id}`}> Review</Link>
     )
 
-    // debugger
-
+    
     const reviewInfo = (review) ? (
       <div>
         {review.overall}
         <br />
         {review.body}
+        <br />
+        <button onClick={()=>this.handleClick(review.id)}>Delete Review</button>
       </div>
       ) : null;
+      
+      // debugger
 
     return (
       <li>

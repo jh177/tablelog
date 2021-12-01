@@ -10,7 +10,7 @@ end
       json.partial! 'api/reservations/reservation', reservation: reservation
       if reservation.review.present?
         json.review do
-          json.extract! reservation.review, :overall, :body, :reservation_id
+          json.extract! reservation.review, :id, :overall, :body, :reservation_id
         end
       end
     end

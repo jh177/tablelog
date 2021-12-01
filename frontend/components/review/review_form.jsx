@@ -28,7 +28,7 @@ class ReviewForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    debugger
+    // debugger
 
     const review = Object.assign({}, {
       user_id: this.props.currentUser.id,
