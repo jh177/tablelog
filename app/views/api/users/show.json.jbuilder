@@ -8,16 +8,21 @@ end
   json.reservations do
     json.set! reservation.id do 
       json.partial! 'api/reservations/reservation', reservation: reservation
-    end
-  end
-
-  if reservation.review.present?
-    json.reviews do
-      json.set! reservation.review.id do
-        json.extract! reservation.review, :overall, :body
+      if reservation.review.present?
+        json.review do
+          json.extract! reservation.review, :overall, :body, :reservation_id
+        end
       end
     end
   end
+
+  # if reservation.review.present?
+  #   json.reviews do
+  #     json.set! reservation.review.id do
+  #       json.extract! reservation.review, :overall, :body, :reservation_id
+  #     end
+  #   end
+  # end
 end
 
 json.restaurants do

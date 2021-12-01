@@ -7,11 +7,21 @@ class ProfileReservationItem extends React.Component {
   }
 
   render() {
-    const { reservation, restaurant} = this.props
+    const { reservation, restaurant, review} = this.props
 
     const reviewLink = (
       <Link to={`/feedback/${reservation.id}`}> Review</Link>
     )
+
+    // debugger
+
+    const reviewInfo = (review) ? (
+      <div>
+        {review.overall}
+        <br />
+        {review.body}
+      </div>
+      ) : null;
 
     return (
       <li>
@@ -24,6 +34,12 @@ class ProfileReservationItem extends React.Component {
         <Link to={`/booking/cancel/${reservation.id}`}>Cancel</Link>
         <br />
         {reviewLink}
+        <br />
+        <div>
+          <div>Your review</div>
+          <br />
+          {reviewInfo}
+        </div>
       </li>
     )
   }
