@@ -14,8 +14,10 @@ json.user do
   end
 end
 
-json.review do
-  json.set! @reservation.review.id do
-    json.partial! 'api/reviews/review', review: @reservation.review
+if @reservation.review.present?
+  json.review do
+    json.set! @reservation.review.id do
+      json.partial! 'api/reviews/review', review: @reservation.review
+    end
   end
 end

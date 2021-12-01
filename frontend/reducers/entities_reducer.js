@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import ReservationReducer from "./reservation_reducer";
 import RestaurantsReducer from "./restaurants_reducer";
-import ReviewReducer from "./review_reducers";
+import ReviewReducer from "./review_reducer";
 import usersReducer from "./users_reducer";
 
 const entitiesReducer = combineReducers({

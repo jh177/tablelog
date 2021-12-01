@@ -6,7 +6,6 @@ import {
 import { RECEIVE_RESTAURANT } from "../actions/restaurant_actions";
 import { RECEIVE_RESERVATION } from "../actions/reservation_actions";
 
-
 const ReviewReducer = (state={}, action) =>{
   Object.freeze(state);
   let nextState = Object.assign({}, state)
