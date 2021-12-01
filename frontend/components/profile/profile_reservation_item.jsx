@@ -18,15 +18,19 @@ class ProfileReservationItem extends React.Component {
 
 
   render() {
-    const { reservation, restaurant, review} = this.props
+    const { reservation, restaurant} = this.props
 
-    const reviewLink = (
-      <Link to={`/feedback/${reservation.id}`}> Review</Link>
-    )
+    const reviewLink = (!this.props.review && this.props.past) ?
+      (<Link to={`/feedback/${reservation.id}`}> Review</Link>) : null
 
+    // const pastReservations = ()
+
+    // debugger
     
-    const reviewInfo = (review) ? (
+    const reviewInfo = (this.props.review) ? (
       <div>
+        <div>Your review</div>
+        <br />
         {review.overall}
         <br />
         {review.body}
@@ -50,7 +54,6 @@ class ProfileReservationItem extends React.Component {
         {reviewLink}
         <br />
         <div>
-          <div>Your review</div>
           <br />
           {reviewInfo}
         </div>
