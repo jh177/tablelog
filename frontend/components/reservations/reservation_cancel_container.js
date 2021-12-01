@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => ({
 const mDTP = (dispatch) => ({
   // requestRestaurant: (restaurantId) => dispatch(requestRestaurant(restaurantId)),
   requestReservation: (reservationId) => dispatch(requestReservation(reservationId)),
-  deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId))
+  deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
 })
 
 export default connect(mSTP, mDTP)(ReservationCancel);

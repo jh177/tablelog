@@ -1,15 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {withRouter} from "react-router";
 
 class ProfileReservationItem extends React.Component {
   constructor(props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this);
+    // this.state={
+    //   deleted: 0
+    // }
+    // this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(reviewId){
-    this.props.deleteReview(reviewId)
-  }
+  // handleClick(reviewId){
+  //   this.props.deleteReview(reviewId)
+  //     .then(()=>this.setState({deleted: this.state.deleted+1}))
+  // }
 
 
   render() {
@@ -25,8 +30,8 @@ class ProfileReservationItem extends React.Component {
         {review.overall}
         <br />
         {review.body}
-        <br />
-        <button onClick={()=>this.handleClick(review.id)}>Delete Review</button>
+        {/* <br />
+        <button onClick={()=>this.handleClick(review.id)}>Delete Review</button> */}
       </div>
       ) : null;
       
@@ -54,4 +59,4 @@ class ProfileReservationItem extends React.Component {
   }
 }
 
-export default ProfileReservationItem;
+export default withRouter(ProfileReservationItem);
