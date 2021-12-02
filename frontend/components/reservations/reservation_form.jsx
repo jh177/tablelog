@@ -36,10 +36,10 @@ class ReservationForm extends React.Component{
       party_size: parseInt(localStorage.getItem("partySize")),
       email: this.props.currentUser.email
     })
-    window.reservation = reservation;
     this.props.createReservation(reservation)
       .then((response) => {
-        this.props.history.push(`/booking/view/${response.payload.reservation.id}`)
+        // debugger
+        this.props.history.push(`/booking/view/${Object.keys(response.payload.reservation)[0]}`)
       })
     // this.navigateToReservationView()
   }

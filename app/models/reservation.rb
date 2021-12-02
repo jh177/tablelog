@@ -15,7 +15,7 @@
 #
 class Reservation < ApplicationRecord
   validates :user_id, :restaurant_id, :date, :time, :party_size, :phone, :email, presence:true
-  validates :user_id, uniqueness: {scope: [:restaurant_id, :date, :time, :party_size], message: "should not have duplicate reservations"}
+  # validates :user_id, uniqueness: {scope: [:restaurant_id, :date, :time, :party_size], message: "should not have duplicate reservations"}
 
   belongs_to :user
   belongs_to :restaurant
