@@ -1,0 +1,92 @@
+.reservation-show-main{
+  background: #fff;
+  padding: 16px 16px 0;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  margin: 32px auto 80px;
+  justify-content: center;
+}
+
+.reservation-show-restaurant{
+  width: 636px;
+}
+
+.reservation-show-restaurant-details{
+  height: 64px;
+  margin-bottom: 16px;
+  color: #2d333f;
+  display: flex;
+}
+
+.reservation-show-restaurant-details-left{
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.reservation-show-restaurant-details-left img{
+  border-radius: 4px;
+  position: absolute;
+  // flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+
+.reservation-show-restaurant-details-right{
+  margin-left: 16px;
+}
+
+.reservation-show-restaurant-name{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.reservation-show-restaurant-name a{
+  cursor: pointer;
+  color: #247f9e;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.reservation-show-confirmation{
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.reservation-show-confirmation>h2{
+  font-weight: 600;
+}
+
+.reservation-fa-check-circle{
+  margin-right: 16px;
+}
+
+.reservation-show-reservation-details{
+  width: 100%;
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.reservation-show-res-details-size{
+  margin-right: 16px;
+}
+
+.reservation-fa-reg-user, .reservation-fa-reg-calendar{
+  margin-right: 8px;
+}
+
+.reservation-show-links{
+  padding-bottom: 20px;
+}
+
+.reservation-show-links a{
+  padding-right: 16px;
+  width: 100%;
+  color: #da3743;
+  font-weight: 600;
+  line-height: 20px;
+}

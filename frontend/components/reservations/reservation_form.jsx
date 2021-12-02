@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import { FaRegCalendar, FaRegUser, FaRegClock, FaDirections} from "react-icons/fa"
+
 
 class ReservationForm extends React.Component{
   constructor(props){
@@ -82,7 +84,7 @@ class ReservationForm extends React.Component{
     }
     // localStorage.setItem("restaurant", JSON.stringify(this.props.restaurant));
     // debugger
-    let displayDate = new Date(date).toLocaleString().slice(0, 9);
+    let displayDate = new Date(date).toString().slice(0, 15);
 
     return (
       <div className="reservation-page-main">
@@ -99,16 +101,16 @@ class ReservationForm extends React.Component{
               </div>
               <div className="reservation-details-date-time">
                 <div className="reservation-details-date">
-                  <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/calendar-icon.svg" alt="date" />
+                  <FaRegCalendar className="fa-reg-calendar" size={20} />
                   <p>{displayDate}</p>
                 </div>
                 <div className="reservation-details-time">
-                  <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/clock-icon.svg" alt="date" />
+                  <FaRegClock className="fa-reg-clock" size={20} />
 
                   <p>{time}</p>
                 </div>
                 <div className="reservation-details-party-size">
-                  <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/user-icon.svg" alt="date" />
+                  <FaRegUser className="fa-reg-user" size={20} />
                   <p>{partySize} people</p>
                 </div>
               </div>
@@ -144,7 +146,11 @@ class ReservationForm extends React.Component{
         <div className="reservation-extra-info">
           <h2>What to know before you go</h2>
           <div>
-            <h3>Direction Link</h3>
+            <a href={`https://www.google.com/maps/dir/?api=1&destination=${restaurant.address}`} target="_blank">
+              <span id="restaurant-show-map-address">
+                <h3><FaDirections color={"#da3743"}/>  Get directions</h3>
+                </span>
+            </a>
           </div>
         </div>
       </div>
