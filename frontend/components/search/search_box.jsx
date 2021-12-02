@@ -10,7 +10,7 @@ class SearchBox extends React.Component{
     this.state = {
       partySize: 2,
       date: today,
-      time: "12:00 AM",
+      time: "6:30 PM",
       searchTerm: ""
     };
     this.handleInput = this.handleInput.bind(this)

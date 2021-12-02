@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBox from "../search/search_box";
-import RestaurantIndexContainer from "../restaurants/restaurant_index_container";
+import LandingRestaurantListContainer from "../restaurants/landing_restaurant_list_container";
+import LandingRestaurantList from "../restaurants/landing_restaurant_list";
 
 class Landing extends React.Component{
   constructor(props){
@@ -9,9 +10,15 @@ class Landing extends React.Component{
 
   render(){
     return(
-    <div className="landing-search-box-container">
-      <SearchBox/>
+    <div>
+      <div className="landing-search-box-container">
+        <SearchBox />
+      </div>
+      <div>
+          <LandingRestaurantListContainer/>
+      </div>
     </div>
+
     )
   }
 }

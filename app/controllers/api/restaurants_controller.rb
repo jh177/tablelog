@@ -39,7 +39,7 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def search_term
-    params.require(:searchTeerm)
+    params.require(:searchTerm)
   end
 
 end
