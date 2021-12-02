@@ -101,6 +101,7 @@ class ReviewForm extends React.Component{
                   className="star"
                   color={((i + 1) <= (this.state[`hover${field}`] || this.state[field])) ?
                     "#b8222d" : "#e4e5e9"}
+                  size={40}
                   onMouseEnter={() => this.setHover(`hover${field}`, rating)}
                   onMouseLeave={()=>this.resetHover([`hover${field}`])}
                 />
@@ -108,7 +109,7 @@ class ReviewForm extends React.Component{
             )
           })}
 
-          <div>
+          <div className="rating-prompts">
             {levels[this.state[`hover${field}`] - 1] || levels[this.state[field] - 1]}
           </div>
         </div>
@@ -137,6 +138,7 @@ class ReviewForm extends React.Component{
                   className="music"
                   color={((i + 1) <= (this.state.hovernoise || this.state.noise)) ?
                     "#b8222d" : "#e4e5e9"}
+                    size={40}
                   onMouseEnter={() => this.setHover("hovernoise", noiseRating)}
                   onMouseLeave={() => this.resetHover("hovernoise")}
                 />
@@ -144,7 +146,7 @@ class ReviewForm extends React.Component{
             )
           })}
 
-          <div>
+          <div className="rating-prompts">
             {noiseLevels[this.state.hovernoise - 1] || noiseLevels[this.state.noise - 1]}
           </div>
         </div>
@@ -158,93 +160,107 @@ class ReviewForm extends React.Component{
     
     // debugger
     return(
-      <div>
-        <div>
-          <p>{this.props.currentUser.fname}, How was your experience</p>
-        </div>
-        <div>
-          <p>Rate your dinning experience</p>
-        </div>
-        <div>
-          <p>Reservation made on {this.props.reservation.date}</p>
-        </div>
 
-      <form onSubmit={this.handleSubmit}>
-        
-        
-        <div>
-          <div>Overall</div>
-          {this.displayRatingStars("overall")}
+      <div className="review-form-main-container">
+        <div className="review-form-main">
+
+          <div className="review-form-info">
+            <div className="review-form-info-prompt">
+              <h1>{this.props.currentUser.fname}, how was your experience at</h1>
+              <h1>{this.props.restaurant.name}</h1>
+            </div>
+            <div>
+              <p>Rate your dinning experience (required)</p>
+            </div>
+            <div>
+              <p>Reservation made on {this.props.reservation.date}</p>
+            </div>
+          </div>
+
+
+          <div className="review-form-container">
+            <form className="review-form" onSubmit={this.handleSubmit}>  
+              <div className="rating-container">
+                <div className="rating-bar-container">
+                  <div>
+                    <div className="rating-title">Overall</div>
+                    {this.displayRatingStars("overall")}
+                  </div>
+                </div>
+
+                <div className="rating-bar-container">
+                  <div>
+                    <div className="rating-title">Food</div>
+                    {this.displayRatingStars("food")}
+                  </div>
+                </div>
+
+                <div className="rating-bar-container">
+                  <div>
+                    <div className="rating-title">Service</div>
+                    {this.displayRatingStars("service")}
+                  </div>
+                </div>
+
+                <div className="rating-bar-container">
+                  <div>
+                    <div className="rating-title">Ambience</div>
+                    {this.displayRatingStars("ambience")}
+                  </div>
+                </div>
+
+                <div className="rating-bar-container">
+                  <div>
+                    <div className="rating-title">Value</div>
+                    {this.displayRatingStars("value")}
+                  </div>
+                </div>
+
+                <div className="rating-bar-container">
+                  <div>
+                    <div className="rating-title">Noise</div>
+                    {this.displayNoise()}
+                  </div>
+                </div>
+              </div>
+
+              <div className="review-text-container">
+                <div className="review-form-info-prompt">
+                  <h1>Write a review</h1>
+                </div>  
+                  <p>Help diners decide where to eat. Remember to keep it short, simple and specific.</p>
+                <div className="review-text-input">
+                  <textarea
+                    name="review-body"
+                    cols="30"
+                    rows="10"
+                    placeholder="Write your review"
+                    onChange={this.handleInput("body")}>
+                  </textarea>
+                </div>
+              </div>
+
+              <div className="review-recommend-container">
+                <div>
+                  <p>Would you recommend {this.props.restaurant.name} to a friend?</p>
+                </div>
+                <div className="review-recommend-button-container">
+                  <label>
+                    <input type="radio" name="recommend" value="true" checked onChange={this.handleSelectRecommend} />
+                    Yes
+                  </label>
+                  <label>
+                    <input type="radio" name="recommend" value="false" onChange={this.handleSelectRecommend} />
+                    No
+                  </label>
+                </div>
+              </div>
+
+              <input id="review-form-submit-button" type="submit" value="Submit Review" />
+            </form>
+          </div>
           
-        </div> 
-
-        <div>
-          <div>Food</div>
-          {this.displayRatingStars("food")}
         </div>
-
-        <div>
-          <div>Service</div>
-          {this.displayRatingStars("service")}
-        </div>
-
-        <div>
-          <div>Ambience</div>
-          {this.displayRatingStars("ambience")}
-        </div>
-
-        <div>
-          <div>Value</div>
-          {this.displayRatingStars("value")}
-        </div>
-
-        {/* <div>
-          <div>Value</div>
-          <div>
-            <input type="radio" name="value" value="1" onClick={this.handleSelect("value")} />
-            <input type="radio" name="value" value="2" onClick={this.handleSelect("value")} />
-            <input type="radio" name="value" value="3" onClick={this.handleSelect("value")} />
-            <input type="radio" name="value" value="4" onClick={this.handleSelect("value")} />
-            <input type="radio" name="value" value="5" onClick={this.handleSelect("value")} />
-          </div>
-        </div> */}
-
-        <div>
-          <div>Noise</div>
-          {this.displayNoise()}
-        </div>
-
-        <div>
-          <div>Write a review</div>
-          <h2>help diners decide where to eat. Remember to keep it short, simple and specific</h2>
-            <textarea 
-              name="review-body"
-              cols="30" 
-              rows="10" 
-              placeholder="Write your review"
-              onChange={this.handleInput("body")}>
-            </textarea>
-        </div>
-
-        <div>
-          <div>
-            <p>Would you recommend {this.props.restaurant.name} to a friend?</p>
-          </div>
-          <div>
-            <label>
-              <input type="radio" name="recommend" value="true" checked onChange={this.handleSelectRecommend} />
-              Yes
-            </label>
-            <label>
-              <input type="radio" name="recommend" value="false" onChange={this.handleSelectRecommend} />
-              No
-            </label>
-          </div>
-        </div>
-        
-        <input type="submit" value="Submit Review"/>
-      </form>
-
       </div>
     )
   }
