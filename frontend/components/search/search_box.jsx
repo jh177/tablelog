@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
+import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch} from "react-icons/fa"
 
 let today = new Date().toJSON().slice(0,10);
 
@@ -41,15 +42,18 @@ class SearchBox extends React.Component{
             <div className="landing-search-box-form">
               <div className="landing-search-box-form-inputs-1">
                 <div className="search-box-form-date">
+                  <FaRegCalendar className="fa-reg-calendar" size={20}/>
                   <input id="date-input" type="date" value={this.state.date} min={today}
                     onChange={this.handleInput("date")} />
                 </div>
                 <div className="search-box-form-time">
+                  <FaRegClock className="fa-reg-clock" size={20}/>
                   <select id="time-input" defaultValue="6:30 PM" onChange={this.handleInput("time")}>
                     {timeOptions}
                   </select>
                 </div>
-                <div>
+                <div className="search-box-form-size">
+                  <FaRegUser className="fa-reg-user" size={20}/>
                   <select id="size-input" value={this.state.partySize} onChange={this.handleInput("partySize")}>
                     <option value="1">1 Person</option>
                     <option value="2">2 People</option>
@@ -66,6 +70,7 @@ class SearchBox extends React.Component{
               </div>
 
               <div className="landing-search-box-form-inputs-2">
+                <FaSearch className="fa-reg-search" size={20} />
                 <input
                   id="search-input"
                   type="text"

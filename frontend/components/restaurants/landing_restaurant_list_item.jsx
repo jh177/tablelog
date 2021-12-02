@@ -12,7 +12,7 @@ class LandingRestaurantListItem extends React.Component {
 
   displayRatings(rating){
     
-    const starWidth = rating*14;
+    const starWidth = rating*16;
     return (
       <div className="landing-list-stars">
         <div className="stars-outer">
@@ -35,13 +35,14 @@ class LandingRestaurantListItem extends React.Component {
   }
 
   handleClick(e){
+    console.log("yes")
     this.props.history.push(`/restaurants/${this.props.restaurant.id}`);
   }
 
   render() {
     const { restaurant } = this.props
     return (
-      <div className="landing-restaurant-item-main">
+      <div className="landing-restaurant-item-main" onClick={this.handleClick}>
         <div className="landing-restaurant-item">
           <div className="landing-restaurant-top">
             <div className="landing-restaurant-image">
@@ -56,7 +57,7 @@ class LandingRestaurantListItem extends React.Component {
               </div>
               <div className="landing-restaurant-ratings">
                 {this.displayRatings(restaurant.average_rating)}
-                <div>
+                <div className="landing-restaurant-num-reviews">
                   <p>{restaurant.num_reviews} reviews</p>
                 </div>
               </div>

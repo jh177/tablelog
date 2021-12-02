@@ -23,8 +23,8 @@ class ProfileReservationItem extends React.Component {
     const reviewLink = (!this.props.review && this.props.past) ?
       (<Link to={`/feedback/${reservation.id}`}> Review</Link>) : null
 
-    // const pastReservations = ()
-
+    const modifyLink = (!this.props.past) ?
+      (<Link to={`/booking/modify/${reservation.id}`}>Modify</Link>) : null
     // debugger
     
     const reviewInfo = (this.props.review) ? (
@@ -47,7 +47,7 @@ class ProfileReservationItem extends React.Component {
         <h3>{reservation.date}</h3>
         <h3>{reservation.time}</h3>
         <h3>{reservation.party_size}</h3>
-        <Link to={`/booking/modify/${reservation.id}`}>Modify</Link>
+        {modifyLink}
         <br />
         <Link to={`/booking/cancel/${reservation.id}`}>Cancel</Link>
         <br />
