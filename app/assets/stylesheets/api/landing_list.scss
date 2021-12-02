@@ -1,5 +1,11 @@
 .landing-list-container{
   padding: 32px 32px 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.landing-list-main{
+  margin: auto 0;
 }
 
 .landing-list-title{
@@ -31,6 +37,11 @@
   width: 236px;
   height: 306px;
   display: flex;
+  transition: transform 250ms;
+}
+
+.landing-restaurant-item-container:hover{
+  transform: translateY(-10px);
 }
 
 .landing-restaurant-item{
@@ -129,4 +140,27 @@
   margin-right: 6px;
   width: 80px;
   z-index: 2;
+}
+
+.landing-restaurant-times ul a:hover{
+  -webkit-filter: brightness(80%);
+}
+
+.landing-list-stars{
+  width: 80px;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
 }

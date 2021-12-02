@@ -15,10 +15,12 @@ class Landing extends React.Component{
         <SearchBox />
       </div>
       <div className="landing-list-container">
-        <div className="landing-list-title">
-          <h2>Explore Los Angeles</h2>
+        <div className="landing-list-main">
+          <div className="landing-list-title">
+            <h2>Explore Los Angeles</h2>
+          </div>
+          <LandingRestaurantListContainer />
         </div>
-        <LandingRestaurantListContainer/>
       </div>
     </div>
 
