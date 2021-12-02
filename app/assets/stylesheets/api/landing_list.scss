@@ -101,7 +101,7 @@
 }
 
 .landing-restaurant-ratings{
-  margin: 0 0 4px;
+  margin: 8px 0 0;
   display: flex;
   align-items: center;
   font-size: .875rem;
@@ -109,14 +109,55 @@
   line-height: 1.25rem;
 }
 
+// .landing-restaurant-num-reviews p{
+//   bottom: 0;
+// }
+
+.landing-list-stars{
+  width: 100px;
+  display: flex;
+  align-items: center;
+  // margin-right: 2px;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+}
+
+.stars-outer svg{
+  vertical-align: middle;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.landing-restaurant-details{
+  margin: 8px 0 0;
+}
+
 .landing-restaurant-details span{
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 .landing-restaurant-details span::before{
   content: "•";
-  padding-right: 2px;
+  padding-right: 5px;
   color: #2d333f;
+}
+
+.landing-restaurant-booked{
+  margin: 8px 0 0;
+}
+
+.landing-restaurant-times{
+  margin: 8px 0 0;
 }
 
 .landing-restaurant-times ul{
@@ -146,21 +187,3 @@
   -webkit-filter: brightness(80%);
 }
 
-.landing-list-stars{
-  width: 80px;
-}
-
-.stars-outer {
-  display: inline-block;
-  position: relative;
-  font-family: FontAwesome;
-}
-
-.stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-}

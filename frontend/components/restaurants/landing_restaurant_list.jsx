@@ -8,7 +8,7 @@ class LandingRestaurantList extends React.Component {
     super(props);
     this.state = {
       searchTerm: "Los Angeles",
-      time: "6:30PM",
+      time: "6:30 PM",
       date: today,
       partySize: 2
     }

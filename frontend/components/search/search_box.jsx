@@ -13,6 +13,7 @@ class SearchBox extends React.Component{
       time: "6:30 PM",
       searchTerm: ""
     };
+    localStorage.setItem("time", "6:30 PM");
     this.handleInput = this.handleInput.bind(this)
 
   }
@@ -28,7 +29,8 @@ class SearchBox extends React.Component{
 
     const timeOptions = timeSlots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
-    ))
+      )
+    )
 
     return(
       <div className="landing-search-box">
@@ -43,7 +45,7 @@ class SearchBox extends React.Component{
                     onChange={this.handleInput("date")} />
                 </div>
                 <div className="search-box-form-time">
-                  <select id="time-input" onChange={this.handleInput("time")}>
+                  <select id="time-input" defaultValue="6:30 PM" onChange={this.handleInput("time")}>
                     {timeOptions}
                   </select>
                 </div>
@@ -54,6 +56,11 @@ class SearchBox extends React.Component{
                     <option value="3">3 People</option>
                     <option value="4">4 People</option>
                     <option value="5">5 People</option>
+                    <option value="6">6 People</option>
+                    <option value="7">7 People</option>
+                    <option value="8">8 People</option>
+                    <option value="9">9 People</option>
+                    <option value="10">10 People</option>
                   </select>
                 </div>
               </div>

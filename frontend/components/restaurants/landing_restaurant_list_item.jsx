@@ -16,17 +16,18 @@ class LandingRestaurantListItem extends React.Component {
     return (
       <div className="landing-list-stars">
         <div className="stars-outer">
-          <FaRegStar color={"#e4e5e9"}/>
-          <FaRegStar color={"#e4e5e9"}/>
-          <FaRegStar color={"#e4e5e9"}/>
-          <FaRegStar color={"#e4e5e9"}/>
-          <FaRegStar color={"#e4e5e9"}/>
+          <FaRegStar color={"#e4e5e9"} size={16}/>
+          <FaRegStar color={"#e4e5e9"} size={16}/>
+          <FaRegStar color={"#e4e5e9"} size={16}/>
+          <FaRegStar color={"#e4e5e9"} size={16}/>
+          <FaRegStar color={"#e4e5e9"} size={16}/>
+
           <div className="stars-inner" style={{ width: `${starWidth}px`}}>
-            <FaStar color={"#da3743"}/>
-            <FaStar color={"#da3743"}/>
-            <FaStar color={"#da3743"}/>
-            <FaStar color={"#da3743"}/>
-            <FaStar color={"#da3743"}/>
+            <FaStar color={"#da3743"} size={16}/>
+            <FaStar color={"#da3743"} size={16}/>
+            <FaStar color={"#da3743"} size={16}/>
+            <FaStar color={"#da3743"} size={16}/>
+            <FaStar color={"#da3743"} size={16}/>
           </div>
         </div >
       </div>

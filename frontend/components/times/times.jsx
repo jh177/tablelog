@@ -14,7 +14,7 @@ class Times extends React.Component{
     for (let i = 0; i <= 2; i++) {
       times.push(timeSlots[(index + i) % 48])
     }
-
+    
     const options = times.map((time, i) => (
         <Link to={{
           pathname: `/booking/${this.props.restaurant.id}`,
