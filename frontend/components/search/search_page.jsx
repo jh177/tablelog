@@ -92,6 +92,7 @@ class SearchPage extends React.Component{
                 </div>
 
                 <div className="search-page-form-inputs-2">
+                  <FaSearch className="fa-reg-search" size={20} />
                   <input
                     id="search-page-search-input"
                     type="text"

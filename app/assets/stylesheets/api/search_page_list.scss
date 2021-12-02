@@ -56,7 +56,7 @@
 .restaurant-left img{
   border-radius: 4px;
   position: absolute;
-  flex-shrink: 0;
+  // flex-shrink: 0;
   min-width: 100%;
   min-height: 100%
 }
@@ -79,30 +79,62 @@
   font-weight: 700;
 }
 
-.restaurant-info-details{
-    display: flex;
-    color: #2d333f;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-    width: calc(100% - 2.1875rem);
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin-left: 4px;
+.restaurant-ratings{
+  margin: 8px 0 0;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 17.5px;
 }
 
-.restaurant-info-details li{
-  margin-left: 5px;
+.restaurant-list-stars{
+  width: 100px;
+  display: flex;
+  align-items: center;
+  // margin-right: 2px;
 }
 
-.restaurant-info-details li span{
+.stars-outer {
+  display: inline-block;
   position: relative;
-  left: -10px;
 }
+
+.stars-outer svg{
+  vertical-align: middle;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.restaurant-info-details{
+  margin: 16px 0 0;
+}
+
+.restaurant-info-details span{
+  padding-right: 10px;
+}
+
+.restaurant-info-details span::before{
+  content: "•";
+  padding-right: 5px;
+  color: #2d333f;
+}
+
+.restaurant-booked{
+  margin: 16px 0 0;
+}
+
 
 .restaurant-times{
   height: 64px;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .restaurant-times ul{
@@ -125,4 +157,8 @@
   text-decoration: none;
   margin-right: 6px;
   width: 80px;
+}
+
+.landing-restaurant-times ul a:hover{
+  -webkit-filter: brightness(80%);
 }

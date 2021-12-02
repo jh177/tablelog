@@ -62,4 +62,9 @@ $btn-text-color-2:#2d333f;
 
 .header-nav-bar *{
   padding-right: 10px;
+  cursor: pointer;
+}
+
+.header-nav-bar *:hover{
+  color: #b8222d;
 }
