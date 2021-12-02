@@ -77,6 +77,11 @@
   justify-content: center;
 }
 
+.rating-star-container .rating-noise-container{
+  display: flex;
+  justify-content: space-between;
+}
+
 .rating-title{
   width: 80px;
   text-align: left;
@@ -94,10 +99,14 @@
   width: 360px;
 }
 
+.rating-stars, .rating-noise label{
+  cursor: pointer;
+}
+
 .rating-prompts{
-  width: 80px;
+  width: 100px;
   color: grey;
-  margin-left: 14px;
+  margin-left: 12px;
   text-align: center;
   height: 54px;
   line-height: 54px;

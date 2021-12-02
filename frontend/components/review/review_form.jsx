@@ -84,7 +84,7 @@ class ReviewForm extends React.Component{
     const levels = ["Poor", "Fair", "Good", "Very Good", "Outstanding"];
 
     return (
-      <div>
+      <div className="rating-star-container">
         <div className="rating-stars">
           {[...Array(5)].map((star, i) => {
             const rating = i + 1
@@ -121,7 +121,7 @@ class ReviewForm extends React.Component{
     const noiseLevels = ["Do not recall", "Quiet", "Moderate", "Energetic"];
 
     return (
-      <div>
+      <div className="rating-noise-container">
         <div className="rating-noise">
           {[...Array(4)].map((music, i) => {
             const noiseRating = i + 1
