@@ -55,3 +55,11 @@ $btn-text-color-2:#2d333f;
   line-height: 2rem;
   border-radius: 0.1875rem
 }
+
+.header-nav-bar{
+  display: flex;
+}
+
+.header-nav-bar *{
+  padding-right: 10px;
+}
