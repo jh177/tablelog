@@ -1,0 +1,344 @@
+// Place all the styles related to the api/restaurants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.restaurant-show-main{
+  max-width: 992px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  margin-top: calc(-1*48px);
+}
+
+.restaurant-show-header-img{
+  height: 306px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#restaurant-show-header-img{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.restaurant-show-left{
+  width: 640px;
+  margin-right: 16px;
+  background: white;
+  z-index: 0;
+}
+
+.restaurant-show-nav-bar{
+  position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+  padding: 0 16px;
+  background-color: white;
+  z-index: 2;
+}
+
+.restaurant-show-nav-bar ul{
+  display: flex;
+  border-bottom: 1px solid #d8d9db;
+}
+
+.restaurant-show-nav-bar ul li{
+  padding: 14px 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.restaurant-show-nav-bar ul li:hover span{
+  color: #da3743;
+}
+
+.restaurant-show-details{
+  display: flex;
+  flex-direction: column;
+  padding: 32px 16px;
+}
+
+.restaurant-show-overview{
+  padding-bottom: 32px;
+}
+
+.restaurant-show-overview h1{
+  padding-bottom: 32px;
+  border-bottom: 1px solid #d8d9db;
+  margin: 0 0 16px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.restaurant-show-details-snapshot{
+  display: flex;
+  margin: 0 0 32px;
+  height: 40px;
+}
+
+.restaurant-show-details-snapshot>div{
+  padding: 10px 20px 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-show-ratings{
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.restaurant-show-ratings>span{
+  font-weight: 600;
+}
+
+.restaurant-show-stars{
+  width: 84px;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  // margin-right: 2px;
+}
+
+.fa-reg-comment-alt{
+  margin-right: 8px;
+}
+
+.restaurant-show-num-reviews>p{
+  font-weight: 600;
+}
+
+.fa-utensils{
+  margin-right: 8px;
+}
+
+.restaurant-show-category>span{
+  font-weight: 600;
+}
+
+
+.restaurant-show-description{
+  color: #2d333f;
+  line-height: 24px;
+}
+
+.restaurant-show-photo-gallary{
+  padding: 0 0 64px;
+}
+
+.restaurant-show-photo-gallary h2{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #2d333f;
+  border-bottom: 1px solid #d8d9db;
+  padding-bottom: 16px;
+  margin: 0 0 16px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-show-photo-gallary-grid{
+  width: calc(100% + 2px);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.restaurant-show-photo-gallary-grid > li{
+  width: 137px;
+  height: 137px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 10px 10px 0;
+  display: flex;
+  border-radius: 4px;
+}
+
+.restaurant-show-photo-gallary-grid > li:nth-child(4n+4){
+  margin: 0 0 10px 0;
+}
+
+
+.restaurant-show-photo-gallary-grid > li >img{
+  position: absolute;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+
+.restaurant-show-reviews{
+  padding: 0 0 64px;
+}
+
+.restaurant-show-reviews h2{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #2d333f;
+  border-bottom: 1px solid #d8d9db;
+  padding-bottom: 16px;
+  margin: 0 0 16px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-show-reviews-ratings{
+  padding-bottom: 24px;
+  // margin: 0 0 16px 0;
+  border-bottom: 1px solid #d8d9db;
+}
+
+.restaurant-show-reviews-ratings>h3{
+  margin: 16px 0 16px 0;
+  color: #2d333f;
+}
+
+.restaurant-show-reviews-ratings>p{
+  margin: 0 0 16px 0;
+  color: #2d333f;
+}
+
+.restaurant-show-reviews-rating-overall{
+  margin: 16px 0 16px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.restaurant-show-reviews-rating-overall>span{
+  font-weight: 600;
+}
+
+
+.res-show-review-rating-sum-list{
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.res-show-review-rating-sum-list>div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12px;
+  border-right: 0.5px solid #d8d9db;;
+}
+
+.res-show-review-rating-sum-list>div>p{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.res-show-review-rating-sum-noise{
+  display: flex;
+  margin-left: 16px;
+  color: #2d333f;
+}
+
+.fa-volume-down{
+  margin-right: 8px;
+}
+
+.res-show-review-rating-sum-noise p::before{
+  content: "•";
+  padding-right: 5px;
+  color: #2d333f;
+}
+
+
+.restaurant-show-reviews-list{
+  // margin-top: 16px;
+}
+
+.restaurant-show-review-details{
+  padding: 20px 16px;
+  border-bottom: 1px solid #d8d9db;
+}
+
+.restaurant-show-review-left>p{
+  font-weight: 600;
+  padding-bottom: 8px;
+  color: #2d333f;
+}
+
+.restaurant-show-review-ratings{
+  display: flex;
+  padding: 10px 0;
+}
+
+.restaurant-show-review-ratings p{
+  font-weight: 600;
+  padding-right: 16px;
+}
+
+.restaurant-show-review-ratings p>span{
+  color: #da3743;
+}
+
+
+.restaurant-show-review-body{
+  padding-top: 8px;
+  color: #2d333f;
+}
+
+
+
+
+
+
+
+
+
+
+.restaurant-show-right{
+  width: 320px;
+  margin-left: 16px;
+  background: white;
+  z-index: 0;
+}
+
+.restaurant-show-reservation-form{
+  position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+  height: 300px;
+  overflow: hidden;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px lightgrey;
+  background-color: white;
+  z-index: 1;
+}
+
+.restaurant-show-map{
+  box-shadow: 0 2px 8px lightgrey;
+  margin-bottom: 24px;
+  height: 320px;
+}
+
+.restaurent-show-map {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-show-map-address{
+  padding: 16px 8px;
+}
+
+#restaurant-show-map-address{
+  width: 100%;
+  font-size: 14px;
+  color: #da3743;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+

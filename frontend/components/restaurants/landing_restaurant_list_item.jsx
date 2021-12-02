@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Times from "../times/times";
 import { withRouter } from "react-router";
-import {FaStar, FaUtensils, FaRegStar} from "react-icons/fa";
+import { FaStar, FaBook, FaRegStar} from "react-icons/fa";
 
 class LandingRestaurantListItem extends React.Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class LandingRestaurantListItem extends React.Component {
                 <span>{restaurant.city}</span>
               </div>
               <div className="landing-restaurant-booked">
-                <span><FaUtensils/> Booked {restaurant.num_reservations} times</span>
+                <span><FaBook/> Booked {restaurant.num_reservations} times</span>
               </div>
             </div>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReservationSearchFormContainer from "./reservation_search_form_container";
 import RestaurantMap from "./restaurant_map";
-
+import { FaStar, FaUtensils, FaRegStar, FaRegCommentAlt, FaVolumeDown} from "react-icons/fa";
 
 class RestaurantShow extends React.Component{
   constructor(props){
@@ -31,6 +31,35 @@ class RestaurantShow extends React.Component{
     }
   }
 
+  displayRatings(rating) {
+
+    const starWidth = rating * 16;
+    return (
+      <div className="restaurant-show-stars">
+        <div className="stars-outer">
+          <FaRegStar color={"#e4e5e9"} size={16} />
+          <FaRegStar color={"#e4e5e9"} size={16} />
+          <FaRegStar color={"#e4e5e9"} size={16} />
+          <FaRegStar color={"#e4e5e9"} size={16} />
+          <FaRegStar color={"#e4e5e9"} size={16} />
+
+          <div className="stars-inner" style={{ width: `${starWidth}px` }}>
+            <FaStar color={"#da3743"} size={16} />
+            <FaStar color={"#da3743"} size={16} />
+            <FaStar color={"#da3743"} size={16} />
+            <FaStar color={"#da3743"} size={16} />
+            <FaStar color={"#da3743"} size={16} />
+          </div>
+        </div >
+      </div>
+    )
+  }
+
+  noiseLevel(noise){
+    const noiseLevels = ["Do not recall", "Quiet", "Moderate", "Energetic"]
+    return noiseLevels[Math.round(noise)-1]
+  }
+
   render(){
     if (!this.props.restaurant) {
       return null;
@@ -44,23 +73,75 @@ class RestaurantShow extends React.Component{
       </li>
     ))
 
-    const ratingDisplay = (restaurant.average_rating) ? (
-      <div>
-        {restaurant.average_rating}
-      </div>
-    ) : "no ratings yet"
-
     // debugger
 
     const reviewsDisplay = (reviews) ? (
-      // "hello"
         reviews.map((review, i)=>(
-          <li key={i}>
-            {review.body}
-          </li>
+          <div key={i} className="restaurant-show-review-details">
+            <div className="restaurant-show-review-left">
+              <p>TableLog User</p>
+            </div>
+            <div className="restaurant-show-review-right">
+              {this.displayRatings(review.overall)}
+              <div className="restaurant-show-review-ratings">
+                <div>
+                  <p>Overall <span>{review.overall}</span></p>
+                </div>
+                <div>
+                  <p>Food <span>{review.food}</span></p>
+                </div>
+                <div>
+                  <p>Service <span>{review.service}</span></p>
+                </div>
+                <div>
+                  <p>Ambience <span>{review.ambience}</span></p>
+                </div>
+              </div>
+              <div className="restaurant-show-review-body">
+                <p>{review.body}</p>
+              </div>
+            </div>
+          </div>
         ))
       ) : "no reviews yet"
 
+    const ratingsDisplay = (
+      <div>
+        <div className="restaurant-show-reviews-rating-sum">
+          <h3>Overall ratings and reviews</h3>
+          <p>Reviews can only be made by diners who have eaten at this restaurant</p>
+          <div className="restaurant-show-reviews-rating-overall">
+            {this.displayRatings(restaurant.average_rating)}
+            <span>{restaurant.average_rating}</span>
+          </div>
+          <div className="res-show-review-rating-sum-list">
+            <div>
+              <p>{restaurant.average_food}</p>
+              <span>Food</span>
+            </div>
+            <div>
+              <p>{restaurant.average_service}</p>
+              <span>Service</span>
+            </div>
+            <div>
+              <p>{restaurant.average_ambience}</p>
+              <span>Ambience</span>
+            </div>
+            <div>
+              <p>{restaurant.average_value}</p>
+              <span>Value</span>
+            </div>
+          </div>
+          <div className="res-show-review-rating-sum-noise">
+            <FaVolumeDown className="fa-volume-down"/>
+            <span>Noise</span>
+            <p>{this.noiseLevel(restaurant.average_noise)}</p>
+          </div>
+        </div>
+        <div className="restaurant-show-reviews-list-right">
+        </div>
+      </div>
+    )
 
     return (
       <div className="restaurant-show">
@@ -84,12 +165,23 @@ class RestaurantShow extends React.Component{
             <div className="restaurant-show-details">
               <div className="restaurant-show-overview" ref={this.overviewRef}>
                 <h1>{restaurant.name}</h1>
-                <ul className="restaurant-show-details-snapshot">
-                  <li>{restaurant.average_rating} ratings</li>
-                  <li>{reviews.length} reviews</li>
-                  <li>{restaurant.category}</li>
-                </ul>
-                <div className="restaurant-show-description">{restaurant.description}</div>
+                <div className="restaurant-show-details-snapshot">
+                  <div className="restaurant-show-ratings">
+                    {this.displayRatings(restaurant.average_rating)}
+                    <span>{restaurant.average_rating}</span>
+                  </div>
+                  <div className="restaurant-show-num-reviews">
+                    <FaRegCommentAlt className="fa-reg-comment-alt"/>
+                    <p>{restaurant.num_reviews} reviews</p>
+                  </div>
+                  <div className="restaurant-show-category">
+                    <FaUtensils className="fa-utensils"/>
+                    <span>{restaurant.category}</span>
+                  </div>
+                </div>
+                <div className="restaurant-show-description">
+                  {restaurant.description}
+                </div>
               </div>
 
               <div className="restaurant-show-photo-gallary" ref={this.photosRef}>
@@ -102,8 +194,9 @@ class RestaurantShow extends React.Component{
               </div>
 
               <div className="restaurant-show-reviews" ref={this.reviewsRef}>
+                <h2>What {restaurant.num_reviews} people are saying</h2>
                 <div className="restaurant-show-reviews-ratings">
-                  {ratingDisplay}
+                  {ratingsDisplay}
                 </div>
                 <div className="restaurant-show-reviews-list">
                   {reviewsDisplay}
@@ -130,7 +223,6 @@ class RestaurantShow extends React.Component{
             <div className="restaurant-show-more-details">
               <p>Neighborhood</p>
               <p>Hours of operation</p>
-              <p>Cuisines</p>
               <p>Phone number</p>
             </div>
           </div>
