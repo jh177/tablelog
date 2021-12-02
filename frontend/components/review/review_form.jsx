@@ -1,5 +1,5 @@
 import React from "react";
-import { FaStar} from "react-icons/fa";
+import { FaStar, FaVolumeDown} from "react-icons/fa";
 
 
 class ReviewForm extends React.Component{
@@ -18,7 +18,8 @@ class ReviewForm extends React.Component{
       hoverfood:null,
       hoverservice:null,
       hoverambience:null,
-      hovervalue:null
+      hovervalue:null,
+      hovernoise:null
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -115,6 +116,42 @@ class ReviewForm extends React.Component{
     )
   }
 
+  displayNoise(){
+    const noiseLevels = ["Do not recall", "Quiet", "Moderate", "Energetic"];
+
+    return (
+      <div>
+        <div className="rating-noise">
+          {[...Array(4)].map((music, i) => {
+            const noiseRating = i + 1
+
+            return (
+              <label key={i} >
+                <input
+                  type="radio"
+                  name="noise"
+                  value={noiseRating}
+                  onClick={this.handleSelect("noise")}
+                />
+                <FaVolumeDown
+                  className="music"
+                  color={((i + 1) <= (this.state.hovernoise || this.state.noise)) ?
+                    "#b8222d" : "#e4e5e9"}
+                  onMouseEnter={() => this.setHover("hovernoise", noiseRating)}
+                  onMouseLeave={() => this.resetHover("hovernoise")}
+                />
+              </label>
+            )
+          })}
+
+          <div>
+            {noiseLevels[this.state.hovernoise - 1] || noiseLevels[this.state.noise - 1]}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
 
   render(){
     if (!this.props.reservation) return null;
@@ -122,9 +159,15 @@ class ReviewForm extends React.Component{
     // debugger
     return(
       <div>
-        <div>How was your experience</div>
-        <div>Rate your dinning experience (required)</div>
-        <div>Reservation made on</div>
+        <div>
+          <p>{this.props.currentUser.fname}, How was your experience</p>
+        </div>
+        <div>
+          <p>Rate your dinning experience</p>
+        </div>
+        <div>
+          <p>Reservation made on {this.props.reservation.date}</p>
+        </div>
 
       <form onSubmit={this.handleSubmit}>
         
@@ -132,126 +175,7 @@ class ReviewForm extends React.Component{
         <div>
           <div>Overall</div>
           {this.displayRatingStars("overall")}
-          {/* <div className="rating-overall">
-            {[...Array(5)].map((star, i)=> {
-              const ratingOverall = i+1
-
-              return (
-                <label key={i} >
-                  <input
-                    type="radio"
-                    name="overall" 
-                    value={ratingOverall}
-                    onClick={this.handleSelect("overall")}
-                    />
-                  <FaStar 
-                    className="star"
-                    color={((i + 1) <= (this.state.hover || this.state.overall)) ? 
-                      "#b8222d" : "#e4e5e9"}
-                    onMouseEnter={()=>this.setHover(ratingOverall)}
-                    onMouseLeave={this.resetHover}
-                  />
-                </label>
-              )
-            })}
-
-            <div>
-              {levels[this.state.hover-1]|| levels[this.state.overall-1]}
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div>Food</div>
-          <div className="rating-food">
-            {[...Array(5)].map((star, i) => {
-              const ratingfood = i + 1
-
-              return (
-                <label key={i} >
-                  <input
-                    type="radio"
-                    name="food"
-                    value={ratingfood}
-                    onClick={this.handleSelect("food")}
-                  />
-                  <FaStar
-                    className="star"
-                    color={((i + 1) <= (this.state.hover || this.state.food)) ?
-                      "#b8222d" : "#e4e5e9"}
-                    onMouseEnter={() => this.setHover(ratingfood)}
-                    onMouseLeave={this.resetHover}
-                  />
-                </label>
-              )
-            })}
-
-            <div>
-              {levels[this.state.hover - 1] || levels[this.state.food - 1]}
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div>Service</div>
-          <div className="rating-service">
-            {[...Array(5)].map((star, i) => {
-              const ratingservice = i + 1
-
-              return (
-                <label key={i} >
-                  <input
-                    type="radio"
-                    name="service"
-                    value={ratingservice}
-                    onClick={this.handleSelect("service")}
-                  />
-                  <FaStar
-                    className="star"
-                    color={((i + 1) <= (this.state.hover || this.state.service)) ?
-                      "#b8222d" : "#e4e5e9"}
-                    onMouseEnter={() => this.setHover(ratingservice)}
-                    onMouseLeave={this.resetHover}
-                  />
-                </label>
-              )
-            })}
-
-            <div>
-              {levels[this.state.hover - 1] || levels[this.state.service - 1]}
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div>Overall</div>
-          <div className="rating-overall">
-            {[...Array(5)].map((star, i) => {
-              const ratingOverall = i + 1
-
-              return (
-                <label key={i} >
-                  <input
-                    type="radio"
-                    name="overall"
-                    value={ratingOverall}
-                    onClick={this.handleSelect("overall")}
-                  />
-                  <FaStar
-                    className="star"
-                    color={((i + 1) <= (this.state.hover || this.state.overall)) ?
-                      "#b8222d" : "#e4e5e9"}
-                    onMouseEnter={() => this.setHover(ratingOverall)}
-                    onMouseLeave={this.resetHover}
-                  />
-                </label>
-              )
-            })}
-
-            <div>
-              {levels[this.state.hover - 1] || levels[this.state.overall - 1]}
-            </div>
-          </div> */}
+          
         </div> 
 
         <div>
@@ -286,13 +210,8 @@ class ReviewForm extends React.Component{
         </div> */}
 
         <div>
-          <div>Noise Level</div>
-          <div>
-            <input type="radio" name="noise" value="1" onClick={this.handleSelect("noise")} />
-            <input type="radio" name="noise" value="2" onClick={this.handleSelect("noise")} />
-            <input type="radio" name="noise" value="3" onClick={this.handleSelect("noise")} />
-            <input type="radio" name="noise" value="4" onClick={this.handleSelect("noise")} />
-          </div>
+          <div>Noise</div>
+          {this.displayNoise()}
         </div>
 
         <div>
@@ -302,18 +221,24 @@ class ReviewForm extends React.Component{
               name="review-body"
               cols="30" 
               rows="10" 
-              placeholder="Your review must be at least 50 characters"
+              placeholder="Write your review"
               onChange={this.handleInput("body")}>
             </textarea>
         </div>
 
         <div>
-          <div>Would you recommend to a friend?</div>
           <div>
-            <label>Yes</label>
+            <p>Would you recommend {this.props.restaurant.name} to a friend?</p>
+          </div>
+          <div>
+            <label>
               <input type="radio" name="recommend" value="true" checked onChange={this.handleSelectRecommend} />
-            <label>No</label>
-            <input type="radio" name="recommend" value="false" onChange={this.handleSelectRecommend} />
+              Yes
+            </label>
+            <label>
+              <input type="radio" name="recommend" value="false" onChange={this.handleSelectRecommend} />
+              No
+            </label>
           </div>
         </div>
         
