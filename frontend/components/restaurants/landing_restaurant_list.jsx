@@ -7,7 +7,7 @@ class LandingRestaurantList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "Chinese",
+      searchTerm: "Los Angeles",
       time: "6:30PM",
       date: today,
       partySize: 2
@@ -35,10 +35,7 @@ class LandingRestaurantList extends React.Component {
     ))
 
     return (
-      <div className="landing-restaurant-list-container">
-        <div className="landing-restaurant-list-number">
-          <h2>{this.props.restaurants.length} restaurants available</h2>
-        </div>
+      <div className="landing-restaurant-list-main">
         <div className="landing-restaurant-list">
           {LandingListItems}
         </div>

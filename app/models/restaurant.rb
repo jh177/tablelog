@@ -22,6 +22,14 @@ class Restaurant < ApplicationRecord
   has_many :reservations
   has_many :reviews
 
+  def num_reviews
+    reviews.size
+  end
+
+  def num_reservations
+    reservations.size
+  end
+
   def average_rating
     reviews.average(:overall)
   end

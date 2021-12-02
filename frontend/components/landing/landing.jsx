@@ -14,8 +14,11 @@ class Landing extends React.Component{
       <div className="landing-search-box-container">
         <SearchBox />
       </div>
-      <div>
-          <LandingRestaurantListContainer/>
+      <div className="landing-list-container">
+        <div className="landing-list-title">
+          <h2>Explore Los Angeles</h2>
+        </div>
+        <LandingRestaurantListContainer/>
       </div>
     </div>
 

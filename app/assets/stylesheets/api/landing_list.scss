@@ -1,0 +1,132 @@
+.landing-list-container{
+  padding: 32px 32px 32px;
+}
+
+.landing-list-title{
+  border-bottom: 0.0625rem solid #d8d9db;
+  padding-bottom: 16px;
+  margin: 0 0 16px;
+}
+
+.landing-list-title h2{
+  margin: 0 0 0.25rem;
+  color: #2d333f;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.landing-restaurant-list-main{
+  display: flex;
+}
+
+.landing-restaurant-list{
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-restaurant-item-container{
+  margin-right: 8px;
+  width: 236px;
+  height: 306px;
+  display: flex;
+}
+
+.landing-restaurant-item{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d8d9db;
+    border-radius: 4px;
+    // width: 100%;
+    height: 100%;
+    position: relative;
+    // overflow: hidden;
+    // transition: all .3s;
+    // box-sizing: border-box;
+    z-index: 1;
+    margin: 0;
+    cursor: pointer;
+}
+
+.landing-restaurant-image{
+  height: 132px;
+  width: 236px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px 4px 0 0;
+}
+
+.landing-restaurant-image img{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.landing-restaurant-bottom{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 8px;
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // color: initial;
+  position: relative;
+  background-color: #fff;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  width: 220px;
+}
+
+.landing-restaurant-name{
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.landing-restaurant-ratings{
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+.landing-restaurant-details span{
+  padding-right: 5px;
+}
+
+.landing-restaurant-details span::before{
+  content: "•";
+  padding-right: 2px;
+  color: #2d333f;
+}
+
+.landing-restaurant-times ul{
+  display: flex;
+}
+
+.landing-restaurant-times ul a{
+  background: #da3743;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 4px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 6px;
+  width: 80px;
+  z-index: 2;
+}
