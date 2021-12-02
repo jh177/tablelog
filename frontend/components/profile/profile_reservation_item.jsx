@@ -31,9 +31,9 @@ class ProfileReservationItem extends React.Component {
       <div>
         <div>Your review</div>
         <br />
-        {review.overall}
+        {this.props.review.overall}
         <br />
-        {review.body}
+        {this.props.review.body}
         {/* <br />
         <button onClick={()=>this.handleClick(review.id)}>Delete Review</button> */}
       </div>

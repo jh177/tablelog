@@ -1,5 +1,5 @@
 import React from "react";
-
+import { FaStar} from "react-icons/fa";
 
 
 class ReviewForm extends React.Component{
@@ -13,12 +13,19 @@ class ReviewForm extends React.Component{
       value: 0,
       noise: 0,
       body: "",
-      recommend: true
+      recommend: true,
+      hoveroverall:null,
+      hoverfood:null,
+      hoverservice:null,
+      hoverambience:null,
+      hovervalue:null
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleSelectRecommend = this.handleSelectRecommend.bind(this);
-    this.handleInput = this.handleInput.bind(this)
+    this.handleInput = this.handleInput.bind(this);
+    this.setHover = this.setHover.bind(this);
+    this.resetHover = this.resetHover.bind(this);
   }
 
   componentDidMount(){
@@ -64,10 +71,52 @@ class ReviewForm extends React.Component{
     }
   }
 
+  setHover(hoverField, value){
+    this.setState({ [hoverField]: parseInt(value) })
+  }
+
+  resetHover(hoverField){
+    this.setState({ [hoverField]: null })
+  }
+
+  displayRatingStars(field){
+    const levels = ["Poor", "Fair", "Good", "Very Good", "Outstanding"];
+
+    return (
+      <div>
+        <div className="rating-stars">
+          {[...Array(5)].map((star, i) => {
+            const rating = i + 1
+
+            return (
+              <label key={i} >
+                <input
+                  type="radio"
+                  name={field}
+                  value={rating}
+                  onClick={this.handleSelect(field)}
+                />
+                <FaStar
+                  className="star"
+                  color={((i + 1) <= (this.state[`hover${field}`] || this.state[field])) ?
+                    "#b8222d" : "#e4e5e9"}
+                  onMouseEnter={() => this.setHover(`hover${field}`, rating)}
+                  onMouseLeave={()=>this.resetHover([`hover${field}`])}
+                />
+              </label>
+            )
+          })}
+
+          <div>
+            {levels[this.state[`hover${field}`] - 1] || levels[this.state[field] - 1]}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
 
   render(){
-
-    
     if (!this.props.reservation) return null;
     
     // debugger
@@ -78,51 +127,154 @@ class ReviewForm extends React.Component{
         <div>Reservation made on</div>
 
       <form onSubmit={this.handleSubmit}>
+        
+        
         <div>
           <div>Overall</div>
-          <div>
-            <input type="radio" name="overall" value="1" onClick={this.handleSelect("overall")}/>
-            <input type="radio" name="overall" value="2" onClick={this.handleSelect("overall")}/>
-            <input type="radio" name="overall" value="3" onClick={this.handleSelect("overall")}/>
-            <input type="radio" name="overall" value="4" onClick={this.handleSelect("overall")}/>
-            <input type="radio" name="overall" value="5" onClick={this.handleSelect("overall")}/>
+          {this.displayRatingStars("overall")}
+          {/* <div className="rating-overall">
+            {[...Array(5)].map((star, i)=> {
+              const ratingOverall = i+1
+
+              return (
+                <label key={i} >
+                  <input
+                    type="radio"
+                    name="overall" 
+                    value={ratingOverall}
+                    onClick={this.handleSelect("overall")}
+                    />
+                  <FaStar 
+                    className="star"
+                    color={((i + 1) <= (this.state.hover || this.state.overall)) ? 
+                      "#b8222d" : "#e4e5e9"}
+                    onMouseEnter={()=>this.setHover(ratingOverall)}
+                    onMouseLeave={this.resetHover}
+                  />
+                </label>
+              )
+            })}
+
+            <div>
+              {levels[this.state.hover-1]|| levels[this.state.overall-1]}
+            </div>
           </div>
         </div>
 
         <div>
           <div>Food</div>
-          <div>
-            <input type="radio" name="food" value="1" onClick={this.handleSelect("food")} />
-            <input type="radio" name="food" value="2" onClick={this.handleSelect("food")} />
-            <input type="radio" name="food" value="3" onClick={this.handleSelect("food")} />
-            <input type="radio" name="food" value="4" onClick={this.handleSelect("food")} />
-            <input type="radio" name="food" value="5" onClick={this.handleSelect("food")} />
+          <div className="rating-food">
+            {[...Array(5)].map((star, i) => {
+              const ratingfood = i + 1
+
+              return (
+                <label key={i} >
+                  <input
+                    type="radio"
+                    name="food"
+                    value={ratingfood}
+                    onClick={this.handleSelect("food")}
+                  />
+                  <FaStar
+                    className="star"
+                    color={((i + 1) <= (this.state.hover || this.state.food)) ?
+                      "#b8222d" : "#e4e5e9"}
+                    onMouseEnter={() => this.setHover(ratingfood)}
+                    onMouseLeave={this.resetHover}
+                  />
+                </label>
+              )
+            })}
+
+            <div>
+              {levels[this.state.hover - 1] || levels[this.state.food - 1]}
+            </div>
           </div>
         </div>
 
         <div>
           <div>Service</div>
-          <div>
-            <input type="radio" name="service" value="1" onClick={this.handleSelect("service")} />
-            <input type="radio" name="service" value="2" onClick={this.handleSelect("service")} />
-            <input type="radio" name="service" value="3" onClick={this.handleSelect("service")} />
-            <input type="radio" name="service" value="4" onClick={this.handleSelect("service")} />
-            <input type="radio" name="service" value="5" onClick={this.handleSelect("service")} />
+          <div className="rating-service">
+            {[...Array(5)].map((star, i) => {
+              const ratingservice = i + 1
+
+              return (
+                <label key={i} >
+                  <input
+                    type="radio"
+                    name="service"
+                    value={ratingservice}
+                    onClick={this.handleSelect("service")}
+                  />
+                  <FaStar
+                    className="star"
+                    color={((i + 1) <= (this.state.hover || this.state.service)) ?
+                      "#b8222d" : "#e4e5e9"}
+                    onMouseEnter={() => this.setHover(ratingservice)}
+                    onMouseLeave={this.resetHover}
+                  />
+                </label>
+              )
+            })}
+
+            <div>
+              {levels[this.state.hover - 1] || levels[this.state.service - 1]}
+            </div>
           </div>
+        </div>
+
+        <div>
+          <div>Overall</div>
+          <div className="rating-overall">
+            {[...Array(5)].map((star, i) => {
+              const ratingOverall = i + 1
+
+              return (
+                <label key={i} >
+                  <input
+                    type="radio"
+                    name="overall"
+                    value={ratingOverall}
+                    onClick={this.handleSelect("overall")}
+                  />
+                  <FaStar
+                    className="star"
+                    color={((i + 1) <= (this.state.hover || this.state.overall)) ?
+                      "#b8222d" : "#e4e5e9"}
+                    onMouseEnter={() => this.setHover(ratingOverall)}
+                    onMouseLeave={this.resetHover}
+                  />
+                </label>
+              )
+            })}
+
+            <div>
+              {levels[this.state.hover - 1] || levels[this.state.overall - 1]}
+            </div>
+          </div> */}
+        </div> 
+
+        <div>
+          <div>Food</div>
+          {this.displayRatingStars("food")}
+        </div>
+
+        <div>
+          <div>Service</div>
+          {this.displayRatingStars("service")}
         </div>
 
         <div>
           <div>Ambience</div>
-          <div>
-            <input type="radio" name="ambience" value="1" onClick={this.handleSelect("ambience")} />
-            <input type="radio" name="ambience" value="2" onClick={this.handleSelect("ambience")} />
-            <input type="radio" name="ambience" value="3" onClick={this.handleSelect("ambience")} />
-            <input type="radio" name="ambience" value="4" onClick={this.handleSelect("ambience")} />
-            <input type="radio" name="ambience" value="5" onClick={this.handleSelect("ambience")} />
-          </div>
+          {this.displayRatingStars("ambience")}
         </div>
 
         <div>
+          <div>Value</div>
+          {this.displayRatingStars("value")}
+        </div>
+
+        {/* <div>
           <div>Value</div>
           <div>
             <input type="radio" name="value" value="1" onClick={this.handleSelect("value")} />
@@ -131,7 +283,7 @@ class ReviewForm extends React.Component{
             <input type="radio" name="value" value="4" onClick={this.handleSelect("value")} />
             <input type="radio" name="value" value="5" onClick={this.handleSelect("value")} />
           </div>
-        </div>
+        </div> */}
 
         <div>
           <div>Noise Level</div>
