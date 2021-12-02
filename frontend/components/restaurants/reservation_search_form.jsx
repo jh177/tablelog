@@ -12,7 +12,7 @@ class ReservationSearchForm extends React.Component {
     this.state = {
       partySize: 2,
       date: today,
-      time: "12:00 AM",
+      time: "6:30 PM",
       timeAvails: []
     }
     this.handleInput = this.handleInput.bind(this)
@@ -24,8 +24,6 @@ class ReservationSearchForm extends React.Component {
       this.setState({ [type]: e.target.value });
     }
   }
-
-  
 
   handleClickFind(){
     let index = timeSlots.indexOf(this.state.time)
@@ -44,21 +42,18 @@ class ReservationSearchForm extends React.Component {
     ))
     
     const button = currentUser ? 
-      (<button onClick={this.handleClickFind}>
+      (<button id="res-show-find-table" onClick={this.handleClickFind}>
         Find a table
       </button>) : (
-      <nav className="login-signup">
-        <button onClick={() => openModal('signup')} id="btn-sign-up">Sign up</button>
-        <button onClick={() => openModal('login')} id="btn-sign-in">Sign in</button>
-      </nav>
+      <div className="res-show-login-signup">
+        <nav className="login-signup">
+          <button onClick={() => openModal('signup')} id="btn-sign-up">Sign up</button>
+          <button onClick={() => openModal('login')} id="btn-sign-in">Sign in</button>
+        </nav>
+      </div>
       )
-    
 
-    // const options = this.state.timeAvails ? (
-    //     this.state.timeAvails.map((time, i) => (
-    //       <Link to={`/booking/${this.props.restaurant.id}`}
-    //         key={i} restaurant={this.props.restaurant}>{time}</Link>))
-    // ) : (null)
+        // debugger
 
     const options = this.state.timeAvails ? (
       this.state.timeAvails.map((time, i) => (
@@ -75,41 +70,64 @@ class ReservationSearchForm extends React.Component {
       )
     ) : (null)
 
+    // const prompt = this.state.timeAvails ? ( <p>Select a time:</p>) : (<p>Sorry. Please try another date and time.</p>)
+
     // debugger
 
     return (
       <div className="restaurant-show-reservation-search">
-        <h2>Make a reservation</h2>
+        <div className="restaurant-show-reservation-search-title">
+          <h3>Make a reservation</h3>
+        </div>
         
-        <form className="restaurant-show-reservation-search-form">
-          <label htmlFor="party-size">Party Size
-          <select value={this.state.partySize} onChange={this.handleInput("partySize")}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </label>
-          <br />
-          <label htmlFor="date">Date
-            <input type="date" value={this.state.date} min={today} 
-            onChange={this.handleInput("date")}/>
-          </label>
-          <br />
-          <label htmlFor="time">Time
-            <select onChange={this.handleInput("time")}>
-              {timeOptions}
-            </select>
-          </label>
-          <br />
+        <div className="restaurant-show-reservation-search-form">
+          <div className="res-show-reservation-search-form-size">
+            <p>Party Size</p>
+            <select id="res-show-size-input" value={this.state.partySize} onChange={this.handleInput("partySize")}>
+              <option value="1">1 Person</option>
+              <option value="2">2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5">5 People</option>
+              <option value="6">6 People</option>
+              <option value="7">7 People</option>
+              <option value="8">8 People</option>
+              <option value="9">9 People</option>
+              <option value="10">10 People</option>
+              </select>
+          </div>
+          <div className="res-show-search-input-date-time">
+            <div className="res-show-search-search-form-date">
+              <p>Date</p>
+              <div id="date-input-wrapper">
+                <input id="res-show-date-input"
+                  type="date" 
+                  value={this.state.date} 
+                  min={today}
+                  onChange={this.handleInput("date")} />
+              </div>
+            </div>
+            <div className="res-show-search-search-form-time">
+              <p>Time</p>
+              <select 
+                id="res-show-time-input"
+                value={this.state.time}
+                onChange={this.handleInput("time")}>
+                {timeOptions}
+              </select>
+            </div>
+          </div>
+
           {button}
           {/* <ProtectedRoute
             path="/booking/:restaurantId"
             component={ReservationForm}
           /> */}
-        </form>
-        {options}
+        </div>
+        {/* {prompt} */}
+        <div className="res-show-search-times-links">
+          {options}
+        </div>
       </div>
     )
   }

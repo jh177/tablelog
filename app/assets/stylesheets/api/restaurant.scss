@@ -318,6 +318,133 @@
   z-index: 1;
 }
 
+.restaurant-show-reservation-search{
+  padding: 16px 16px;
+}
+
+.restaurant-show-reservation-search-title{
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d8d9db;
+}
+
+.restaurant-show-reservation-search-title h3{
+  font-size: 21px;
+  text-align: center;
+  line-height: 21px;
+  margin: 0;
+}
+
+.res-show-reservation-search-form-size,
+.res-show-search-search-form-date,
+.res-show-search-search-form-time
+{
+  padding: 8px 0;
+  border-bottom: 1px solid #d8d9db;
+}
+
+.res-show-reservation-search-form-size>p{
+  font-weight: 550;
+  padding-bottom: 4px;
+}
+
+#res-show-size-input{
+  height: 32px;
+  width: 288px;
+  border-radius: 4px;
+  // border: none;
+  outline: none;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.res-show-search-input-date-time{
+  display: flex;
+  justify-content: space-between;
+  width: 288px;
+  // padding: 16px 0;
+}
+
+.res-show-search-input-date-time p{
+  font-weight: 550;
+  padding-bottom: 4px;
+}
+
+#date-input-wrapper{
+  height: 32px;
+  border-radius: 4px;
+  border: solid 1px black;
+}
+
+#res-show-date-input{
+  height: 32px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  // border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+#res-show-time-input{
+  height: 32px;
+  width: 140px;
+  border-radius: 4px;
+  border: solid 1px black;
+  // outline: none;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#res-show-find-table{
+  padding: 16px 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.restaurant-times ul{
+  display: flex;
+}
+
+.res-show-search-times-links{
+  display: flex;
+  align-items: center;
+}
+
+.res-show-search-times-links a{
+  background: #da3743;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 4px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 6px;
+  width: 80px;
+}
+
+.res-show-search-times-links a:hover{
+  -webkit-filter: brightness(80%);
+}
+
+.res-show-login-signup{
+  padding-top: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin-right: 2px;
+}
+
+
+
+
+
 .restaurant-show-map{
   box-shadow: 0 2px 8px lightgrey;
   margin-bottom: 24px;
