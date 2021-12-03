@@ -34,7 +34,7 @@ class ReservationFormEdit extends React.Component {
     this.props.updateReservation(reservation)
       .then((response) => {
         console.log(response)
-        this.props.history.push(`/booking/view/${response.payload.reservation.id}`)
+        this.props.history.push(`/booking/view/${Object.keys(response.payload.reservation)[0]}`)
       })
     // this.navigateToReservationView()
   }

@@ -23,8 +23,8 @@ class SearchPage extends React.Component{
 
   handleInput(type) {
     return (e) => {
-      this.setState({ [type]: e.target.value });
       localStorage.setItem(type, e.target.value);
+      this.setState({ [type]: e.target.value });
     }
   }
 
@@ -70,7 +70,7 @@ class SearchPage extends React.Component{
                     <FaRegUser className="fa-reg-user" size={20} />
                     <select
                       id="search-page-size-input"
-                      value={this.state.partySize}
+                      defaultValue={this.state.partySize}
                       onChange={this.handleInput("partySize")}>
                       <option value="1">1 Person</option>
                       <option value="2">2 People</option>
