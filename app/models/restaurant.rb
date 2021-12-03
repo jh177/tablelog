@@ -12,6 +12,7 @@
 #  updated_at  :datetime         not null
 #  lat         :float            not null
 #  lng         :float            not null
+#  website     :string
 #
 class Restaurant < ApplicationRecord
   validates :name, :description, :category, :address, :city, presence:true
