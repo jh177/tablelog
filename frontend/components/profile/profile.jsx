@@ -74,7 +74,7 @@ class Profile extends React.Component{
 
         <div className="profile-main">
           <div className="profile-nav">
-            <div>
+            <div className="profile-nav-bar">
               <div onClick={() => this.handleScrollBack("upcoming")}><span>Upcoming Reservations</span></div>
               <div onClick={() => this.handleScrollBack("past")}><span>Past Reservations</span></div>
             </div>

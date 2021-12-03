@@ -60,37 +60,41 @@ class ProfileReservationItem extends React.Component {
 
     
     const reviewInfo = (this.props.review) ? (
-      <div>
-        <div>
-          <div>
-            <p>On {new Date(this.props.review.created_at).toString().slice(0, 15)} you wrote </p>
+      <div className="profile-reservation-review-container">
+        <div className="profile-reservation-review">
+          <div className="profile-reservation-review-1">
+            <p>On {new Date(this.props.review.created_at).toString().slice(4, 15)} you wrote </p>
           </div>
-          <div>
-            <p>Overall</p>
-            {this.displayRatings(this.props.review.overall)}
+          <div className="profile-reservation-review-2">
+            <div>
+              <p>Overall</p>
+              {this.displayRatings(this.props.review.overall)}
+            </div>
+            <div>
+              <p>Food</p>
+              {this.displayRatings(this.props.review.food)}
+            </div>
+            <div>
+              <p>Service</p>
+              {this.displayRatings(this.props.review.service)}
+            </div>
           </div>
-          <div>
-            <p>Food</p>
-            {this.displayRatings(this.props.review.food)}
-          </div>
-          <div>
-            <p>Service</p>
-            {this.displayRatings(this.props.review.service)}
-          </div>
-          <div>
-            <p>Ambience</p>
-            {this.displayRatings(this.props.review.ambience)}
-          </div>
-          <div>
-            <p>Value</p>
-            {this.displayRatings(this.props.review.value)}
-          </div>
-          <div>
-            <p>Noise Level</p>
-            {this.noiseLevel(this.props.review.noise)}
+          <div className="profile-reservation-review-3">
+            <div>
+              <p>Ambience</p>
+              {this.displayRatings(this.props.review.ambience)}
+            </div>
+            <div>
+              <p>Value</p>
+              {this.displayRatings(this.props.review.value)}
+            </div>
+            <div>
+              <p>Noise Level</p>
+              {this.noiseLevel(this.props.review.noise)}
+            </div>
           </div>
 
-          <div>
+          <div className="profile-reservation-review-4">
             <p>Comments</p>
             {this.props.review.body}
           </div>
@@ -101,17 +105,29 @@ class ProfileReservationItem extends React.Component {
       // debugger
 
     return (
-      <div>
-        <h3>{restaurant.name}</h3>
-        <h3>{reservation.date}</h3>
-        <h3>{reservation.time}</h3>
-        <h3>{reservation.party_size}</h3>
-        {viewLink}
-        {modifyLink}
-        {cancelLink}
-        {reviewLink}
-        <div>
-          {reviewInfo}
+      <div className="profile-reservation-details">
+        <div className="profile-reservation-image">
+          <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+        </div>
+        <div className="profile-reservation-right">
+          <div className="profile-reservation-name">
+            <Link to={`/restaurants/${restaurant.id}`}>{restaurant.name}</Link>
+          </div>
+          <div className="profile-reservation-date">
+            <p>{new Date(reservation.date).toString().slice(0, 15)} at {reservation.time}</p>
+          </div>
+          <div className="profile-reservation-size">
+            <p>Table for {reservation.party_size}</p>
+          </div>
+          <div className="profile-reservation-action-links">
+            {viewLink}
+            {modifyLink}
+            {cancelLink}
+            {reviewLink}
+          </div>
+          <div className="profile-reservation-review-info">
+            {reviewInfo}
+          </div>
         </div>
       </div>
     )
