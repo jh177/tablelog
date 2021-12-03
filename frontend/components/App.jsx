@@ -19,6 +19,7 @@ import SearchPageContainer from "./search/search_page_container";
 import SearchPage from "./search/search_page";
 import Landing from "./landing/landing";
 import ReviewFormContainer from "./review/review_form_container";
+import Footer from "./footer";
 
 
 const App = () => (
@@ -28,9 +29,7 @@ const App = () => (
       <SubHeader/>
       <div className="main-header">
         <Link to="/" className="header-link" onClick={()=>{localStorage.setItem("searchTerm", "")}}>
-          <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/tablelog-logo-1.png" alt="logo" />
-          {/* <img src="https://cdn.otstatic.com/cfe/7/images/opentable-logo-153e80.svg" alt="logo" /> */}
-          {/* <img src="../../assets/images/tablelog-logo-1.png" alt="logo" /> */}
+          <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/tablelog-logo-2.png" alt="logo" />
         </Link>
         <GreetingContainer/>
       </div>
@@ -52,6 +51,10 @@ const App = () => (
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
     {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
     {/* <Route exact path="/" component={} /> */}
+
+    <footer>
+      <Footer/>
+    </footer>
   </div>
 );
 

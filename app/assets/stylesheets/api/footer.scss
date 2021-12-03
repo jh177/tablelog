@@ -1,0 +1,17 @@
+.footer {
+  height: 96px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  background-color: #2d333f;
+}
+
+.footer-links{
+  padding-right: 16px;
+}
+
+.footer-links a{
+  padding: 0 16px;
+}

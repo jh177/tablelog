@@ -73,8 +73,6 @@ class RestaurantShow extends React.Component{
       </li>
     ))
 
-    // debugger
-
     const reviewsDisplay = (reviews) ? (
         reviews.map((review, i)=>(
           <div key={i} className="restaurant-show-review-details">
@@ -85,7 +83,7 @@ class RestaurantShow extends React.Component{
               {this.displayRatings(review.overall)}
               <div className="restaurant-show-review-ratings">
                 <div>
-                  <p>Overall <span>{review.overall}</span></p>
+                  <p>Overall <span>{(review.overall)}</span></p>
                 </div>
                 <div>
                   <p>Food <span>{review.food}</span></p>
@@ -112,23 +110,23 @@ class RestaurantShow extends React.Component{
           <p>Reviews can only be made by diners who have eaten at this restaurant</p>
           <div className="restaurant-show-reviews-rating-overall">
             {this.displayRatings(restaurant.average_rating)}
-            <span>{restaurant.average_rating}</span>
+            <span>{(restaurant.average_rating).slice(0,3)}</span>
           </div>
           <div className="res-show-review-rating-sum-list">
             <div>
-              <p>{restaurant.average_food}</p>
+              <p>{(restaurant.average_food).slice(0,3)}</p>
               <span>Food</span>
             </div>
             <div>
-              <p>{restaurant.average_service}</p>
+              <p>{(restaurant.average_service).slice(0,3)}</p>
               <span>Service</span>
             </div>
             <div>
-              <p>{restaurant.average_ambience}</p>
+              <p>{(restaurant.average_ambience).slice(0,3)}</p>
               <span>Ambience</span>
             </div>
             <div>
-              <p>{restaurant.average_value}</p>
+              <p>{(restaurant.average_value).slice(0,3)}</p>
               <span>Value</span>
             </div>
           </div>
@@ -167,7 +165,7 @@ class RestaurantShow extends React.Component{
                 <div className="restaurant-show-details-snapshot">
                   <div className="restaurant-show-ratings">
                     {this.displayRatings(restaurant.average_rating)}
-                    <span>{restaurant.average_rating}</span>
+                    <span>{(restaurant.average_rating).slice(0,3)}</span>
                   </div>
                   <div className="restaurant-show-num-reviews">
                     <FaRegCommentAlt className="fa-reg-comment-alt"/>

@@ -110,7 +110,7 @@
 }
 
 .diner-name{
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   margin: 8px 0;
@@ -198,4 +198,11 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+}
+
+.reservation-error{
+  list-style-type: none;
+  color:#b8222d;
+  font-size: 0.8rem;
+  padding-bottom: 10px;
 }

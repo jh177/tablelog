@@ -22,6 +22,9 @@ class ReservationForm extends React.Component{
     this.props.requestRestaurant(this.props.match.params.restaurantId);
   }
 
+  componentWillUnmount() {
+    this.props.removeReservationErrors();
+  }
   // navigateToReservationView(){
   //   const url = `/booking/view/${this.props.restaurant.id}`
   //   this.props.history.push(url)
@@ -135,6 +138,9 @@ class ReservationForm extends React.Component{
                 <input value={this.props.currentUser.email} disabled="disabled"/>
               </div>
             </div>
+
+            <div className="reservation-error">{this.props.errors}</div>
+
             <button
               id="reservation-diner-button"
               type="submit"
