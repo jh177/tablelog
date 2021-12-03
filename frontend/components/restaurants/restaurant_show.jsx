@@ -218,9 +218,8 @@ class RestaurantShow extends React.Component{
               </div>
             </div>
             <div className="restaurant-show-more-details">
-              <p>Neighborhood</p>
-              <p>Hours of operation</p>
-              <p>Phone number</p>
+              <p>Website: <a href={restaurant.website}>{restaurant.website}</a></p>
+              <p>Phone number: {restaurant.phone}</p>
             </div>
           </div>
 

@@ -17,4 +17,7 @@
  body {
    margin: 0;
    font-family: "Roboto Mono", monospace;
+   /* position: relative; */
+   min-height: 100vh;
+   max-width: 100vw;
  }
