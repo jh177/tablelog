@@ -1,7 +1,5 @@
 import React from "react";
-import SearchPageSearchBox from "./search_page_search_box";
 import RestaurantIndexContainer from "../restaurants/restaurant_index_container";
-import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
 import SearchPageNav from "./search_page_nav";
 import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch } from "react-icons/fa"
@@ -33,18 +31,12 @@ class SearchPage extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     this.setState({updated: !this.state.updated})
-    // console.log(this.state.updated)
   }
 
   render(){
-
-    // debugger
-
     const timeOptions = timeSlots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
     ))
-
-    // debugger
 
     return(
       <div className="search-page-container">
@@ -131,7 +123,6 @@ class SearchPage extends React.Component{
             />
           </div>
         </div>
-
       </div>
     )
   }

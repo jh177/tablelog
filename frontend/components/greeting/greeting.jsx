@@ -21,9 +21,10 @@ class Greeting extends React.Component{
     const personalGreeting = () => (
       <hgroup className="header-group">
         <div className="header-nav-bar">
-          <Link className="header-profile-link" to="/profile"><FaRegUserCircle size={24}/></Link>
-          <button className="header-button" onClick={logout}><FaSignOutAlt size={24}/></button>
-          <FaSearch size={24}/>
+          <p>Hi, {currentUser.fname}</p>
+          <Link className="header-profile-link" to="/profile"><FaRegUserCircle size={28}/></Link>
+          <button className="header-button" onClick={logout}><FaSignOutAlt size={28}/></button>
+          <FaSearch size={28}/>
         </div>
       </hgroup>
     )

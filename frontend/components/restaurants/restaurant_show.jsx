@@ -152,7 +152,6 @@ class RestaurantShow extends React.Component{
         <div className="restaurant-show-main">
           
           <div className="restaurant-show-left">
-        
 
             <div className="restaurant-show-nav-bar">
               <ul>
