@@ -3,7 +3,7 @@ import React from "react";
 const SearchPageNav = () => {
   return(
     <div>
-      Filters
+      {/* Filters */}
     </div>
   )
 }

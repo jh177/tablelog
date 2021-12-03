@@ -19,6 +19,9 @@ class ReservationFormEdit extends React.Component {
     this.props.requestReservation(this.props.match.params.reservationId);
   }
 
+  componentWillUnmount() {
+    this.props.removeReservationErrors();
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -124,6 +127,9 @@ class ReservationFormEdit extends React.Component {
                 <input value={this.props.currentUser.email} disabled="disabled" />
               </div>
             </div>
+
+            <div className="reservation-error">{this.props.errors}</div>
+
             <button
               id="reservation-diner-button"
               type="submit"
