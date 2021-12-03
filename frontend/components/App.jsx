@@ -23,7 +23,7 @@ import Footer from "./footer";
 
 
 const App = () => (
-  <div class="app">
+  <div className="app">
     <Modal/>
     <header>
       <SubHeader/>
@@ -52,7 +52,7 @@ const App = () => (
     {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}
     {/* <Route exact path="/" component={} /> */}
 
-    <footer class='footer'>
+    <footer className='footer'>
       <Footer/>
     </footer>
   </div>
