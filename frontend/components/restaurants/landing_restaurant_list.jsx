@@ -7,7 +7,7 @@ class LandingRestaurantList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "Los Angeles",
+      searchTerm: "",
       time: "6:30 PM",
       date: today,
       partySize: 2

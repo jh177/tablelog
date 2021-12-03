@@ -281,7 +281,7 @@ end
 restaurant14 = Restaurant.create!(
   name: "AOC - 3rd Street",
   description: "A.O.C. is a small plates restaurant driven by seasonal ingredients, locally sourced. Our California French cuisine was developed by Chef Suzanne Goin, and also features Mediterranean influences. We have 24 wines by the glass and 150 bottles to choose from, curated by Caroline Styne, all of which are either organic, biodynamic or sustainable. Featuring a full bar with premium spirits and specialty cocktails.",
-  category: "Californian",
+  category: "French",
   address: "8700 W 3rd St, Los Angeles, CA 90048",
   city: "Los Angeles",
   lat: 34.07360897458366,
