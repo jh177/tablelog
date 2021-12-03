@@ -86,7 +86,7 @@ restaurant3 = Restaurant.create!(
   description: "We cook every single Yakitori skewer on the charcoal grill with chef's secret salt or traditional handmade Yakitori sauce.",
   category: "Japanese",
   address: "1757 W Carson St, Ste A, Torrance, CA 90501",
-  city: "Los Angeles",
+  city: "Torrance",
   lat: 33.83239859117153,
   lng: -118.31066155131064,
   website: "www.torihei-usa.com",
@@ -104,7 +104,7 @@ restaurant4 = Restaurant.create!(
   description: "This highly regarded Cantonese restaurant could easily glide solely on its reputation, and yet, its devoted chefs bring the goods again and again. One of the first of its kind to offer dim sum à la carte, rather than by an actual cart, items arrive piping hot, fresh from the steamer.",
   category: "Chinese",
   address: "3939 Rosemead Blvd, Rosemead, CA 91770",
-  city: "Los Angeles",
+  city: "Rosemead",
   lat: 34.080006013852824,
   lng: -118.07346412487877,
   website: "www.seaharbourrosemead.com",
@@ -157,7 +157,7 @@ restaurant7 = Restaurant.create!(
   description: "Spice Affair invites you to indulge in a special affair with our luscious Indian dishes from an award-winning menu featuring a number vegetarian, vegan, and gluten free options. There is a wide selection to choose from including some of our most popular Chicken tikka masala, Shrimp biryani, garlic naan, Tandoori chicken, Butter chicken, Chicken Tikka, Saag paneer and many other exquisite offerings.",
   category: "Indian",
   address: "50 N La Cienega Blvd #120, Beverly Hills, CA 90211",
-  city: "Los Angeles",
+  city: "Beverly Hills",
   lat: 34.067452410676985,
   lng: -118.37605674212803,
   website: "www.spice-affair.com",
@@ -175,7 +175,7 @@ restaurant8 = Restaurant.create!(
   description: "First and only in Downtown Long Beach Modern Thai, very authentic in taste and ingredients. Features northern style, street food in a hip and modern decor.",
   category: "Thai",
   address: "149 Linden Ave ste e, Long Beach, CA 90802",
-  city: "Los Angeles",
+  city: "Long Beach",
   lat: 33.76931638536786, 
   lng: -118.186645665074,
   website: "thaidistrictrestaurant.com",
@@ -193,7 +193,7 @@ restaurant9 = Restaurant.create!(
   description: "Otus Thai Kitchen, located in West Hollywood, California, serves a variety of Thai cuisine in a cozy atmosphere. The extensive menu includes curries, soups, noodles and more. Otus Thai Kitchen makes each meal to order with the finest and freshest ingredients available.",
   category: "Thai",
   address: "1253 N La Brea Ave, West Hollywood, CA 90038",
-  city: "Los Angeles",
+  city: "West Hollywood",
   lat: 34.094226509755096,
   lng: -118.34427377948285,
   website: "www.otusthaikitchen.com",
@@ -213,7 +213,7 @@ restaurant10 = Restaurant.create!(
   city: "Los Angeles",
   lat: 34.0670557134207,
   lng: -118.3086689527045,
-  website: "ombugrill.com/",
+  website: "ombugrill.com",
   phone: "(213) 637-0262"
 )
 
@@ -221,5 +221,191 @@ restaurant10 = Restaurant.create!(
   res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/ombu-#{i}.jpeg")
   restaurant10.photos.attach(io:res_photo, filename: "ombu-#{i}.jpeg")
 end
+
+
+
+restaurant11 = Restaurant.create!(
+  name: "Tesse",
+  description: "Tesse is a collaboration between restauranteur Bill Chait, Michelin-starred Chef Raphael Francois, and managing partner and wine director, Jordan Ogron. Tesse marries rustic Mediterranean/French cuisine with innovative cocktails and a unique wine program, to create a truly singular dining experience.",
+  category: "Mediterranean",
+  address: "8500 Sunset Blvd Suite B, West Hollywood, CA 90069",
+  city: "West Hollywood",
+  lat: 34.0939258796702,
+  lng: -118.3765813209436,
+  website: "www.tesserestaurant.com",
+  phone: "(310) 360-3866"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/tesse-#{i}.jpeg")
+  restaurant11.photos.attach(io:res_photo, filename: "tesse-#{i}.jpeg")
+end
+
+
+restaurant12 = Restaurant.create!(
+  name: "Le Petit Paris",
+  description: "Elegant bi-level French brasserie with a patio serving classic fare & cocktails.",
+  category: "French",
+  address: "418 S Spring St, Los Angeles, CA 90013",
+  city: "Los Angeles",
+  lat: 34.04856549904734,
+  lng: -118.24848407875433,
+  website: "www.lepetitparisla.com",
+  phone: "(213) 217-4445"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/le-#{i}.jpeg")
+  restaurant12.photos.attach(io:res_photo, filename: "le-#{i}.jpeg")
+end
+
+
+restaurant13 = Restaurant.create!(
+  name: "Della Terra",
+  description: "Wood-fired pizzas, brochettes & other Italian specialties are served in a cozy space with a patio.",
+  category: "Italian",
+  address: "7675 Beverly Blvd, Los Angeles, CA 90036",
+  city: "Los Angeles",
+  lat: 34.07651150630142,
+  lng: -118.35722883793092,
+  website: "dellaterrarestaurant.com",
+  phone: "(323) 933-7675"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/della-#{i}.jpeg")
+  restaurant13.photos.attach(io:res_photo, filename: "della-#{i}.jpeg")
+end
+
+
+restaurant14 = Restaurant.create!(
+  name: "AOC - 3rd Street",
+  description: "A.O.C. is a small plates restaurant driven by seasonal ingredients, locally sourced. Our California French cuisine was developed by Chef Suzanne Goin, and also features Mediterranean influences. We have 24 wines by the glass and 150 bottles to choose from, curated by Caroline Styne, all of which are either organic, biodynamic or sustainable. Featuring a full bar with premium spirits and specialty cocktails.",
+  category: "Californian",
+  address: "8700 W 3rd St, Los Angeles, CA 90048",
+  city: "Los Angeles",
+  lat: 34.07360897458366,
+  lng: -118.38200229723992,
+  website: "aocwinebar.com",
+  phone: "(310) 859-9859"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/aoc-#{i}.jpeg")
+  restaurant14.photos.attach(io:res_photo, filename: "aoc-#{i}.jpeg")
+end
+
+
+
+restaurant15 = Restaurant.create!(
+  name: "The Factory Kitchen - Los Angeles",
+  description: "Defining a culinary journey through the Italian Peninsula and hosted in the loading docks of the Factory Place Arts Complex in The Arts District in Los Angeles, The Factory Kitchen is a typical Italian Trattoria with simple and approachable fare.",
+  category: "Italian",
+  address: "1300 Factory Pl, Los Angeles, CA 90013",
+  city: "Los Angeles",
+  lat: 34.03917865293018, 
+  lng: -118.23588902391506,
+  website: "www.thefactorykitchen.com",
+  phone: "(213) 996-6000"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/factory-#{i}.jpeg")
+  restaurant15.photos.attach(io:res_photo, filename: "factory-#{i}.jpeg")
+end
+
+
+restaurant16 = Restaurant.create!(
+  name: "Gabbi's Mexican Kitchen",
+  description: "Gabbi Patrick is dedicated to integrating modern gastronomy with the indigenous and traditional recipes of Mexican cuisine. In her pursuit of preserving the rich culinary heritage of Mexico, Gabbi has adopted an eco-gastronomic approach in her interpretation of “Old World” recipes. Her passion and vision are reflected in every detail of her craft, from supporting local farms to her extensive travels throughout Mexico.",
+  category: "Mexican",
+  address: "141 S Glassell St, Orange, CA 92866",
+  city: "Orange",
+  lat: 33.78700766830207,
+  lng: -117.85295291241017,
+  website: "www.gabbipatrick.com",
+  phone: "(714) 633-3038"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/gabbi-#{i}.jpeg")
+  restaurant16.photos.attach(io:res_photo, filename: "gabbi-#{i}.jpeg")
+end
+
+
+restaurant17 = Restaurant.create!(
+  name: "Puesto Los Olivos",
+  description: "Owned and operated by a Mexican American family whose best memories all include tacos, Puesto is an award-winning Mexican Artisan Kitchen & Bar providing an innovative approach to authentic Mexican flavors. Puesto has garnered national acclaim for its Mexico City-style crispy melted cheese tacos, served on handmade non-GMO, organic, maíz azul stone-ground tortillas. In addition to tacos, offerings include a selection of fresh catch ceviches, guacamoles, starters and ensaladas, courtesy of Chef/Partner Luisteen Gonzales. The bar program showcases the best of Mexico City through the use of fresh ingredients in our hand crafted cocktails and housemade Micheladas, tequilas, mezcals, Baja craft beers, and Valle de Guadalupe wines you can’t find elsewhere We’re honored to have been featured by media outlets nationally and internationally, some of which include National Geographic, Huffington Post, Refinery 29, MSN, Insider, Zagat, Eater, Food and Wine, and LA Times.",
+  category: "Mexican",
+  address: "8577 Irvine Center Dr, Irvine, CA 92618",
+  city: "Irvine",
+  lat: 33.644994199217194,
+  lng: -117.74426602509914, 
+  website: "eatpuesto.com",
+  phone: "(949) 608-9990"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/puesto-#{i}.jpeg")
+  restaurant17.photos.attach(io:res_photo, filename: "puesto-#{i}.jpeg")
+end
+
+
+
+restaurant18 = Restaurant.create!(
+  name: "RED O Taste of Mexico - Newport Beach",
+  description: "Dining at RED O is an experience like no other that offers a unique combination of Prime Steak and Seafood with Rick Bayless’ signature Mexican inspired influences. With sustainably sourced and local ingredients, RED O creates flavorful dishes true to the authentic flavors of Mexico. RED O’s team of friendly employees creates a welcoming atmosphere that parallels the luxury resort interior of the restaurant. RED O also features an impressive bar and lounge where you’ll find specialty cocktails, an extensive tequila list and an award winning wine list. The bar also offers Happy Hour from 3-6 p.m. daily.",
+  category: "Mexican",
+  address: "143 Newport Center Dr, Newport Beach, CA 92660",
+  city: "Newport Beach",
+  lat: 33.61329484761493,
+  lng: -117.8754244610664,
+  website: "www.redorestaurant.com",
+  phone: "(949) 718-0300"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/red-#{i}.jpeg")
+  restaurant18.photos.attach(io:res_photo, filename: "red-#{i}.jpeg")
+end
+
+
+
+restaurant19 = Restaurant.create!(
+  name: "SOL Mexican Cocina - Newport Beach",
+  description: "Our restaurants are inspired by the best of coastal Baja California: Warm, welcoming, friendly, inspired by old and new Mexican design. SOL’s kitchens feature our unique spin on fresh, healthy, coastal Mexican food, lovingly made from scratch.",
+  category: "Mexican",
+  address: "251 Pacific Coast Hwy, Newport Beach, CA 92660",
+  city: "Newport Beach",
+  lat: 33.61606668865622, 
+  lng: -117.9015669953016,
+  website: "solcocina.com",
+  phone: "(949) 675-9800"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/sol-#{i}.jpeg")
+  restaurant19.photos.attach(io:res_photo, filename: "sol-#{i}.jpeg")
+end
+
+
+
+restaurant20 = Restaurant.create!(
+  name: "Hamasaku",
+  description: "Hamasaku is a sophisticated harmony of Japanese cuisine and Californian exuberance. Sincere and succinct, Hamasaku's literal translation is one who creates food from the sea. Celebrated for its whimsical reverence for sushi and understated elegance, warmth in hospitality and modern sensibilities underscore a quintessential dining experience.",
+  category: "Japanese",
+  address: "11043 Santa Monica Blvd, Los Angeles, CA 90025",
+  city: "Los Angeles",
+  lat: 34.048577931815274,
+  lng: -118.44335571059685,
+  website: "www.hamasakula.com",
+  phone: "(310) 479-7636"
+)
+
+(1..10).each do |i|
+  res_photo = open("https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/hamasaku-#{i}.jpeg")
+  restaurant20.photos.attach(io:res_photo, filename: "hamasaku-#{i}.jpeg")
+end
+
 
 

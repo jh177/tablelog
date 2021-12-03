@@ -3,15 +3,15 @@ class Api::RestaurantsController < ApplicationController
   
   def index
     cities = ["los angeles"]
-    cuisines = ["chinese", "italian", "japanese", "korean", "indian", "thai"]
+    cuisines = ["chinese", "italian", "japanese", "korean", "indian", "thai", "mediterranean", "californian", "mexican"]
 
     if !params[:searchTerm]
       @restaurants = Restaurant.all
     else
       if cities.include?(params[:searchTerm].downcase)
-        @restaurants = Restaurant.where('lower(city)=?', params[:searchTerm].downcase)
+        @restaurants = Restaurant.where('lower(city) LIKE ?', params[:searchTerm].downcase)
       elsif cuisines.include?(params[:searchTerm].downcase)
-        @restaurants = Restaurant.where('lower(category)=?', params[:searchTerm].downcase)
+        @restaurants = Restaurant.where('lower(category) LIKE ?', params[:searchTerm].downcase)
       else
         @restaurants = Restaurant.all
       end
