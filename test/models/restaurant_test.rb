@@ -12,6 +12,8 @@
 #  updated_at  :datetime         not null
 #  lat         :float            not null
 #  lng         :float            not null
+#  website     :string
+#  phone       :string
 #
 require 'test_helper'
 
