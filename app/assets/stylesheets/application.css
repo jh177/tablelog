@@ -14,10 +14,12 @@
  *= require_self
  */
 
- body {
-   margin: 0;
-   font-family: "Roboto Mono", monospace;
-   /* position: relative; */
-   min-height: 100vh;
-   max-width: 100vw;
- }
+.app{
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  min-height: 100vh;
+  max-width: 100vw;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+}
