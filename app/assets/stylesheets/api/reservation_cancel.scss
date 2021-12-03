@@ -1,0 +1,87 @@
+.reservation-cancel-main{
+  background: #fff;
+  padding: 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 32px auto 80px;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+
+.reservation-cancel-info>h1{
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 24px;
+  // margin: 0 0 16px;
+  flex: 1 100%;
+  min-height: 24px;
+  color: #2d333f;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #d8d9db;
+
+}
+
+.reservation-cancel-details{
+  height: 64px;
+  margin-bottom: 16px;
+  color: #2d333f;
+  display: flex;
+  border-bottom: 1px solid #d8d9db;
+  padding: 32px 0;
+  width: 800px;
+}
+
+.reservation-cancel-details-left{
+  display: flex;
+  margin-right: 16px;
+}
+
+.reservation-cancel-details-left>img{
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+}
+
+.reservation-cancel-details-right{
+  display: flex;
+  width: 720px;
+  justify-content: space-between;
+}
+
+.reservation-cancel-details-right>div{
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-cancel-details-right>div>span{
+  color: #2d333f;
+  padding-bottom: 8px;
+}
+
+.reservation-cancel-details-right>div>p{
+  color: #2d333f;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#reservation-cancel-button{
+  margin: 16px 0;
+  width: 100%;
+  background-color: #da3743;
+  color: #fff;
+  border-radius: 4px;
+  -webkit-appearance: button;
+  height: 3rem;
+  font-weight: 700;
+  font-size: 16px;
+  width: 320px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+#reservation-cancel-button:hover{
+  -webkit-filter: brightness(80%)
+}

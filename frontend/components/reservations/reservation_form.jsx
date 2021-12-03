@@ -138,7 +138,7 @@ class ReservationForm extends React.Component{
             <button
               id="reservation-diner-button"
               type="submit"
-              value="Complete Reservation"
+              // value="Complete Reservation"
               onClick={this.handleSubmit}>Complete Reservation</button>
           </div>
         </div>
