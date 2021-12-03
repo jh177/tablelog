@@ -201,8 +201,13 @@
 
 .profile-reservation-review-4{
   display: flex;
+  flex-direction: column;
 }
 
 .profile-reservation-review-4{
+  padding-bottom: 16px;
+}
+
+.profile-reservation-review-4 p{
   padding-bottom: 8px;
 }

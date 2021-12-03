@@ -90,13 +90,13 @@ class ProfileReservationItem extends React.Component {
             </div>
             <div>
               <p>Noise Level</p>
-              {this.noiseLevel(this.props.review.noise)}
+              <p>{this.noiseLevel(this.props.review.noise)}</p>
             </div>
           </div>
 
           <div className="profile-reservation-review-4">
-            <p>Comments</p>
-            {this.props.review.body}
+            <p>Comments:</p>
+            <p>{this.props.review.body}</p>
           </div>
         </div>
       </div>
