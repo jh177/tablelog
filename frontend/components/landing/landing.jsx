@@ -10,7 +10,7 @@ class Landing extends React.Component{
 
   render(){
     return(
-    <div>
+    <div className="landing-wrapper">
       <div className="landing-search-box-container">
         <SearchBox />
       </div>

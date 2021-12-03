@@ -1,14 +1,22 @@
-.footer {
+.footer{
+  background-color: #2d333f;
+  // position: fixed;
+  // bottom: 0px;
+  // margin-bottom: 0px;
+  margin-top: auto;
+  width: 100%;
   height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer-content {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   // padding: 0 16px;
-  background-color: #2d333f;
-  // position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 .footer-links{

@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin} from "react-icons/fa";
 
 const Footer = () => {
   return(
-    <div className="footer">
+    <div className="footer-content">
       <div className="footer-links">
         <a href={`https://github.com/jh177`} target="_blank">
           <FaGithub size={36}/>
