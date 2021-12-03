@@ -3,24 +3,33 @@ import ProfileReservationItem from "./profile_reservation_item";
 
 class Profile extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
+    this.upcomingRef = React.createRef();
+    this.pastRef = React.createRef();
+    this.handleScrollBack = this.handleScrollBack.bind(this);
   }
 
   componentDidMount(){
     this.props.requestUser(this.props.currentUser.id)
-    // Promise.all(
-    //   this.props.requestReservations(),
-    //   this.props.requestRestaurants()
-    // )
   }
+
+  handleScrollBack = (field) => {
+    switch (field) {
+      case "upcoming":
+        this.upcomingRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      case "past":
+        this.pastRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+    }
+  }
+
+
 
   render(){
 
     if (this.props.restaurants.length===0 || this.props.reservations.length===0) return null;
-    
-    // console.log(this.props.reservations)
-    // console.log(this.props.restaurants)
-    // debugger
+  
     let ids = this.props.restaurants.map((restaurant)=> restaurant.id)
 
     const pastReservations = [];
@@ -57,43 +66,31 @@ class Profile extends React.Component{
       />
     })
 
-    // const pastReservations = this.props.reservations.filter((reservation) => {
-    //   let reserveDate = new Date(`${reservation.date} ${reservation.time}`);
-    //   let today = new Date();
-    //   return reserveDate < today;
-    // })
-    
-    // console.log(pastReservations)
-    // console.log(futureReservations)
-    // debugger
-
-    // const reservationItems = this.props.reservations.map((reservation) => {
-    //   const review = (reservation.review) ? reservation.review : null;
-
-    //   return <ProfileReservationItem 
-    //     key={reservation.id} 
-    //     reservation={reservation}
-    //     restaurant={this.props.restaurants[ids.indexOf(reservation.restaurant_id)]}
-    //     review={review}
-    //     deleteReview={this.props.deleteReview}
-    //     />
-
-    //   }
-    // )
-    
-    // debugger
-
     return(
-      <div>
-        profile page
-        <div>
-          <div>
-            <h2>Upcoming Reservations</h2>
-            <ul>{futureReservationItems}</ul>
+      <div className="profile-main-container">
+        <div className="profile-header">
+          <h1>{this.props.currentUser.fname} {this.props.currentUser.lname}</h1>
+        </div>
+
+        <div className="profile-main">
+          <div className="profile-nav">
+            <div className="profile-nav-bar">
+              <div onClick={() => this.handleScrollBack("upcoming")}><span>Upcoming Reservations</span></div>
+              <div onClick={() => this.handleScrollBack("past")}><span>Past Reservations</span></div>
+            </div>
           </div>
-          <div>
-            <h2>Past Reservations</h2>
-            <ul>{pastReservationItems}</ul>
+
+          <div className="profile-reservations">
+
+            <div className="profile-upcoming-reservations" ref={this.upcomingRef}>
+              <h2>Upcoming Reservations</h2>
+              <div>{futureReservationItems}</div>
+            </div>
+
+            <div className="profile-past-reservations" ref={this.pastRef}>
+              <h2>Past Reservations</h2>
+              <div>{pastReservationItems}</div>
+            </div>
           </div>
         </div>
       </div>

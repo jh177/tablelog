@@ -173,7 +173,7 @@ class ReviewForm extends React.Component{
               <p>Rate your dinning experience (required)</p>
             </div>
             <div>
-              <p>Reservation made on {this.props.reservation.date}</p>
+              <p>Reservation made on {new Date(this.props.reservation.date).toString().slice(4, 15)}</p>
             </div>
           </div>
 

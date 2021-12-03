@@ -1,5 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+import { FaRegCalendar, FaRegUser, FaRegClock, FaDirections } from "react-icons/fa"
+
 
 class ReservationFormEdit extends React.Component {
   constructor(props) {
@@ -36,6 +39,7 @@ class ReservationFormEdit extends React.Component {
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
+      localStorage.setItem(type, e.target.value);
     }
   }
 
@@ -69,26 +73,75 @@ class ReservationFormEdit extends React.Component {
     }
     // localStorage.setItem("restaurant", JSON.stringify(this.props.restaurant));
     // debugger
-    let displayDate = new Date(date).toLocaleString();
+    let displayDate = new Date(date).toString().slice(0,15);
 
     return (
-      <div>
-        <h1>{restaurant.name}</h1>
-        <h2>Date: {displayDate}</h2>
-        <h2>Time: {time}</h2>
-        <h2>Party Size: {partySize}</h2>
+      <div className="reservation-page-main">
+        <div className="reservation-form">
+          <h2>You're almost done!</h2>
 
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="phone">
-            <input
-              type="phone"
-              placeholder="Phone Number"
-              value={this.state.phone}
-              onChange={this.handleInput('phone')}
-            />
-          </label>
-          <input type="submit" value="Complete Reservation" />
-        </form>
+          <div className="reservation-details">
+            <div className="reservation-details-left">
+              <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+            </div>
+            <div className="reservation-details-right">
+              <div className="reservation-details-restaurant-name">
+                <Link to={`/restaurants/${restaurant.id}`}>{restaurant.name}</Link>
+              </div>
+              <div className="reservation-details-date-time">
+                <div className="reservation-details-date">
+                  <FaRegCalendar className="fa-reg-calendar" size={20} />
+                  <p>{displayDate}</p>
+                </div>
+                <div className="reservation-details-time">
+                  <FaRegClock className="fa-reg-clock" size={20} />
+
+                  <p>{time}</p>
+                </div>
+                <div className="reservation-details-party-size">
+                  <FaRegUser className="fa-reg-user" size={20} />
+                  <p>{partySize} people</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="diner-details">Diner Details</h2>
+
+          <div className="diner-name">{this.props.currentUser.fname} {this.props.currentUser.lname}</div>
+
+          <div className="reservation-diner-details">
+            <div className="reservation-diner-details-phone-email">
+              <div className="reservation-diner-details-phone">
+                <input
+                  type="phone"
+                  placeholder="Phone Number"
+                  value={this.state.phone}
+                  onChange={this.handleInput('phone')}
+                />
+              </div>
+              <div className="reservation-diner-details-email">
+                <input value={this.props.currentUser.email} disabled="disabled" />
+              </div>
+            </div>
+            <button
+              id="reservation-diner-button"
+              type="submit"
+              value="Complete Reservation"
+              onClick={this.handleSubmit}>Complete Reservation</button>
+          </div>
+        </div>
+
+        <div className="reservation-extra-info">
+          <h2>What to know before you go</h2>
+          <div>
+            <a href={`https://www.google.com/maps/dir/?api=1&destination=${restaurant.address}`} target="_blank">
+              <span id="restaurant-show-map-address">
+                <h3><FaDirections color={"#da3743"} />  Get directions</h3>
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
     )
   }

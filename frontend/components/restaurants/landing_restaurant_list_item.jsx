@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Times from "../times/times";
 import { withRouter } from "react-router";
-import {FaStar, FaUtensils, FaRegStar} from "react-icons/fa";
+import { FaStar, FaBook, FaRegStar} from "react-icons/fa";
 
 class LandingRestaurantListItem extends React.Component {
   constructor(props) {
@@ -35,27 +35,28 @@ class LandingRestaurantListItem extends React.Component {
   }
 
   handleClick(e){
-    console.log("yes")
+    // console.log("yes")
+    e.stopPropagation();
     this.props.history.push(`/restaurants/${this.props.restaurant.id}`);
   }
 
   render() {
     const { restaurant } = this.props
     return (
-      <div className="landing-restaurant-item-main" onClick={this.handleClick}>
+      <div className="landing-restaurant-item-main">
         <div className="landing-restaurant-item">
           <div className="landing-restaurant-top">
-            <div className="landing-restaurant-image">
+            <div className="landing-restaurant-image" onClick={this.handleClick}>
               <img src={restaurant.photoUrls[0]} alt="restaurant-image" id={`landing-restaurant-image-${restaurant.id}`} />
             </div>
           </div>
 
           <div className="landing-restaurant-bottom">
-            <div className="landing-restaurant-info">
+            <div className="landing-restaurant-info" onClick={this.handleClick}>
               <div className="landing-restaurant-name">
                 {restaurant.name}
               </div>
-              <div className="landing-restaurant-ratings">
+              <div className="landing-restaurant-ratings" onClick={this.handleClick}>
                 {this.displayRatings(restaurant.average_rating)}
                 <div className="landing-restaurant-num-reviews">
                   <p>{restaurant.num_reviews} reviews</p>
@@ -66,12 +67,13 @@ class LandingRestaurantListItem extends React.Component {
                 <span>{restaurant.city}</span>
               </div>
               <div className="landing-restaurant-booked">
-                <span><FaUtensils/> Booked {restaurant.num_reservations} times</span>
+                <span><FaBook/> Booked {restaurant.num_reservations} times</span>
               </div>
             </div>
 
             <div className="landing-restaurant-times">
-              <Times time={this.props.time} restaurant={restaurant} />
+              <Times time={this.props.time} restaurant={restaurant} 
+                onClick={e => e.stopPropagation()}/>
             </div>
           </div>
         </div>

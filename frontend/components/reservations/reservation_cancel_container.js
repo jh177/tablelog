@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { deleteReservation, requestReservation } from "../../actions/reservation_actions";
+import { deleteReservation, requestReservation, updateReservation} from "../../actions/reservation_actions";
 import { requestRestaurant } from "../../actions/restaurant_actions";
 import ReservationCancel from "./reservation_cancel";
 

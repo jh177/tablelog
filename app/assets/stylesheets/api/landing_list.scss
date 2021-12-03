@@ -104,9 +104,9 @@
   margin: 8px 0 0;
   display: flex;
   align-items: center;
-  font-size: .875rem;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.25rem;
+  line-height: 17.5px;
 }
 
 // .landing-restaurant-num-reviews p{
@@ -157,7 +157,7 @@
 }
 
 .landing-restaurant-times{
-  margin: 8px 0 0;
+  margin: 16px 0 0;
 }
 
 .landing-restaurant-times ul{
@@ -180,7 +180,7 @@
   text-decoration: none;
   margin-right: 6px;
   width: 80px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .landing-restaurant-times ul a:hover{

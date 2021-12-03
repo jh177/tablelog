@@ -12,13 +12,13 @@ $btn-text-color-2:#2d333f;
 }
 
 .main-header {
-  height: 2.75rem;
+  height: 44px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  border-bottom: 0.25px solid rgba(0,0,0,.12);
+  border-bottom: 0.5px solid rgba(0,0,0,.12);
 }
 
 .main-header a{
@@ -40,7 +40,7 @@ $btn-text-color-2:#2d333f;
   border: 0.0625rem solid $btn-signup-color;
   padding: 0 16px;
   cursor: pointer;
-  line-height: 2rem;
+  line-height: 32px;
   border-radius: 0.1875rem;
 }
 
@@ -52,6 +52,25 @@ $btn-text-color-2:#2d333f;
   margin: 0;
   padding: 0 16px;
   cursor: pointer;
-  line-height: 2rem;
+  line-height: 32px;
   border-radius: 0.1875rem
+}
+
+.header-nav-bar{
+  display: flex;
+}
+
+.header-nav-bar>p{
+  line-height: 32px;
+  padding-right: 16px;
+  pointer-events: none;
+}
+
+.header-nav-bar a, .header-nav-bar button{
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.header-nav-bar a:hover,.header-nav-bar button:hover{
+  color: #b8222d;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaRegUserCircle, FaSearch, FaSignOutAlt} from "react-icons/fa"
 
 class Greeting extends React.Component{
   constructor(props){
@@ -19,9 +20,12 @@ class Greeting extends React.Component{
 
     const personalGreeting = () => (
       <hgroup className="header-group">
-        <h2 className="header-name">Welcome {currentUser.fname} {currentUser.lname}!</h2>
-        <Link to="/profile">Profile</Link>
-        <button className="header-button" onClick={logout}>Log Out</button>
+        <div className="header-nav-bar">
+          <p>Hi, {currentUser.fname}</p>
+          <Link className="header-profile-link" to="/profile"><FaRegUserCircle size={28}/></Link>
+          <button className="header-button" onClick={logout}><FaSignOutAlt size={28}/></button>
+          <FaSearch size={28}/>
+        </div>
       </hgroup>
     )
 

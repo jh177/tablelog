@@ -1,7 +1,7 @@
 import React from "react";
 import { timeSlots } from "../../util/reservation_util";
 import { Link } from "react-router-dom";
-
+import { FaRegCalendar, FaRegClock, FaRegUser} from "react-icons/fa"
 
 let today = new Date().toJSON().slice(0, 10);
 
@@ -27,6 +27,7 @@ class ReservationModify extends React.Component{
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
+      localStorage.setItem(type, e.target.value);
     }
   }
 
@@ -73,37 +74,109 @@ class ReservationModify extends React.Component{
       )
     ) : (null)
 
-    return(
-      <div>
-        <h2>Your current reservation</h2>
-        <br />
-        <h1>{restaurant.name}</h1>
-        <br />
-        <span>{reservation.date}</span>&nbsp;
-        <span>{reservation.time}</span>
-        <span>{reservation.party_size}</span>&nbsp;
-        <br />
-        <h3>Modify your reservation</h3>
+    let displayDate = new Date(reservation.date).toString().slice(0, 15);
 
-        <form>
-          <label htmlFor="date">Date
-            <input type="date" value={this.state.date} min={today}
-              onChange={this.handleInput("date")} />
-          </label>
-          <br />
-          <label htmlFor="time">Time
-            <select onChange={this.handleInput("time")}>
-              {timeOptions}
-            </select>
-          </label>
-          <br />
-          <button onClick={this.handleClickFind}>Find a new table</button>
-        </form>
-        {options}
+        // debugger
+
+    return(
+      <div className="reservation-modify-main">
+        <div className="reservation-modify-info">
+          <h2>Your current reservation</h2>
+
+          <div className="reservation-modify-details">
+            <div className="reservation-modify-details-left">
+              <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+            </div>
+            <div className="reservation-modify-details-right">
+              <div className="reservation-modify-details-restaurant-name">
+                <Link to={`/restaurants/${restaurant.id}`}>{restaurant.name}</Link>
+              </div>
+              <div className="reservation-modify-details-date-time">
+                <div className="reservation-modify-details-date">
+                  <FaRegCalendar className="fa-reg-calendar" size={20} />
+                  <p>{displayDate}</p>
+                </div>
+                <div className="reservation-modify-details-time">
+                  <FaRegClock className="fa-reg-clock" size={20} />
+
+                  <p>{reservation.time}</p>
+                </div>
+                <div className="reservation-modify-details-party-size">
+                  <FaRegUser className="fa-reg-user" size={20} />
+                  <p>{reservation.partySize} people</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 className="modify-page-hint">Modify your reservation</h3>
+
+
+          <div className="modify-page-form">
+
+            <div className="modify-page-form-inputs-1">
+
+              <div className="modify-page-form-date">
+                <FaRegCalendar className="fa-reg-calendar" size={20} />
+                <input 
+                  type="date" 
+                  id="modify-page-date-input"
+                  value={this.state.date} 
+                  min={today}
+                  onChange={this.handleInput("date")} />
+              </div>
+
+              <div className="modify-page-form-time">
+                <FaRegClock className="fa-reg-clock" size={20} />
+                <select
+                  id="modify-page-time-input"
+                  value={this.state.time}
+                  onChange={this.handleInput("time")}>
+                  {timeOptions}
+                </select>
+              </div>
+
+              <div className="modify-page-form-size">
+                <FaRegUser className="fa-reg-user" size={20} />
+                <select
+                  id="modify-page-size-input"
+                  value={this.state.partySize}
+                  onChange={this.handleInput("partySize")}>
+                  <option value="1">1 Person</option>
+                  <option value="2">2 People</option>
+                  <option value="3">3 People</option>
+                  <option value="4">4 People</option>
+                  <option value="5">5 People</option>
+                  <option value="6">6 People</option>
+                  <option value="7">7 People</option>
+                  <option value="8">8 People</option>
+                  <option value="9">9 People</option>
+                  <option value="10">10 People</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="modify-page-form-button">
+              <button
+                type="submit"
+                // id="modify-page-find-btn"
+                onClick={this.handleClickFind}>
+                <h2>Find a Table</h2>
+              </button>
+            </div>
+          </div>
+
+          <div className="modify-page-time-options">
+            {options}
+          </div>
+        </div>
+
+        <div className="reservation-modify-extra-info">
+        </div>
 
       </div>
     )
   }
 }
 
-export default ReservationModify
+export default ReservationModify;

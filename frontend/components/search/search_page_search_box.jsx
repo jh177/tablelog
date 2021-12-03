@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
+import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch } from "react-icons/fa"
+
 
 let today = new Date().toJSON().slice(0, 10);
 
