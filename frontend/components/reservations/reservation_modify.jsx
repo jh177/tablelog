@@ -82,6 +82,7 @@ class ReservationModify extends React.Component{
       <div className="reservation-modify-main">
         <div className="reservation-modify-info">
           <h2>Your current reservation</h2>
+
           <div className="reservation-modify-details">
             <div className="reservation-modify-details-left">
               <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
@@ -107,80 +108,71 @@ class ReservationModify extends React.Component{
               </div>
             </div>
           </div>
-        </div>
 
-        <h3>Modify your reservation</h3>
+          <h3 className="modify-page-hint">Modify your reservation</h3>
 
 
-        <div className="modify-page-form">
+          <div className="modify-page-form">
 
-          <div className="modify-page-form-inputs-1">
+            <div className="modify-page-form-inputs-1">
 
-            <div className="modify-page-form-date">
-              <FaRegCalendar className="fa-reg-calendar" size={20} />
-              <input type="date" value={this.state.date} min={today}
-                onChange={this.handleInput("date")} />
+              <div className="modify-page-form-date">
+                <FaRegCalendar className="fa-reg-calendar" size={20} />
+                <input 
+                  type="date" 
+                  id="modify-page-date-input"
+                  value={this.state.date} 
+                  min={today}
+                  onChange={this.handleInput("date")} />
+              </div>
+
+              <div className="modify-page-form-time">
+                <FaRegClock className="fa-reg-clock" size={20} />
+                <select
+                  id="modify-page-time-input"
+                  value={this.state.time}
+                  onChange={this.handleInput("time")}>
+                  {timeOptions}
+                </select>
+              </div>
+
+              <div className="modify-page-form-size">
+                <FaRegUser className="fa-reg-user" size={20} />
+                <select
+                  id="modify-page-size-input"
+                  value={this.state.partySize}
+                  onChange={this.handleInput("partySize")}>
+                  <option value="1">1 Person</option>
+                  <option value="2">2 People</option>
+                  <option value="3">3 People</option>
+                  <option value="4">4 People</option>
+                  <option value="5">5 People</option>
+                  <option value="6">6 People</option>
+                  <option value="7">7 People</option>
+                  <option value="8">8 People</option>
+                  <option value="9">9 People</option>
+                  <option value="10">10 People</option>
+                </select>
+              </div>
             </div>
 
-            <div className="modify-page-form-time">
-              <FaRegClock className="fa-reg-clock" size={20} />
-              <select
-                id="modify-page-time-input"
-                value={this.state.time}
-                onChange={this.handleInput("time")}>
-                {timeOptions}
-              </select>
-            </div>
-
-            <div className="modify-page-form-size">
-              <FaRegUser className="fa-reg-user" size={20} />
-              <select
-                id="modify-page-size-input"
-                value={this.state.partySize}
-                onChange={this.handleInput("partySize")}>
-                <option value="1">1 Person</option>
-                <option value="2">2 People</option>
-                <option value="3">3 People</option>
-                <option value="4">4 People</option>
-                <option value="5">5 People</option>
-                <option value="6">6 People</option>
-                <option value="7">7 People</option>
-                <option value="8">8 People</option>
-                <option value="9">9 People</option>
-                <option value="10">10 People</option>
-              </select>
+            <div className="modify-page-form-button">
+              <button
+                type="submit"
+                // id="modify-page-find-btn"
+                onClick={this.handleClickFind}>
+                <h2>Find a Table</h2>
+              </button>
             </div>
           </div>
 
-          <div className="modify-page-form-button">
-            <button
-              type="submit"
-              // id="modify-page-find-btn"
-              onClick={this.handleClickFind}>
-              <h2>Find a Table</h2>
-            </button>
+          <div className="modify-page-time-options">
+            {options}
           </div>
         </div>
 
-        <div className="modify-page-time-options">
-          {options}
+        <div className="reservation-modify-extra-info">
         </div>
-{/* 
-        <form>
-          <label htmlFor="date">Date
-            <input type="date" value={this.state.date} min={today}
-              onChange={this.handleInput("date")} />
-          </label>
-          <br />
-          <label htmlFor="time">Time
-            <select onChange={this.handleInput("time")}>
-              {timeOptions}
-            </select>
-          </label>
-          <br />
-          <button onClick={this.handleClickFind}>Find a new table</button>
-        </form>
-        {options} */}
 
       </div>
     )

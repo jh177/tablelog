@@ -66,7 +66,7 @@
   -webkit-appearance: none;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+#search-page-date-input::-webkit-calendar-picker-indicator {
   position: absolute;
   // border: 1px dashed red;
   margin: 0;
@@ -76,7 +76,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
   cursor: pointer;
   }
-input[type="date"]::-webkit-inner-spin-button {
+#search-page-date-input::-webkit-inner-spin-button {
     // z-index: 1;
     // cursor: pointer;
   display: none;

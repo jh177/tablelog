@@ -1,0 +1,283 @@
+.reservation-modify-main{
+  background: #fff;
+  padding: 16px 16px 0;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  margin: 32px auto 80px;
+  justify-content: center;
+}
+
+.reservation-modify-info{
+  width: 636px;
+}
+
+.reservation-modify-info>h2{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0 0 16px;
+  flex: 1 100%;
+  min-height: 24px;
+  color: #2d333f;
+}
+
+.reservation-modify-details{
+  height: 64px;
+  margin-bottom: 16px;
+  color: #2d333f;
+  display: flex;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #d8d9db;
+}
+
+.reservation-modify-details-left{
+  display: flex;
+  margin-right: 16px;
+}
+
+.reservation-modify-details-left>img{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4px;
+}
+
+.reservation-modify-details-right{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.reservation-modify-details-restaurant-name{
+  display: flex;
+  color: #2d333f;
+  text-decoration: none;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.reservation-modify-details-restaurant-name>a{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.reservation-modify-details-date-time{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.reservation-modify-details-date{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-right: 24px;
+}
+
+.reservation-modify-details-date-time img{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.reservation-modify-details-date-time p{
+  display: flex;
+  margin: 0 0.5rem;
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 16px;
+  justify-content: center;
+}
+
+.reservation-modify-details-time{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-right: 24px;
+}
+
+.reservation-modify-details-party-size{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-right: 24px;
+}
+
+.modify-page-hint{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 16px 0 16px 0;
+}
+
+.modify-page-form{
+  width: 636px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 32px;
+  // border-bottom: 1px solid #d8d9db;
+}
+
+.modify-page-form-inputs-1{
+  width: 460px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #d8d9db
+}
+
+.modify-page-form-date, .modify-page-form-time{
+  height: 47px;
+  width: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right:  0.5px solid rgba(0,0,0,.12);
+}
+
+.modify-page-form-size{
+  height: 48px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-reg-calendar, 
+.fa-reg-clock, 
+.fa-reg-size,
+.fa-reg-search{
+  margin-left: 8px;
+}
+
+#modify-page-date-input{
+  padding-left: 5px;
+  height: 48px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+#modify-page-date-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  // border: 1px dashed red;
+  margin: 0;
+  height: 47px;
+  width: 115px;
+  color: transparent;
+  background: transparent;
+  cursor: pointer;
+  }
+input[type="date"]::-webkit-inner-spin-button {
+    // z-index: 1;
+    // cursor: pointer;
+  display: none;
+  -webkit-appearance: none;
+}
+
+#modify-page-time-input{
+  height: 48px;
+  width: 100px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  // font-weight: 600;
+  // -webkit-appearance: none;
+  cursor: pointer;
+}
+
+#modify-page-size-input{
+  height: 48px;
+  width: 100px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modify-page-form-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  // width: 144px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #b8222d;
+  font-size: 16x;
+}
+
+.modify-page-form-button button{
+  cursor: pointer;
+  width: 144px;
+  color:#fff;
+  font-size: 16px;
+  font-family: "Roboto Mono", monospace;
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+}
+
+.modify-page-form-button>button>h2{
+  font-size: 16px;
+  font-family: "Roboto Mono", monospace;
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+  color:#fff;
+}
+
+.modify-page-form-button:hover{
+  -webkit-filter: brightness(80%)
+}
+
+
+.modify-page-time-options{
+  display: flex;
+  align-items: center;
+}
+
+.modify-page-time-options a{
+  background: #da3743;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 4px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 6px;
+  width: 80px;
+}
+
+.modify-page-time-options a:hover{
+  -webkit-filter: brightness(80%);
+}
+
+
+
+
+
+
+
+
+
+.reservation-modify-extra-info{
+  width: 302px;
+  margin-left: 32px;
+}

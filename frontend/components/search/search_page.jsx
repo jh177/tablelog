@@ -57,7 +57,10 @@ class SearchPage extends React.Component{
 
                   <div className="search-page-form-date">
                     <FaRegCalendar className="fa-reg-calendar" size={20} />
-                    <input type="date" value={this.state.date} min={today}
+                    <input type="date"
+                      id="search-page-date-input"
+                      value={this.state.date} 
+                      min={today}
                       onChange={this.handleInput("date")} />
                   </div>
 
