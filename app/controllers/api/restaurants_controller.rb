@@ -3,7 +3,7 @@ class Api::RestaurantsController < ApplicationController
   
   def index
     cities = ["los angeles"]
-    cuisines = ["chinese", "italian", "japanese", "korean"]
+    cuisines = ["chinese", "italian", "japanese", "korean", "indian", "thai"]
 
     if !params[:searchTerm]
       @restaurants = Restaurant.all

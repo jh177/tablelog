@@ -107,7 +107,7 @@ restaurant4 = Restaurant.create!(
   city: "Los Angeles",
   lat: 34.080006013852824,
   lng: -118.07346412487877,
-  website: "www.seaharbourrosemead.com"
+  website: "www.seaharbourrosemead.com",
   phone: "(626) 288-3939"
 )
 
