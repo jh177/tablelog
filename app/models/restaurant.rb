@@ -13,9 +13,10 @@
 #  lat         :float            not null
 #  lng         :float            not null
 #  website     :string
+#  phone       :string
 #
 class Restaurant < ApplicationRecord
-  validates :name, :description, :category, :address, :city, presence:true
+  validates :name, :description, :category, :address, :city, :lat, :lng, presence:true
   validates :name, uniqueness: { scope: :address, message: "should not have duplicate names for one address" }
 
   has_many_attached :photos
