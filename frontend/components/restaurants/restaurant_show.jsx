@@ -218,7 +218,7 @@ class RestaurantShow extends React.Component{
               </div>
             </div>
             <div className="restaurant-show-more-details">
-              <p>Website: <a href={restaurant.website}>{restaurant.website}</a></p>
+              <a href={`https://${restaurant.website}`} target="_blank">{restaurant.website}</a>
               <p>Phone number: {restaurant.phone}</p>
             </div>
           </div>
