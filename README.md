@@ -1,24 +1,35 @@
-# README
+# TableLog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![logo](app/assets/images/tablelog-logo-2.png)
 
-Things you may want to cover:
+## [Live Site](https://tablelog.herokuapp.com/)
 
-* Ruby version
+Welcome to TableLog, an inspiration from OpenTable, is a web-based restaurant-reservation application that allows users to search restaurants, make and manage online reservations, add and read restaurant reviews.
 
-* System dependencies
+# Technologies
+* Ruby on Rails
+* PostgresSQL
+* React
+* Redux
+* Javascript
+* Google Maps API
+* AWS S#
 
-* Configuration
+# Key Features
 
-* Database creation
+* User can view restaurants and available timeslots
+* Signed-in user can make reservations and view upcoming reservations and reservation history from profile page with links to edit and cancel future reservations.
+* Signed-in user can add reviews to past reserved restaurants.
+* Reservation search parameters persist through pages navigations
 
-* Database initialization
+## View restaurants and search timeslots
+![screenshot-1](app/assets/images/tablelog-1.png)
 
-* How to run the test suite
+## Ability to view reservation history and edit reservations and add reviews
+![screenshot-2](app/assets/images/tablelog-1.png)
 
-* Services (job queues, cache servers, search engines, etc.)
+## Search parameters persist through navigation of the app
 
-* Deployment instructions
+```javascript
 
-* ...
+```

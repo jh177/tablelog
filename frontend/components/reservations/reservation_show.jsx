@@ -34,7 +34,7 @@ class ReservationShow extends React.Component{
 
           <div className="reservation-show-restaurant-details">
             <div className="reservation-show-restaurant-details-left">
-              <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+              <img src={restaurant.photoUrl} alt="restaurant-image" />
             </div>
 
             <div className="reservation-show-restaurant-details-right">

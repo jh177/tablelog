@@ -107,7 +107,7 @@ class ProfileReservationItem extends React.Component {
     return (
       <div className="profile-reservation-details">
         <div className="profile-reservation-image">
-          <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+          <img src={restaurant.photoUrl} alt="restaurant-image" />
         </div>
         <div className="profile-reservation-right">
           <div className="profile-reservation-name">

@@ -47,7 +47,7 @@ class LandingRestaurantListItem extends React.Component {
         <div className="landing-restaurant-item">
           <div className="landing-restaurant-top">
             <div className="landing-restaurant-image" onClick={this.handleClick}>
-              <img src={restaurant.photoUrls[0]} alt="restaurant-image" id={`landing-restaurant-image-${restaurant.id}`} />
+              <img src={restaurant.photoUrl} alt="restaurant-image" id={`landing-restaurant-image-${restaurant.id}`} />
             </div>
           </div>
 

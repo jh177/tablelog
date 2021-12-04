@@ -85,7 +85,7 @@ class ReservationFormEdit extends React.Component {
 
           <div className="reservation-details">
             <div className="reservation-details-left">
-              <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+              <img src={restaurant.photoUrl} alt="restaurant-image" />
             </div>
             <div className="reservation-details-right">
               <div className="reservation-details-restaurant-name">

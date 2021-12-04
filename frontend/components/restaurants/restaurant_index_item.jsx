@@ -38,7 +38,7 @@ class RestaurantIndexItem extends React.Component{
       <div className="restaurant-item">
         <div className="restaurant-left">
           <div className="restaurant-image">
-            <img src={restaurant.photoUrls[0]} alt="restaurant-image" id={`restaurant-image-${restaurant.id}`} />
+            <img src={restaurant.photoUrl} alt="restaurant-image" id={`restaurant-image-${restaurant.id}`} />
           </div>
         </div>
 

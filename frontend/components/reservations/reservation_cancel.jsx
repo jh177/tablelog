@@ -36,7 +36,7 @@ class ReservationCancel extends React.Component{
 
           <div className="reservation-cancel-details">
             <div className="reservation-cancel-details-left">
-              <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+              <img src={restaurant.photoUrl} alt="restaurant-image" />
             </div>
             <div className="reservation-cancel-details-right">
               <div>

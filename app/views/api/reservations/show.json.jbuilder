@@ -7,6 +7,7 @@ end
 json.restaurant do
   json.set! @reservation.restaurant.id do
     json.partial! 'api/restaurants/restaurant', restaurant: @reservation.restaurant
+    json.photoUrl url_for(@reservation.restaurant.photos[0])
   end
 end
 

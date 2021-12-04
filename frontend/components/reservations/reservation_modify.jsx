@@ -85,7 +85,7 @@ class ReservationModify extends React.Component{
 
           <div className="reservation-modify-details">
             <div className="reservation-modify-details-left">
-              <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+              <img src={restaurant.photoUrl} alt="restaurant-image" />
             </div>
             <div className="reservation-modify-details-right">
               <div className="reservation-modify-details-restaurant-name">
