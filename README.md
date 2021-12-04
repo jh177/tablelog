@@ -19,17 +19,59 @@ Welcome to TableLog, an inspiration from OpenTable, is a web-based restaurant-re
 
 ## Ability to view restaurants and timeslots
 * User can view restaurants and available timeslots
-* Signed-in user can make reservations and view upcoming reservations and reservation history from profile page with links to edit and cancel future reservations.
+* Signed-in user can select desired timeslots to make reservations
+
 ![screenshot-1](app/assets/images/tablelog-ss-1.png)
 
-## Ability to view reservation history and edit reservations and add reviews
-* Signed-in user can add reviews to past reserved restaurants.
-* Reservation search parameters persist through pages navigations
+## Ability to view reservation history and edit reservations
+* Signed-in user can navigate to profile page where the abilities of viewing, modifing, and cancelling upcoming reservations as well as creating reviews to past dining experience are provided.
+
 ![screenshot-2](app/assets/images/tablelog-ss-2.png)
 
-## Search parameters persist through navigation of the app
 
+## Ability to review past dining experience
+* Signed-in user can add reviews to past dining experience in user's profile page and the review will be updated in restaurant show page.
+* Review form provides an interactive experience for user to select ratings in several categories. Below code snippets 
+
+![screenshot-2](app/assets/images/tablelog-ss-3.png)
 
 ```javascript
+  // review_form.jsx
+  // this code will provide the above dynamic rating system
 
+  displayRatingStars(field){
+      const levels = ["Poor", "Fair", "Good", "Very Good", "Outstanding"];
+
+      return (
+        <div className="rating-star-container">
+          <div className="rating-stars">
+            {[...Array(5)].map((star, i) => {
+              const rating = i + 1
+
+              return (
+                <label key={i} >
+                  <input
+                    type="radio"
+                    name={field}
+                    value={rating}
+                    onClick={this.handleSelect(field)}
+                  />
+                  <FaStar
+                    className="star"
+                    color={((i + 1) <= (this.state[`hover${field}`] || this.state[field])) ?"#b8222d" : "#e4e5e9"}
+                    size={40}
+                    onMouseEnter={() => this.setHover(`hover${field}`, rating)}
+                    onMouseLeave={()=>this.resetHover([`hover${field}`])}
+                  />
+                </label>
+              )
+            })}
+
+            <div className="rating-prompts">
+              {levels[this.state[`hover${field}`] - 1] || levels[this.state[field] - 1]}
+            </div>
+          </div>
+        </div>
+      )
+    }
 ```

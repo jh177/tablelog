@@ -38,7 +38,7 @@ class ProfileReservationItem extends React.Component {
   }
 
   noiseLevel(noise) {
-    const noiseLevels = ["Do not recall", "Quiet", "Moderate", "Energetic"]
+    const noiseLevels = ["Quiet", "Moderate", "Energetic", "Too Loud"]
     return noiseLevels[Math.round(noise) - 1]
   }
 

@@ -118,7 +118,7 @@ class ReviewForm extends React.Component{
   }
 
   displayNoise(){
-    const noiseLevels = ["Do not recall", "Quiet", "Moderate", "Energetic"];
+    const noiseLevels = ["Quiet", "Moderate", "Energetic", "Too Loud"]
 
     return (
       <div className="rating-noise-container">
