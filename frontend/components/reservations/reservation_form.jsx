@@ -57,6 +57,9 @@ class ReservationForm extends React.Component{
 
 
   render(){
+
+    // debugger
+
     if (!this.props.restaurant) {return null}
     // let restaurant;
 
@@ -89,6 +92,8 @@ class ReservationForm extends React.Component{
     // debugger
     let displayDate = new Date(date).toString().slice(0, 15);
 
+    let restaurantPhotoUrl = (restaurant.photoUrl) ? restaurant.photoUrl : restaurant.photoUrls[0]
+
     return (
       <div className="reservation-page-main">
         <div className="reservation-form">
@@ -96,7 +101,7 @@ class ReservationForm extends React.Component{
 
           <div className="reservation-details">
             <div className="reservation-details-left">
-              <img src={restaurant.photoUrls[0]} alt="restaurant-image" />
+              <img src={restaurantPhotoUrl} alt="restaurant-image" />
             </div>
             <div className="reservation-details-right">
               <div className="reservation-details-restaurant-name">
