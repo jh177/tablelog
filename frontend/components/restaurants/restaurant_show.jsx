@@ -144,7 +144,7 @@ class RestaurantShow extends React.Component{
     return (
       <div className="restaurant-show">
         <div className="restaurant-show-header-img">
-          <img src={restaurant.photoUrl} alt="restaurant-image" id="restaurant-show-header-img"/>
+          <img src={restaurant.photoUrls[0]} alt="restaurant-image" id="restaurant-show-header-img"/>
         </div>
 
         <div className="restaurant-show-main">
