@@ -7,7 +7,7 @@ const mSTP = (state) => ({
 })
 
 const mDTP = (dispatch) => ({
-  requestRestaurants: (searchTerm)=>dispatch(requestRestaurants(searchTerm))
+  requestRestaurants: (query)=>dispatch(requestRestaurants(query))
 })
 
 export default connect(mSTP, mDTP)(RestaurantIndex);

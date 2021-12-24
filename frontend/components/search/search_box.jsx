@@ -12,7 +12,7 @@ class SearchBox extends React.Component{
       partySize: 2,
       date: today,
       time: "6:30 PM",
-      searchTerm: ""
+      query: ""
     };
     localStorage.setItem("time", "6:30 PM");
     this.handleInput = this.handleInput.bind(this)
@@ -75,21 +75,21 @@ class SearchBox extends React.Component{
                   id="search-input"
                   type="text"
                   placeholder="Location or Cuisine"
-                  value={this.state.searchTerm}
-                  onChange={this.handleInput("searchTerm")}
+                  value={this.state.query}
+                  onChange={this.handleInput("query")}
                 />
               </div>
 
               <div className="landing-search-box-form-button">
                 <Link to={{
-                  pathname: "/search",
-                  // pathname: `/search/${this.state.searchTerm}`,
-                  state: {
-                    date: this.state.date,
-                    time: this.state.time,
-                    partySize: this.state.partySize,
-                    searchTerm: this.state.searchTerm
-                  }
+                  // pathname: `/search?q=${this.state.query}`,
+                  pathname: `/search/${this.state.query}`,
+                  // state: {
+                  //   date: this.state.date,
+                  //   time: this.state.time,
+                  //   partySize: this.state.partySize,
+                  //   query: this.state.query
+                  // }
                 }}>Let's go</Link>
               </div>
             </div>

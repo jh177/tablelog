@@ -7,7 +7,7 @@ class LandingRestaurantList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "",
+      query: "",
       time: "6:30 PM",
       date: today,
       partySize: 2
@@ -15,7 +15,7 @@ class LandingRestaurantList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestRestaurants(this.state.searchTerm);
+    this.props.requestRestaurants(this.state.query);
   }
 
   render() {

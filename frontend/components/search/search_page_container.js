@@ -4,11 +4,11 @@ import SearchPage from "./search_page";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  restaurants: state.entities.restaurants,
+  restaurants: state.entities.restaurants
 })
 
 const mDTP = (dispatch) => ({
-  requestRestaurants: (searchTerm) => dispatch(requestRestaurants(searchTerm)),
+  requestRestaurants: (query) => dispatch(requestRestaurants(query)),
 })
 
 export default connect(mSTP, mDTP)(SearchPage);

@@ -1,6 +1,7 @@
 import React from "react";
 import GreetingContainer from "./greeting/greeting_container";
 import { Route, Link, Switch} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 import { ProtectedRoute, AuthRoute } from "../util/route_util";
@@ -44,9 +45,11 @@ const App = () => (
       <ProtectedRoute exact path="/booking/cancel/:reservationId" component={ReservationCancelContainer}/>
       <ProtectedRoute exact path="/profile" component={ProfileContainer}/>
       <ProtectedRoute exact path="/feedback/:reservationId" component={ReviewFormContainer}/>
-      <Route exact path="/search/:searchTerm" component={SearchPage}/>
-      <Route exact path="/search" component={SearchPage}/>
+      {/* <Route exact path="/search/:searchTerm" component={SearchPage}/> */}
+      <Route exact path="/search/:query" component={SearchPageContainer}/>
+      <Route exact path="/search" component={SearchPageContainer}/>
       <Route exact path="/" component={Landing} />
+      <Route render={() => <Redirect to={{ pathname: "/" }} />} />
     </Switch>
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
     {/* <AuthRoute path="/signup" component={SignupFormContainer} /> */}

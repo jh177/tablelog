@@ -5,8 +5,9 @@ import Times from "../times/times";
 class RestaurantIndex extends React.Component{
   constructor(props){
     super(props);
+    // debugger
     this.state = {
-      searchTerm: localStorage.getItem("searchTerm"),
+      query: localStorage.getItem("query"),
       // updated: this.props.updated
     }
     this.prevUpdatedStatus = this.props.updated
@@ -14,11 +15,12 @@ class RestaurantIndex extends React.Component{
   }
 
   componentDidMount(){
-    this.props.requestRestaurants(this.state.searchTerm);
+    // debugger
+    this.props.requestRestaurants(this.state.query);
   }
 
   // componentWillReceiveProps(props) {
-  //   this.setState({ searchTerm: props.searchTerm })
+  //   this.setState({ query: props.query })
   // }
 
   componentDidUpdate(prevProps, prevState){
@@ -26,7 +28,7 @@ class RestaurantIndex extends React.Component{
     this.prevUpdatedStatus = prevProps.updated
     this.prevTime = prevProps.time
     if (this.props.updated !== prevProps.updated) {
-      this.props.requestRestaurants(this.props.searchTerm)
+      this.props.requestRestaurants(this.props.query)
         // .then(console.log(this.props.restaurants))
     }
     // debugger
@@ -34,6 +36,8 @@ class RestaurantIndex extends React.Component{
 
   render(){
 
+    // debugger
+    if (this.props.restaurants.length===0) return null;
     // debugger
     let time;
 

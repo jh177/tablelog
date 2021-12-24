@@ -1,5 +1,6 @@
 import React from "react";
 import RestaurantIndexContainer from "../restaurants/restaurant_index_container";
+import { withRouter } from "react-router";
 import { timeSlots } from "../../util/reservation_util";
 import SearchPageNav from "./search_page_nav";
 import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch } from "react-icons/fa"
@@ -14,12 +15,16 @@ class SearchPage extends React.Component{
       partySize: localStorage.getItem("partySize"),
       date: localStorage.getItem("date"),
       time: localStorage.getItem("time"),
-      searchTerm: localStorage.getItem("searchTerm"),
+      query: localStorage.getItem("query"),
       updated: false,
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this); 
   }
+
+  // componentDidMount(){
+  //   this.props.requestRestaurants(this.props.match.params.query)
+  // }
 
   handleInput(type) {
     return (e) => {
@@ -30,13 +35,18 @@ class SearchPage extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    // debugger
     this.setState({updated: !this.state.updated})
+    this.props.history.push(`/search/${this.state.query}`)
   }
 
   render(){
+    // debugger
+    
     const timeOptions = timeSlots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
     ))
+
 
     return(
       <div className="search-page-container">
@@ -92,8 +102,8 @@ class SearchPage extends React.Component{
                     id="search-page-search-input"
                     type="text"
                     placeholder="Location or Cuisine"
-                    value={this.state.searchTerm}
-                    onChange={this.handleInput("searchTerm")}
+                    value={this.state.query}
+                    onChange={this.handleInput("query")}
                   />
                 </div>
 
@@ -117,7 +127,7 @@ class SearchPage extends React.Component{
           </div>
           <div className="search-page-list">
             <RestaurantIndexContainer
-              searchTerm={this.state.searchTerm}
+              query={this.state.query}
               time={this.state.time}
               updated={this.state.updated}
             />
@@ -128,4 +138,4 @@ class SearchPage extends React.Component{
   }
 }
 
-export default SearchPage;
+export default withRouter(SearchPage);

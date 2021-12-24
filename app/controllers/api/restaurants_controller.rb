@@ -2,20 +2,22 @@ class Api::RestaurantsController < ApplicationController
   
   
   def index
-    cities = ["los angeles"]
-    cuisines = ["chinese", "italian", "japanese", "korean", "indian", "thai", "mediterranean", "californian", "mexican"]
+    # cities = ["los angeles"]
+    # cuisines = ["chinese", "italian", "japanese", "korean", "indian", "thai", "mediterranean", "californian", "mexican"]
 
-    if !params[:searchTerm]
-      @restaurants = Restaurant.all
-    else
-      if cities.include?(params[:searchTerm].downcase)
-        @restaurants = Restaurant.where('lower(city) LIKE ?', params[:searchTerm].downcase)
-      elsif cuisines.include?(params[:searchTerm].downcase)
-        @restaurants = Restaurant.where('lower(category) LIKE ?', params[:searchTerm].downcase)
-      else
-        @restaurants = Restaurant.all
-      end
-    end
+    # if !params[:searchTerm]
+    #   @restaurants = Restaurant.all
+    # else
+    #   if cities.include?(params[:searchTerm].downcase)
+    #     @restaurants = Restaurant.where('lower(city) LIKE ?', params[:searchTerm].downcase)
+    #   elsif cuisines.include?(params[:searchTerm].downcase)
+    #     @restaurants = Restaurant.where('lower(category) LIKE ?', params[:searchTerm].downcase)
+    #   else
+    #     @restaurants = Restaurant.all
+    #   end
+    # end
+
+    @restaurants = Restaurant.all
     render :index
     
   end
@@ -34,12 +36,21 @@ class Api::RestaurantsController < ApplicationController
     render :show
   end
 
+  def search
+    query = params[:query]
+    @restaurants = query.length > 0 ? Restaurant.where("category ILIKE ? OR city ILIKE ?", "%#{query}%", "%#{query}%") : Restaurant.all
+    # debugger
+    if @restaurants.length > 0
+      render :index
+    end
+  end
+
   def restaurant_params
     params.require(:restaurant).permit(:name, :description, :category, :address, :city, photos: [])
   end
 
-  def search_term
-    params.require(:searchTerm)
-  end
+  # def search_term
+  #   params.require(:searchTerm)
+  # end
 
 end
