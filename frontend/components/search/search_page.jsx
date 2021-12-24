@@ -127,7 +127,7 @@ class SearchPage extends React.Component{
           </div>
           <div className="search-page-list">
             <RestaurantIndexContainer
-              query={this.state.query}
+              query={this.props.match.params.query}
               time={this.state.time}
               updated={this.state.updated}
             />
