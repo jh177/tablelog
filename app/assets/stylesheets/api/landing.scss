@@ -176,8 +176,18 @@ input[type="date"]::-webkit-inner-spin-button {
   border-radius: 4px;
 }
 
-.search-suggestions-query a{
+// .search-suggestions-query a{
+//   color: inherit;
+//   display: inline-block;
+//   width: 100%;
+//   padding-left: 0;
+// }
+
+#search-suggestions-query{
   color: inherit;
+  display: inline-block;
+  width: 262px;
+  text-align: left;
 }
 
 .search-suggestions-query:hover{
@@ -186,15 +196,17 @@ input[type="date"]::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-.fa-utensils, .fa-location{
-  margin: 0 8px 0 8px;
+.search-fa-utensils, .search-fa-location{
+  margin: 0 12px 0 8px;
 }
 
 .search-suggestions a{
   line-height: 32px;
   padding-left: 38px;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
+  display: inline-block;
+  width: 262px;
 }
 
 .search-suggestions-list{

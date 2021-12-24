@@ -16,7 +16,7 @@ class RestaurantIndex extends React.Component{
 
   componentDidMount(){
     // debugger
-    this.props.requestRestaurants(this.state.query);
+    this.props.requestRestaurants(this.props.query);
     // this.props.requestRestaurants(this.props.match.params.query);
   }
 
@@ -41,7 +41,7 @@ class RestaurantIndex extends React.Component{
     // if (this.props.restaurants.length===0) return null;
     if (this.props.restaurants.length===0) return (
       <div>
-        <div>You searched for "{this.state.query}"</div>
+        <div>You searched for "{this.props.query}"</div>
         <h2>{this.props.restaurants.length} restaurants available</h2>
       </div>
     );
@@ -69,7 +69,7 @@ class RestaurantIndex extends React.Component{
     return(
       <div className="restaurant-list-container">
         <div className="restaurant-list-number">
-          <div>You searched for "{this.state.query}"</div>
+          <div>You searched for "{this.props.query}"</div>
           <h2>{this.props.restaurants.length} restaurants available</h2>
         </div>
         <div className="restaurant-list">

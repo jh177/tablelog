@@ -1,9 +1,10 @@
 import React from "react";
 import RestaurantIndexContainer from "../restaurants/restaurant_index_container";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
 import SearchPageNav from "./search_page_nav";
-import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch } from "react-icons/fa"
+import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch, FaUtensils, FaLocationArrow } from "react-icons/fa"
 
 
 let today = new Date().toJSON().slice(0, 10);
@@ -15,11 +16,14 @@ class SearchPage extends React.Component{
       partySize: localStorage.getItem("partySize"),
       date: localStorage.getItem("date"),
       time: localStorage.getItem("time"),
-      query: localStorage.getItem("query"),
+      // query: localStorage.getItem("query"),
+      query: "",
       updated: false,
     };
     this.handleInput = this.handleInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this); 
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSearchInput = this.handleSearchInput.bind(this);
+    this.handleClickLink = this.handleClickLink.bind(this);
   }
 
   // componentDidMount(){
@@ -33,11 +37,24 @@ class SearchPage extends React.Component{
     }
   }
 
+  handleSearchInput() {
+    return (e) => {
+      this.setState({ query: e.target.value });
+      this.setState({ searching: true });
+      localStorage.setItem("query", e.target.value);
+      // debugger
+    }
+  }
+
   handleSubmit(e){
     e.preventDefault();
     // debugger
-    this.setState({updated: !this.state.updated})
+    this.setState({updated: !this.state.updated, query:""})
     this.props.history.push(`/search/${this.state.query}`)
+  }
+
+  handleClickLink(){
+    this.setState({ updated: !this.state.updated, query: "" })
   }
 
   render(){
@@ -46,6 +63,48 @@ class SearchPage extends React.Component{
     const timeOptions = timeSlots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
     ))
+
+    const cities = ["Irvine", "Newport Beach", "Beverly Hills", "Orange", "Torrance", "Los Angeles", "West Hollywood", "Long Beach", "Rosemead"]
+    const cuisines = ["French", "Italian", "Chinese", "Mexican", "Thai", "Mediterranean", "Korean", "Japanese", "Indian"]
+
+    const filteredCities = cities.filter(city => city.toLowerCase().includes(this.state.query))
+    const filteredCuisines = cuisines.filter(cuisine => cuisine.toLowerCase().includes(this.state.query))
+
+    const cuisineList = (filteredCuisines.length === 0) ? null :
+      (<div>
+        <div className="search-suggestions-title">
+          <FaUtensils className="search-fa-utensils" size={18} />
+          Cuisines
+        </div>
+        {filteredCuisines.map((cuisine, i) => (
+          <div className="search-suggestions-list" key={i}>
+            <Link to={`/search/${cuisine}`} onClick={this.handleClickLink}>{cuisine}</Link>
+          </div>
+        ))}
+      </div>)
+
+    const cityList = (filteredCities.length === 0) ? null :
+      (<div>
+        <div className="search-suggestions-title">
+          <FaLocationArrow className="search-fa-location" size={18} />
+          Cities
+        </div>
+        {filteredCities.map((city, i) => (
+          <div className="search-suggestions-list" key={i}>
+            <Link to={`/search/${city}`} onClick={this.handleClickLink}>{city}</Link>
+          </div>
+        ))}
+      </div>)
+
+    const searchSuggestions = (!this.state.searching || this.state.query === "") ? null :
+      (<div className="search-suggestions">
+        <div className="search-suggestions-query">
+          <Link id="search-suggestions-query" to={`/search/${this.state.query}`} onClick={this.handleClickLink}>Search: "{this.state.query}"</Link>
+        </div>
+        {cuisineList}
+        {cityList}
+      </div>)
+
 
 
     return(
@@ -96,15 +155,18 @@ class SearchPage extends React.Component{
                   </div>
                 </div>
 
-                <div className="search-page-form-inputs-2">
-                  <FaSearch className="fa-reg-search" size={20} />
-                  <input
-                    id="search-page-search-input"
-                    type="text"
-                    placeholder="Location or Cuisine"
-                    value={this.state.query}
-                    onChange={this.handleInput("query")}
-                  />
+                <div className="search-page-form-inputs-2-wrapper">
+                  <div className="search-page-form-inputs-2">
+                    <FaSearch className="fa-reg-search" size={20} />
+                    <input
+                      id="search-page-search-input"
+                      type="text"
+                      placeholder="Location or Cuisine"
+                      value={this.state.query}
+                      onChange={this.handleSearchInput()}
+                    />
+                  </div>
+                  {searchSuggestions}
                 </div>
 
                 <div className="search-page-form-button">

@@ -107,6 +107,12 @@
   cursor: pointer;
 }
 
+.search-page-form-inputs-2-wrapper{
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
 .search-page-form-inputs-2{
   width: 300px;
   height: 48px;

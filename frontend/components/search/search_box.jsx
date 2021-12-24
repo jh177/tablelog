@@ -53,7 +53,7 @@ class SearchBox extends React.Component{
     const cuisineList = (filteredCuisines.length === 0) ? null :
       (<div>
         <div className="search-suggestions-title">
-          <FaUtensils className="fa-utensils" size={18} />
+          <FaUtensils className="search-fa-utensils" size={18} />
           Cuisines
         </div>
         {filteredCuisines.map((cuisine, i) => (
@@ -66,7 +66,7 @@ class SearchBox extends React.Component{
     const cityList = (filteredCities.length === 0 ) ? null : 
       (<div>
         <div className="search-suggestions-title">
-          <FaLocationArrow className="fa-location" size={18} />
+          <FaLocationArrow className="search-fa-location" size={18} />
           Cities
         </div>
         {filteredCities.map((city,i)=>(
@@ -79,7 +79,7 @@ class SearchBox extends React.Component{
     const searchSuggestions = (!this.state.searching || this.state.query === "") ? null :
       (<div className="search-suggestions">
           <div className="search-suggestions-query">
-            <Link to={`/search/${this.state.query}`}>Search: "{this.state.query}"</Link>
+            <Link id="search-suggestions-query" to={`/search/${this.state.query}`}>Search: "{this.state.query}"</Link>
           </div>
           {cuisineList}
           {cityList}
