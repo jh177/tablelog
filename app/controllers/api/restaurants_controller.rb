@@ -38,7 +38,8 @@ class Api::RestaurantsController < ApplicationController
 
   def search
     query = params[:query]
-    @restaurants = query.length > 0 ? Restaurant.where("category ILIKE ? OR city ILIKE ?", "%#{query}%", "%#{query}%") : []
+    # debugger
+    @restaurants = (query) ? Restaurant.where("category ILIKE ? OR city ILIKE ?", "%#{query}%", "%#{query}%") : Restaurant.all
     # debugger
     # if @restaurants.length > 0
       render :index

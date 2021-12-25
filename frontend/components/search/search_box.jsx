@@ -3,14 +3,22 @@ import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
 import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch, FaUtensils, FaLocationArrow} from "react-icons/fa"
 
-let today = new Date().toJSON().slice(0,10);
+// let today = new Date().toJSON().slice(0,10);
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const today = new Date().toLocaleString("en-US", {
+  timeZone: timezone,
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+})
+const todayDate = new Date(today).toJSON().slice(0,10)
 
 class SearchBox extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       partySize: 2,
-      date: today,
+      date: todayDate,
       time: "6:30 PM",
       query: "",
       searching: false
@@ -18,13 +26,26 @@ class SearchBox extends React.Component{
     localStorage.setItem("time", "6:30 PM");
     this.handleInput = this.handleInput.bind(this)
     this.handleSearchInput = this.handleSearchInput.bind(this)
-
+    this.handleDateInput = this.handleDateInput.bind(this)
   }
 
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
       localStorage.setItem(type, e.target.value);
+    }
+  }
+
+  handleDateInput(){
+    return (e) => {
+      let newDate = new Date(e.target.value.toLocaleString("en-US", {
+        timeZone: timezone,
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+      })).toJSON().slice(0, 10)
+      this.setState({ date: newDate})
+      localStorage.setItem("date", newDate);
     }
   }
 
@@ -96,8 +117,8 @@ class SearchBox extends React.Component{
               <div className="landing-search-box-form-inputs-1">
                 <div className="search-box-form-date">
                   <FaRegCalendar className="fa-reg-calendar" size={20}/>
-                  <input id="date-input" type="date" value={this.state.date} min={today}
-                    onChange={this.handleInput("date")} />
+                  <input id="date-input" type="date" value={new Date(this.state.date).toJSON().slice(0, 10)} min={todayDate}
+                    onChange={this.handleDateInput()} />
                 </div>
                 <div className="search-box-form-time">
                   <FaRegClock className="fa-reg-clock" size={20}/>

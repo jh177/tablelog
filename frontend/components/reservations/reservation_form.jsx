@@ -31,12 +31,13 @@ class ReservationForm extends React.Component{
   // }
 
   handleSubmit(e){
-    
+    // debugger
     e.preventDefault();
+    const dateInfo = localStorage.getItem("date").split("-")
     const reservation = Object.assign({}, this.state, {
       user_id: this.props.currentUser.id,
       restaurant_id: this.props.restaurant.id,
-      date: new Date(localStorage.getItem("date")),
+      date: new Date(dateInfo[0], dateInfo[1]-1, dateInfo[2]),
       time: localStorage.getItem("time"),
       party_size: parseInt(localStorage.getItem("partySize")),
       email: this.props.currentUser.email
@@ -90,7 +91,8 @@ class ReservationForm extends React.Component{
     }
     // localStorage.setItem("restaurant", JSON.stringify(this.props.restaurant));
     // debugger
-    let displayDate = new Date(date).toString().slice(0, 15);
+    let dateInfo = date.split("-")
+    let displayDate = new Date(dateInfo[0], dateInfo[1]-1, dateInfo[2]).toString().slice(0, 15);
 
     let restaurantPhotoUrl = (restaurant.photoUrl) ? restaurant.photoUrl : restaurant.photoUrls[0]
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { timeSlots } from "../../util/reservation_util";
 import { Link } from "react-router-dom";
-
+import {todayDate} from "../../util/reservation_util"
 
 class Times extends React.Component{
   constructor(props){
@@ -15,20 +15,22 @@ class Times extends React.Component{
       times.push(timeSlots[(index + i) % 48])
     }
     
+    // debugger
+    const defaultDate = (localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate
+    const defaultSize = (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2
+
     const options = times.map((time, i) => (
         <Link to={{
           pathname: `/booking/${this.props.restaurant.id}`,
           state: {
             restaurant: this.props.restaurant,
-            date: localStorage.getItem("date"),
+            date: defaultDate,
             time: time,
-            partySize: localStorage.getItem("partySize")
+            partySize: defaultSize
           }
         }} key={i}>{time}</Link>
       )
     )
-
-    // debugger
 
     return(
       <ul>

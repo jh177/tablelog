@@ -103,6 +103,8 @@ class ProfileReservationItem extends React.Component {
       ) : null;
       
       // debugger
+    let dateInfo = reservation.date.split("-")
+    let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
 
     return (
       <div className="profile-reservation-details">
@@ -114,7 +116,7 @@ class ProfileReservationItem extends React.Component {
             <Link to={`/restaurants/${restaurant.id}`}>{restaurant.name}</Link>
           </div>
           <div className="profile-reservation-date">
-            <p>{new Date(reservation.date).toString().slice(0, 15)} at {reservation.time}</p>
+            <p>{displayDate} at {reservation.time}</p>
           </div>
           <div className="profile-reservation-size">
             <p>Table for {reservation.party_size}</p>

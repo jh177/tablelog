@@ -4,24 +4,46 @@ import {Link} from "react-router-dom";
 import { ProtectedRoute, AuthRoute } from "../../util/route_util";
 import ReservationForm from "../../components/reservations/reservation_form"
 
-let today = new Date().toJSON().slice(0, 10);
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const today = new Date().toLocaleString("en-US", {
+  timeZone: timezone,
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+})
+const todayDate = new Date(today).toJSON().slice(0, 10)
+
 
 class ReservationSearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      partySize: 2,
-      date: today,
+      partySize: parseInt(localStorage.getItem("partySize")),
+      date: localStorage.getItem("date"),
       time: "6:30 PM",
       timeAvails: []
     }
-    this.handleInput = this.handleInput.bind(this)
-    this.handleClickFind = this.handleClickFind.bind(this)
+    this.handleInput = this.handleInput.bind(this);
+    this.handleClickFind = this.handleClickFind.bind(this);
+    this.handleDateInput = this.handleDateInput.bind(this);
   }
 
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
+    }
+  }
+
+  handleDateInput() {
+    return (e) => {
+      let newDate = new Date(e.target.value.toLocaleString("en-US", {
+        timeZone: timezone,
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+      })).toJSON().slice(0, 10)
+      this.setState({ date: newDate })
+      localStorage.setItem("date", newDate);
     }
   }
 
@@ -102,8 +124,8 @@ class ReservationSearchForm extends React.Component {
               <div id="date-input-wrapper">
                 <input id="res-show-date-input"
                   type="date" 
-                  value={this.state.date} 
-                  min={today}
+                  value={new Date(this.state.date).toJSON().slice(0, 10)} 
+                  min={todayDate}
                   onChange={this.handleInput("date")} />
               </div>
             </div>

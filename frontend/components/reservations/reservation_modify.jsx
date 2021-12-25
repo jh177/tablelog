@@ -3,7 +3,14 @@ import { timeSlots } from "../../util/reservation_util";
 import { Link } from "react-router-dom";
 import { FaRegCalendar, FaRegClock, FaRegUser} from "react-icons/fa"
 
-let today = new Date().toJSON().slice(0, 10);
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const today = new Date().toLocaleString("en-US", {
+  timeZone: timezone,
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+})
+const todayDate = new Date(today).toJSON().slice(0, 10)
 
 
 class ReservationModify extends React.Component{
@@ -11,11 +18,12 @@ class ReservationModify extends React.Component{
     super(props);
     this.state = {
       partySize: localStorage.getItem("partySize"),
-      date: localStorage.getItem("date"),
+      date: todayDate,
       time: localStorage.getItem("time"),
       timeAvails: []
     }
-    this.handleInput = this.handleInput.bind(this)
+    this.handleInput = this.handleInput.bind(this);
+    this.handleDateInput = this.handleDateInput.bind(this);
     this.handleClickFind = this.handleClickFind.bind(this)
   }
 
@@ -28,6 +36,19 @@ class ReservationModify extends React.Component{
     return (e) => {
       this.setState({ [type]: e.target.value });
       localStorage.setItem(type, e.target.value);
+    }
+  }
+
+  handleDateInput() {
+    return (e) => {
+      let newDate = new Date(e.target.value.toLocaleString("en-US", {
+        timeZone: timezone,
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+      })).toJSON().slice(0, 10)
+      this.setState({ date: newDate })
+      localStorage.setItem("date", newDate);
     }
   }
 
@@ -74,7 +95,8 @@ class ReservationModify extends React.Component{
       )
     ) : (null)
 
-    let displayDate = new Date(reservation.date).toString().slice(0, 15);
+    let dateInfo = reservation.date.split("-")
+    let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
 
         // debugger
 
@@ -121,9 +143,9 @@ class ReservationModify extends React.Component{
                 <input 
                   type="date" 
                   id="modify-page-date-input"
-                  value={this.state.date} 
-                  min={today}
-                  onChange={this.handleInput("date")} />
+                  value={new Date(this.state.date).toJSON().slice(0, 10)} 
+                  min={todayDate}
+                  onChange={this.handleDateInput()} />
               </div>
 
               <div className="modify-page-form-time">

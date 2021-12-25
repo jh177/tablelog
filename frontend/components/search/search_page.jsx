@@ -5,17 +5,19 @@ import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
 import SearchPageNav from "./search_page_nav";
 import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch, FaUtensils, FaLocationArrow } from "react-icons/fa"
+import {timezone, today, todayDate} from "../../util/reservation_util"
 
-
-let today = new Date().toJSON().slice(0, 10);
+const defaultDate = (localStorage.date.length>0) ? localStorage.getItem("date") : todayDate 
+const defaultTime = (localStorage.time.length>0) ? localStorage.getItem("time") : "6:30 PM"
+const defaultSize = (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2
 
 class SearchPage extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      partySize: localStorage.getItem("partySize"),
-      date: localStorage.getItem("date"),
-      time: localStorage.getItem("time"),
+      partySize: defaultSize,
+      date: defaultDate,
+      time: defaultTime,
       // query: localStorage.getItem("query"),
       query: "",
       updated: false,
@@ -24,6 +26,7 @@ class SearchPage extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleClickLink = this.handleClickLink.bind(this);
+    this.handleDateInput = this.handleDateInput.bind(this)
   }
 
   // componentDidMount(){
@@ -34,6 +37,19 @@ class SearchPage extends React.Component{
     return (e) => {
       localStorage.setItem(type, e.target.value);
       this.setState({ [type]: e.target.value });
+    }
+  }
+
+  handleDateInput() {
+    return (e) => {
+      let newDate = new Date(e.target.value.toLocaleString("en-US", {
+        timeZone: timezone,
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+      })).toJSON().slice(0, 10)
+      this.setState({ date: newDate })
+      localStorage.setItem("date", newDate);
     }
   }
 
@@ -120,9 +136,9 @@ class SearchPage extends React.Component{
                     <FaRegCalendar className="fa-reg-calendar" size={20} />
                     <input type="date"
                       id="search-page-date-input"
-                      value={this.state.date} 
-                      min={today}
-                      onChange={this.handleInput("date")} />
+                      value={new Date(this.state.date).toJSON().slice(0, 10)} 
+                      min={todayDate}
+                      onChange={this.handleDateInput()} />
                   </div>
 
                   <div className="search-page-form-time">

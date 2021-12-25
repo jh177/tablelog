@@ -41,7 +41,7 @@ class RestaurantIndex extends React.Component{
     // if (this.props.restaurants.length===0) return null;
     if (this.props.restaurants.length===0) return (
       <div className="restaurant-list-number">
-        <div>You searched for "{this.props.query}"</div>
+        {/* <div>You searched for "{this.props.query}"</div> */}
         <h2>{this.props.restaurants.length} restaurants available</h2>
       </div>
     );

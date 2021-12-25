@@ -29,7 +29,16 @@ const App = () => (
     <header>
       <SubHeader/>
       <div className="main-header">
-        <Link to="/" className="header-link" onClick={()=>{localStorage.setItem("searchTerm", "")}}>
+        <Link 
+          to="/" 
+          className="header-link" 
+          onClick={()=>{
+            localStorage.setItem("date", "")
+            localStorage.setItem("partySize", 0)
+            localStorage.setItem("time", "")
+            localStorage.setItem("query", "")
+          }}
+        >
           <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/tablelog-logo-2.png" alt="logo" />
         </Link>
         <GreetingContainer/>

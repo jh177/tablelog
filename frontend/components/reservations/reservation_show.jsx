@@ -26,7 +26,10 @@ class ReservationShow extends React.Component{
     localStorage.setItem("time", reservation.time);
     localStorage.setItem("partySize", reservation.party_size);
 
-    let displayDate = new Date(reservation.date).toString().slice(0, 15);
+    // debugger
+
+    let dateInfo = reservation.date.split("-")
+    let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
 
     return(
       <div className="reservation-show-main">

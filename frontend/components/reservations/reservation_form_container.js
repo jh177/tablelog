@@ -7,7 +7,6 @@ import {
   removeReservationErrors
 } from "../../actions/reservation_actions";
 import { requestRestaurant } from "../../actions/restaurant_actions";
-import errorsReducer from "../../reducers/errors_reducer";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
