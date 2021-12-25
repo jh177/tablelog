@@ -2,22 +2,17 @@ import React from "react";
 import RestaurantIndexContainer from "../restaurants/restaurant_index_container";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
-import { timeSlots } from "../../util/reservation_util";
+import { timeSlots, timezone, todayDate, todayTimeSlots } from "../../util/reservation_util";
 import SearchPageNav from "./search_page_nav";
 import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch, FaUtensils, FaLocationArrow } from "react-icons/fa"
-import {timezone, today, todayDate} from "../../util/reservation_util"
-
-const defaultDate = (localStorage.date.length>0) ? localStorage.getItem("date") : todayDate 
-const defaultTime = (localStorage.time.length>0) ? localStorage.getItem("time") : "6:30 PM"
-const defaultSize = (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2
 
 class SearchPage extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      partySize: defaultSize,
-      date: defaultDate,
-      time: defaultTime,
+      partySize: (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2,
+      date: (localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate,
+      time: (localStorage.time.length > 0) ? localStorage.getItem("time") : todayTimeSlots[0],
       // query: localStorage.getItem("query"),
       query: "",
       updated: false,
@@ -53,6 +48,7 @@ class SearchPage extends React.Component{
     }
   }
 
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.queryTerm !== this.props.match.params.query){
       this.setState({ updated: !this.state.updated})
@@ -82,7 +78,9 @@ class SearchPage extends React.Component{
   render(){
     // debugger
 
-    const timeOptions = timeSlots.map((time, i) => (
+    const slots = (this.state.date === todayDate) ? todayTimeSlots : timeSlots
+
+    const timeOptions = slots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
     ))
 
@@ -127,7 +125,7 @@ class SearchPage extends React.Component{
         {cityList}
       </div>)
 
-
+          // debugger
 
     return(
       <div className="search-page-container">

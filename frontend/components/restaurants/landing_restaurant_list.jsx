@@ -1,15 +1,14 @@
 import React from "react";
 import LandingRestaurantListItem from "./landing_restaurant_list_item";
-
-let today = new Date().toJSON().slice(0, 10);
+import { timeSlots, timezone, today, todayDate, todayTimeSlots } from "../../util/reservation_util";
 
 class LandingRestaurantList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       query: "",
-      time: "6:30 PM",
-      date: today,
+      time: todayTimeSlots[0],
+      date: todayDate,
       partySize: 2
     }
   }

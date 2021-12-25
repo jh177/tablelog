@@ -1,21 +1,17 @@
 import React from "react";
-import { timeSlots } from "../../util/reservation_util";
 import {Link} from "react-router-dom";
 import { ProtectedRoute, AuthRoute } from "../../util/route_util";
 import ReservationForm from "../../components/reservations/reservation_form"
-import { timezone, today, todayDate } from "../../util/reservation_util"
+import { timeSlots, timezone, today, todayDate, todayTimeSlots } from "../../util/reservation_util"
 
-const defaultDate = (localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate
-const defaultTime = (localStorage.time.length > 0) ? localStorage.getItem("time") : "6:30 PM"
-const defaultSize = (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2
 
 class ReservationSearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      partySize: defaultSize,
-      date: defaultDate,
-      time: "6:30 PM",
+      partySize: (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2,
+      date: (localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate,
+      time: (localStorage.time.length > 0) ? localStorage.getItem("time") : todayTimeSlots[0],
       timeAvails: []
     }
     this.handleInput = this.handleInput.bind(this);

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
 import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch, FaUtensils, FaLocationArrow} from "react-icons/fa"
-import { timezone, today, todayDate } from "../../util/reservation_util"
+import { timezone, today, todayDate, todayTimeSlots} from "../../util/reservation_util"
 
 class SearchBox extends React.Component{
   constructor(props){
@@ -10,11 +10,11 @@ class SearchBox extends React.Component{
     this.state = {
       partySize: 2,
       date: todayDate,
-      time: "6:30 PM",
+      time: todayTimeSlots[0],
       query: "",
       searching: false
     };
-    localStorage.setItem("time", "6:30 PM");
+    localStorage.setItem("time", todayTimeSlots[0]);
     this.handleInput = this.handleInput.bind(this)
     this.handleSearchInput = this.handleSearchInput.bind(this)
     this.handleDateInput = this.handleDateInput.bind(this)
@@ -53,7 +53,9 @@ class SearchBox extends React.Component{
 
     const { closeModal } = this.props
 
-    const timeOptions = timeSlots.map((time, i) => (
+    const slots = (this.state.date === todayDate) ? todayTimeSlots : timeSlots
+
+    const timeOptions = slots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
       )
     )
@@ -118,7 +120,7 @@ class SearchBox extends React.Component{
                   </div>
                   <div className="search-box-form-time">
                     <FaRegClock className="fa-reg-clock" size={20} />
-                    <select id="time-input" defaultValue="6:30 PM" onChange={this.handleInput("time")}>
+                    <select id="time-input" defaultValue={slots[0]} onChange={this.handleInput("time")}>
                       {timeOptions}
                     </select>
                   </div>
