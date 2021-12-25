@@ -2,16 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { timeSlots } from "../../util/reservation_util";
 import { FaRegCalendar, FaRegClock, FaRegUser, FaSearch, FaUtensils, FaLocationArrow} from "react-icons/fa"
-
-// let today = new Date().toJSON().slice(0,10);
-const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-const today = new Date().toLocaleString("en-US", {
-  timeZone: timezone,
-  year: 'numeric',
-  month: 'numeric',
-  day: 'numeric'
-})
-const todayDate = new Date(today).toJSON().slice(0,10)
+import { timezone, today, todayDate } from "../../util/reservation_util"
 
 class SearchBox extends React.Component{
   constructor(props){

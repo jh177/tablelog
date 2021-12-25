@@ -2,16 +2,7 @@ import React from "react";
 import { timeSlots } from "../../util/reservation_util";
 import { Link } from "react-router-dom";
 import { FaRegCalendar, FaRegClock, FaRegUser} from "react-icons/fa"
-
-const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-const today = new Date().toLocaleString("en-US", {
-  timeZone: timezone,
-  year: 'numeric',
-  month: 'numeric',
-  day: 'numeric'
-})
-const todayDate = new Date(today).toJSON().slice(0, 10)
-
+import { timezone, today, todayDate } from "../../util/reservation_util"
 
 class ReservationModify extends React.Component{
   constructor(props){
