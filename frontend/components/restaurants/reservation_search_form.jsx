@@ -5,13 +5,16 @@ import { ProtectedRoute, AuthRoute } from "../../util/route_util";
 import ReservationForm from "../../components/reservations/reservation_form"
 import { timezone, today, todayDate } from "../../util/reservation_util"
 
+const defaultDate = (localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate
+const defaultTime = (localStorage.time.length > 0) ? localStorage.getItem("time") : "6:30 PM"
+const defaultSize = (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2
 
 class ReservationSearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      partySize: parseInt(localStorage.getItem("partySize")),
-      date: localStorage.getItem("date"),
+      partySize: defaultSize,
+      date: defaultDate,
       time: "6:30 PM",
       timeAvails: []
     }
@@ -118,7 +121,7 @@ class ReservationSearchForm extends React.Component {
                   type="date" 
                   value={new Date(this.state.date).toJSON().slice(0, 10)} 
                   min={todayDate}
-                  onChange={this.handleInput("date")} />
+                  onChange={this.handleDateInput()} />
               </div>
             </div>
             <div className="res-show-search-search-form-time">

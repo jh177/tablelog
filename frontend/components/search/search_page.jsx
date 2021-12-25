@@ -53,6 +53,12 @@ class SearchPage extends React.Component{
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.queryTerm !== this.props.match.params.query){
+      this.setState({ updated: !this.state.updated})
+    }
+  }
+
   handleSearchInput() {
     return (e) => {
       this.setState({ query: e.target.value });
@@ -75,7 +81,7 @@ class SearchPage extends React.Component{
 
   render(){
     // debugger
-    
+
     const timeOptions = timeSlots.map((time, i) => (
       <option key={i} value={time}>{time}</option>
     ))

@@ -6,7 +6,7 @@ $background-color: #f7f7f7;
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.56);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 10;
   display: block;
 }
@@ -156,4 +156,16 @@ $background-color: #f7f7f7;
 #signup-link{
   padding-top: 1rem;
   display: flex;
+}
+
+
+
+// modal search box
+
+.modal-search-box{
+
+  background: $background-color;
+  z-index: 1;
+  padding: 32px 16px;
+  align-items: center;
 }

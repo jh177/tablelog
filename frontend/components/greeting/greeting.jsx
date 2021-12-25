@@ -24,7 +24,7 @@ class Greeting extends React.Component{
           <p>Hi, {currentUser.fname}</p>
           <Link className="header-profile-link" to="/profile"><FaRegUserCircle size={28}/></Link>
           <button className="header-button" onClick={logout}><FaSignOutAlt size={28}/></button>
-          <FaSearch size={28}/>
+          <button className="header-button" onClick={() => openModal('search')}><FaSearch size={28}/></button>
         </div>
       </hgroup>
     )
