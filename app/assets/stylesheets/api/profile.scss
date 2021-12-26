@@ -19,28 +19,36 @@
 }
 
 .profile-nav{
-  width: 240px;
-  height: 240px;
+  width: 300px;
+  height: 300px;
   margin-right: 24px;
   background: white;
-  z-index: 1;
-}
-
-.profile-nav-bar{
+  // z-index: 1;
   position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-  overflow: hidden;
+  // overflow: hidden;
   padding-bottom: 8px;
   margin-bottom: 24px;
   z-index: 1;
 }
 
+.profile-nav-bar{
+//   position: -webkit-sticky;
+// 	position: sticky;
+// 	top: 0;
+//   height: 200px;
+//   overflow: hidden;
+//   padding-bottom: 8px;
+//   margin-bottom: 24px;
+//   z-index: 1;
+  width: 300px;
+}
+
 .profile-nav-bar>div{
   padding: 14px 7px;
-  font-size: 14px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .profile-nav-bar>div>span:hover{
@@ -49,6 +57,7 @@
 
 .profile-reservations{
   width: 720px;
+  // margin-left: 32px;
 }
 
 .profile-upcoming-reservations{
