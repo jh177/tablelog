@@ -47,7 +47,7 @@
 
 .restaurant-show-nav-bar ul li{
   padding: 14px 7px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -170,7 +170,8 @@
   position: absolute;
   flex-shrink: 0;
   min-width: 100%;
-  min-height: 100%
+  min-height: 100%;
+  cursor: pointer;
 }
 
 .restaurant-show-reviews{
@@ -400,11 +401,12 @@
   padding: 16px 0;
   font-weight: 600;
   font-size: 18px;
-}
-
-#res-show-find-table:hover{
   color: #da3743;
 }
+
+// #res-show-find-table:hover{
+//   color: black;
+// }
 
 .restaurant-times ul{
   display: flex;
@@ -471,5 +473,3 @@
   font-weight: 500;
   line-height: 20px;
 }
-
-

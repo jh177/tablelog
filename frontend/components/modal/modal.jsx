@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LoginFormContainer from "../session_form/login_form_container";
 import SignupFormContainer from "../session_form/signup_form_container";
 import SearchBoxModalContainer from "../search/search_box_modal_container";
+import RestaurantImageModalContainer from "../restaurants/restaurant_image_modal_container";
 
 const Modal = ({modal, closeModal}) => {
   if (!modal){
@@ -19,6 +20,9 @@ const Modal = ({modal, closeModal}) => {
       break;
     case "search":
       component = <SearchBoxModalContainer/>;
+      break;
+    case "image":
+      component = <RestaurantImageModalContainer/>;
       break;
     default:
       return null;

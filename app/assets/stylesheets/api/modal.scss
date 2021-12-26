@@ -51,6 +51,7 @@ $background-color: #f7f7f7;
   position: absolute;
   right: 16px;
   // top: 16px;
+  text-align: center;
 }
 
 .modal-content{
@@ -361,4 +362,26 @@ input[type="date"]::-webkit-inner-spin-button {
   position: absolute;
   right: 16px;
   top: 16px;
+  text-align: center;
+  line-height: 24px;
+}
+
+// image show modal
+.image-close-x{
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  padding: 0;
+  border-radius: 50%;
+  color: #b8222d;
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  z-index: 1;
+  position: absolute;
+  right: -16px;
+  top: -16px;
+  text-align: center;
+  line-height: 30px;
+  // border: 1px solid #b8222d;
 }

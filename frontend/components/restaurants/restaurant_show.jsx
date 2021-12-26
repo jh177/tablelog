@@ -11,6 +11,7 @@ class RestaurantShow extends React.Component{
     this.photosRef = React.createRef();
     this.reviewsRef = React.createRef();
     this.handleScrollBack = this.handleScrollBack.bind(this);
+    this.handleImageClick = this.handleImageClick.bind(this);
   }
 
   componentDidMount(){
@@ -60,6 +61,12 @@ class RestaurantShow extends React.Component{
     return noiseLevels[Math.round(noise)-1]
   }
 
+
+  handleImageClick(photoUrl){
+    localStorage.setItem("photoUrl", photoUrl)
+    this.props.openModal("image")
+  }
+
   render(){
     if (!this.props.restaurant || !this.props.restaurant.photoUrls) {
       return null;
@@ -69,7 +76,7 @@ class RestaurantShow extends React.Component{
 
     const photos = restaurant.photoUrls.map((photoUrl, i) => (
       <li key={i}>
-        <img src={photoUrl} />
+        <img src={photoUrl} onClick={()=>this.handleImageClick(photoUrl)}/>
       </li>
     ))
 
