@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaAngellist} from "react-icons/fa";
 
 const Footer = () => {
   return(
@@ -10,6 +10,9 @@ const Footer = () => {
         </a>
         <a href={`https://www.linkedin.com/in/zjhong`} target="_blank">
           <FaLinkedin size={36} color="#f7f7f7"/>
+        </a>
+        <a href={`https://angel.co/u/james-hong-20`} target="_blank">
+          <FaAngellist size={36} color="#f7f7f7" />
         </a>
       </div>
     </div>
