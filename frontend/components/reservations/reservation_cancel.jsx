@@ -29,6 +29,9 @@ class ReservationCancel extends React.Component{
 
     const {reservation, restaurant} = this.props
 
+    let dateInfo = reservation.date.split("-")
+    let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+
     return(
       <div className="reservation-cancel-main">
         <div className="reservation-cancel-info">
@@ -45,7 +48,7 @@ class ReservationCancel extends React.Component{
               </div>
               <div>
                 <span>DATE</span>
-                <p>{new Date(reservation.date).toString().slice(0, 15)}</p>
+                <p>{displayDate}</p>
               </div>
               <div>
                 <span>TIME</span>
