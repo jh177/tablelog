@@ -45,56 +45,58 @@ class SignupForm extends React.Component {
     const {openModal, closeModal } = this.props
 
     return (
-      <div className="modal-content">
-        <div onClick={closeModal} className="close-x">X</div>
-        <div className="signup-form-container">
-          <h3 className="signup-form-title">Welcome to TableLog!</h3>
-          <form onSubmit={this.handleSubmit} className="signup-form">
-            <div>
-              <input
-                type="text"
-                placeholder="First Name *"
-                value={this.state.fname}
-                onChange={this.handleInput('fname')}
-              />
-              <li className="signup-error">
-                {this.renderError("Fname")}
-              </li>
-              <input
-                type="text"
-                placeholder="Last Name *"
-                value={this.state.lname}
-                onChange={this.handleInput('lname')}
-              />
-              <li className="signup-error">
-                {this.renderError("Lname")}
-              </li>
-              <input
-                type="email"
-                placeholder="Enter email *"
-                value={this.state.email}
-                onChange={this.handleInput('email')}
-              />
-              <li className="signup-error">
-                {this.renderError("Email")}
-              </li>
-              <input
-                type="password"
-                placeholder="Enter password *"
-                value={this.state.password}
-                onChange={this.handleInput('password')}
-              />
-              <li className="signup-error">
-                {this.renderError("Password")}
-              </li>
-              <input type="submit" value="Create Account" id="signup-btn"/>
-            </div>
-          </form>
+      <div className="modal-content-wrapper">
+        <div className="modal-content">
+          <div onClick={closeModal} className="close-x">X</div>
+          <div className="signup-form-container">
+            <h3 className="signup-form-title">Welcome to TableLog!</h3>
+            <form onSubmit={this.handleSubmit} className="signup-form">
+              <div>
+                <input
+                  type="text"
+                  placeholder="First Name *"
+                  value={this.state.fname}
+                  onChange={this.handleInput('fname')}
+                />
+                <li className="signup-error">
+                  {this.renderError("Fname")}
+                </li>
+                <input
+                  type="text"
+                  placeholder="Last Name *"
+                  value={this.state.lname}
+                  onChange={this.handleInput('lname')}
+                />
+                <li className="signup-error">
+                  {this.renderError("Lname")}
+                </li>
+                <input
+                  type="email"
+                  placeholder="Enter email *"
+                  value={this.state.email}
+                  onChange={this.handleInput('email')}
+                />
+                <li className="signup-error">
+                  {this.renderError("Email")}
+                </li>
+                <input
+                  type="password"
+                  placeholder="Enter password *"
+                  value={this.state.password}
+                  onChange={this.handleInput('password')}
+                />
+                <li className="signup-error">
+                  {this.renderError("Password")}
+                </li>
+                <input type="submit" value="Create Account" id="signup-btn"/>
+              </div>
+            </form>
 
-          <div className="demo-user-link">
-            <h3>Don't want to complete the form?</h3>
-            <input type="submit" value="Continue with Demo User" onClick={this.handleDemoLogin} id="demo-user-btn"/>
-          </div>        
+            <div className="demo-user-link">
+              <h3>Don't want to complete the form?</h3>
+              <input type="submit" value="Continue with Demo User" onClick={this.handleDemoLogin} id="demo-user-btn"/>
+            </div>        
+          </div>
         </div>
       </div>
     )

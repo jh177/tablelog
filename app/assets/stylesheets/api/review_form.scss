@@ -99,7 +99,7 @@
   width: 360px;
 }
 
-.rating-stars, .rating-noise label{
+.rating-stars>label, .rating-noise>label{
   cursor: pointer;
 }
 
@@ -120,6 +120,7 @@
 .rating-noise input[type="radio"]{
   display: none;
 }
+
 
 .review-text-container{
   margin-bottom: 32px;
@@ -155,6 +156,10 @@
 
 .review-recommend-button-container label{
   padding-right: 10px;
+}
+
+.review-recommend-button-container input{
+  cursor: pointer;
 }
 
 #review-form-submit-button{

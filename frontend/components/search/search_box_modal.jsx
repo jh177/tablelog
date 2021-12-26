@@ -103,71 +103,70 @@ class SearchBox extends React.Component{
 
 
     return(
-      <div className="modal-content">
-        <div onClick={closeModal} className="close-x">X</div>
-
-        <div className="modal-search-box">
-          <h1>Find your table for any occasion</h1>
-
-          <div className="modal-search-box-form-container">
-            <div>
-              <div className="modal-search-box-form">
-                <div className="modal-search-box-form-inputs-1">
-                  <div className="search-box-form-date">
-                    <FaRegCalendar className="fa-reg-calendar" size={20} />
-                    <input id="date-input" type="date" value={new Date(this.state.date).toJSON().slice(0, 10)} min={todayDate}
-                      onChange={this.handleDateInput()} />
+      <div className="modal-search-wrapper">
+        <div onClick={closeModal} className="search-close-x">X</div>
+        <div className="modal-search-content">
+          <div className="modal-search-box">
+            <h1>Find your table for any occasion</h1>
+            <div className="modal-search-box-form-container">
+              <div>
+                <div className="modal-search-box-form">
+                  <div className="modal-search-box-form-inputs-1">
+                    <div className="search-box-form-date">
+                      <FaRegCalendar className="fa-reg-calendar" size={20} />
+                      <input id="date-input" type="date" value={new Date(this.state.date).toJSON().slice(0, 10)} min={todayDate}
+                        onChange={this.handleDateInput()} />
+                    </div>
+                    <div className="search-box-form-time">
+                      <FaRegClock className="fa-reg-clock" size={20} />
+                      <select id="time-input" defaultValue={slots[0]} onChange={this.handleInput("time")}>
+                        {timeOptions}
+                      </select>
+                    </div>
+                    <div className="search-box-form-size">
+                      <FaRegUser className="fa-reg-user" size={20} />
+                      <select id="size-input" value={this.state.partySize} onChange={this.handleInput("partySize")}>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                        <option value="6">6 People</option>
+                        <option value="7">7 People</option>
+                        <option value="8">8 People</option>
+                        <option value="9">9 People</option>
+                        <option value="10">10 People</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className="search-box-form-time">
-                    <FaRegClock className="fa-reg-clock" size={20} />
-                    <select id="time-input" defaultValue={slots[0]} onChange={this.handleInput("time")}>
-                      {timeOptions}
-                    </select>
-                  </div>
-                  <div className="search-box-form-size">
-                    <FaRegUser className="fa-reg-user" size={20} />
-                    <select id="size-input" value={this.state.partySize} onChange={this.handleInput("partySize")}>
-                      <option value="1">1 Person</option>
-                      <option value="2">2 People</option>
-                      <option value="3">3 People</option>
-                      <option value="4">4 People</option>
-                      <option value="5">5 People</option>
-                      <option value="6">6 People</option>
-                      <option value="7">7 People</option>
-                      <option value="8">8 People</option>
-                      <option value="9">9 People</option>
-                      <option value="10">10 People</option>
-                    </select>
-                  </div>
-                </div>
 
-                <div className="modal-search-box-form-inputs-2-wrapper">
-                  <div className="modal-search-box-form-inputs-2">
-                    <FaSearch className="fa-reg-search" size={20} />
-                    <input
-                      id="search-input"
-                      type="text"
-                      placeholder="Cuisine or City"
-                      value={this.state.query}
-                      onChange={this.handleSearchInput()}
-                    />
+                  <div className="modal-search-box-form-inputs-2-wrapper">
+                    <div className="modal-search-box-form-inputs-2">
+                      <FaSearch className="fa-reg-search" size={20} />
+                      <input
+                        id="search-input"
+                        type="text"
+                        placeholder="Cuisine or City"
+                        value={this.state.query}
+                        onChange={this.handleSearchInput()}
+                      />
+                    </div>
+                    {searchSuggestions}
                   </div>
-                  {searchSuggestions}
-                </div>
 
 
-                <div className="modal-search-box-form-button">
-                  <Link 
-                    to={`/search/${this.state.query}`}
-                    onClick={closeModal}
-                  >Let's go</Link>
+                  <div className="modal-search-box-form-button">
+                    <Link
+                      to={`/search/${this.state.query}`}
+                      onClick={closeModal}
+                    >Let's go</Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
     )
   }
 }

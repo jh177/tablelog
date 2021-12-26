@@ -40,43 +40,45 @@ class LoginForm extends React.Component {
     const { openModal, closeModal } = this.props
 
     return (
-      <div className="modal-content">
-        <div onClick={closeModal} className="close-x">X</div>
-        <div className="login-form-container">
-          <h3 className="login-form-title">Please sign in</h3>
-          <form onSubmit={this.handleSubmit} className="login-form">
-            <div>
-              <input
-                type="email"
-                placeholder="Enter email *"
-                value={this.state.email}
-                onChange={this.handleInput('email')}
-              />
-              <li className="login-error">
-                {this.renderError("Email")}
-              </li>
-              <input
-                type="password"
-                placeholder="Enter password *"
-                value={this.state.password}
-                onChange={this.handleInput('password')}
-              />
-              <li className="login-error">
-                {this.renderError("Your")}
-              </li>
-              
-              <input type="submit" value="Sign In" id="log-in-btn"/>
+      <div className="modal-content-wrapper">
+        <div className="modal-content">
+          <div onClick={closeModal} className="close-x">X</div>
+          <div className="login-form-container">
+            <h3 className="login-form-title">Please sign in</h3>
+            <form onSubmit={this.handleSubmit} className="login-form">
+              <div>
+                <input
+                  type="email"
+                  placeholder="Enter email *"
+                  value={this.state.email}
+                  onChange={this.handleInput('email')}
+                />
+                <li className="login-error">
+                  {this.renderError("Email")}
+                </li>
+                <input
+                  type="password"
+                  placeholder="Enter password *"
+                  value={this.state.password}
+                  onChange={this.handleInput('password')}
+                />
+                <li className="login-error">
+                  {this.renderError("Your")}
+                </li>
+
+                <input type="submit" value="Sign In" id="log-in-btn" />
+              </div>
+            </form>
+            <div className="demo-user-link">
+              <h3>Don't want to complete the form?</h3>
+              <input type="submit" value="Continue with Demo User" onClick={this.handleDemoLogin} id="demo-user-btn" />
             </div>
-          </form>
-          <div className="demo-user-link">
-            <h3>Don't want to complete the form?</h3>
-            <input type="submit" value="Continue with Demo User" onClick={this.handleDemoLogin} id="demo-user-btn"/>
-          </div>
-          <div id="signup-link">
-            <span>New to TableLog?</span>&nbsp;
-            <span onClick={openModal} className="link-create-account">
-               Create an account
-            </span>
+            <div id="signup-link">
+              <span>New to TableLog?</span>&nbsp;
+              <span onClick={openModal} className="link-create-account">
+                Create an account
+              </span>
+            </div>
           </div>
         </div>
       </div>
