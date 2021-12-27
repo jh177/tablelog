@@ -1,6 +1,8 @@
 import React from "react";
 import RestaurantIndexItem from "./restaurant_index_item";
 import Times from "../times/times";
+import TimesContainer from "../times/times_container";
+
 
 class RestaurantIndex extends React.Component{
   constructor(props){

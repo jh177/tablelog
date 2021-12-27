@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Times from "../times/times";
+import TimesContainer from "../times/times_container";
 import { FaStar, FaBook, FaRegStar } from "react-icons/fa";
 
 class RestaurantIndexItem extends React.Component{
@@ -63,7 +64,7 @@ class RestaurantIndexItem extends React.Component{
           </div>
 
           <div className="restaurant-times">
-            <Times time={this.props.time} restaurant={restaurant} />
+            <TimesContainer time={this.props.time} restaurant={restaurant} />
           </div>
         </div>
       </div>

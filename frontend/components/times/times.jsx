@@ -19,9 +19,11 @@ class Times extends React.Component{
     const defaultDate = (localStorage.date && localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate
     const defaultSize = (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2
 
+    const pathName = (this.props.currentUser) ? `/booking/${this.props.restaurant.id}` : `/restaurants/${this.props.restaurant.id}`
+
     const options = times.map((time, i) => (
         <Link to={{
-          pathname: `/booking/${this.props.restaurant.id}`,
+          pathname: pathName,
           state: {
             restaurant: this.props.restaurant,
             date: defaultDate,

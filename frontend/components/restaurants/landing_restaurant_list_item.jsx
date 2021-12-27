@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Times from "../times/times";
+import TimesContainer from "../times/times_container";
 import { withRouter } from "react-router";
 import { FaStar, FaBook, FaRegStar} from "react-icons/fa";
 
@@ -72,7 +73,7 @@ class LandingRestaurantListItem extends React.Component {
             </div>
 
             <div className="landing-restaurant-times">
-              <Times time={this.props.time} restaurant={restaurant} 
+              <TimesContainer time={this.props.time} restaurant={restaurant} 
                 onClick={e => e.stopPropagation()}/>
             </div>
           </div>
