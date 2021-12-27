@@ -34,6 +34,10 @@ class ReviewForm extends React.Component{
     // this.props.requestUser(this.props.currentUser.id);
   }
 
+  componentWillUnmount() {
+    this.props.removeReviewErrors();
+  }
+
   handleSubmit(e){
     e.preventDefault();
     // debugger
@@ -156,8 +160,13 @@ class ReviewForm extends React.Component{
 
 
   render(){
+
+    // debugger
+
     if (!this.props.reservation) return null;
     
+    const errorMessage = (this.props.errors.length > 0) ? this.props.errors[0].slice(5) : null;
+
     // debugger
     return(
 
@@ -255,6 +264,8 @@ class ReviewForm extends React.Component{
                   </label>
                 </div>
               </div>
+
+              <div className="review-error">{errorMessage}</div>
 
               <input id="review-form-submit-button" type="submit" value="Submit Review" />
             </form>

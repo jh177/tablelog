@@ -12,7 +12,7 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
-  validates :email, presence: {message: "Please enter your Email"}
+  validates :email, presence: {message: "Please enter your Email."}
   validates :email, uniqueness: true
   validates :fname, presence: {message: "Please enter your first name."}
   validates :lname, presence: {message: "Please enter your last name."}

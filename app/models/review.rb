@@ -18,7 +18,8 @@
 #  updated_at     :datetime         not null
 #
 class Review < ApplicationRecord
-  validates :user_id, :restaurant_id, :reservation_id, :overall, :food, :service, :ambience, :value, :noise, :body, presence: true
+  validates :user_id, :restaurant_id, :reservation_id, :overall, :food, :service, :ambience, :value, :noise, presence: true
+  validates :body, presence: {message: "Please type in your review"}
   validates :recommend, inclusion: [true, false]
 
   belongs_to :user

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import LandingRestaurantListItem from "./landing_restaurant_list_item";
 import { timeSlots, timezone, today, todayDate, todayTimeSlots } from "../../util/reservation_util";
 
@@ -11,11 +11,23 @@ class LandingRestaurantList extends React.Component {
       date: todayDate,
       partySize: 2
     }
+    this.listRef = React.createRef();
+    this.scrollLeft = this.scrollLeft.bind(this);
+    this.scrollRight = this.scrollRight.bind(this);
   }
 
   componentDidMount() {
     this.props.requestRestaurants(this.state.query);
   }
+
+  scrollLeft(){
+    this.listRef.current.scrollBy({top: 0, left: -600, behavior: "smooth"})
+  }
+
+  scrollRight(){
+    this.listRef.current.scrollBy({top: 0, left: 500, behavior: "smooth"})
+  }
+
 
   render() {
 
@@ -35,9 +47,17 @@ class LandingRestaurantList extends React.Component {
 
     return (
       <div className="landing-restaurant-list-main">
-        <div className="landing-restaurant-list">
+          <div>
+          <button className="scroll-btn" onClick={this.scrollLeft}>❮</button>
+            {/* <FaChevronCircleLeft size={32} onClick={this.scrollLeft}/> */}
+          </div>
+        <div className="landing-restaurant-list" ref={this.listRef}>
           {LandingListItems}
         </div>
+          <div>
+          <button className="scroll-btn" onClick={this.scrollRight}>❯</button>
+            {/* <FaChevronCircleRight size={32} onClick={this.scrollRight}/> */}
+          </div>
       </div>
     )
   }
