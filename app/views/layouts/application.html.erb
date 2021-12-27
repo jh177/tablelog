@@ -7,6 +7,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <meta property="og:title" content="TableLog" />
+     <meta property='og:image' content="<%= image_url('tablelog-preview-1.png') %>"/>
+     <meta property="og:description"
+       content="TableLog, an inspiration from OpenTable, is a web-based restaurant-reservation application that allows users to search restaurants, make and manage online reservations, add and read restaurant reviews."
+     />
+     <meta property="og:url"
+       content="https://tablelog.herokuapp.com/"
+     />
+
     <script type="text/javascript">
       window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
     </script>
