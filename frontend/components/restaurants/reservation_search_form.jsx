@@ -10,7 +10,7 @@ class ReservationSearchForm extends React.Component {
     super(props);
     this.state = {
       partySize: (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2,
-      date: (localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate,
+      date: (localStorage.date && localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate,
       time: (localStorage.time.length > 0) ? localStorage.getItem("time") : todayTimeSlots[0],
       timeAvails: []
     }

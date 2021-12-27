@@ -16,7 +16,7 @@ class Times extends React.Component{
     }
     
     // debugger
-    const defaultDate = (localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate
+    const defaultDate = (localStorage.date && localStorage.date.length > 0) ? localStorage.getItem("date") : todayDate
     const defaultSize = (localStorage.partySize !== "0") ? parseInt(localStorage.getItem("partySize")) : 2
 
     const options = times.map((time, i) => (
