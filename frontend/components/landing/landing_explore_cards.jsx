@@ -37,7 +37,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/seaharbour-3.jpeg"/>
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best Chinese Restaurants in LA
             </div>
           </div>
@@ -46,7 +46,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/aoc-7.jpeg" />
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best French Restaurants in LA
             </div>
           </div>
@@ -55,7 +55,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/electric-7.jpeg" />
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best Indian Restaurants in LA
             </div>
           </div>
@@ -64,7 +64,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/della-7.jpeg" />
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best Italian Restaurants in LA
             </div>
           </div>
@@ -73,7 +73,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/hamasaku-4.jpeg" />
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best Japanese Restaurants in LA
             </div>
           </div>
@@ -82,7 +82,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/ombu-5.jpeg" />
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best Korean Restaurants in LA
             </div>
           </div>
@@ -91,7 +91,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/tesse-7.jpeg" />
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best Mediterranean Restaurants in LA
             </div>
           </div>
@@ -100,7 +100,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/sol-5.jpeg" />
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best Mexican Restaurants in LA
             </div>
           </div>
@@ -109,7 +109,7 @@ class LandingExploreCards extends React.Component{
             <div className="landing-cards-item-img">
               <img src="https://tablelog-seed.s3.us-west-1.amazonaws.com/restaurants/otus-3.jpeg" />
             </div>
-            <div>
+            <div className="landing-cards-item-title">
               Best Thai Restaurants in LA
             </div>
           </div>

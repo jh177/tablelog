@@ -7,7 +7,7 @@
 
 .landing-list-main{
   margin: auto 0;
-  padding: 0 32px 32px 32px;
+  padding: 32px 32px 32px 32px;
 }
 
 .landing-list-title{
@@ -32,7 +32,7 @@
   // overflow-y: auto;
   // width: 92vw;
   padding-bottom: 16px;
-  border-bottom: 0.0625rem solid #d8d9db;
+  // border-bottom: 0.0625rem solid #d8d9db;
   // flex-wrap: wrap;
 }
 
@@ -246,6 +246,18 @@
 
 
 //landing explore cards css
+.landing-cards-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // overflow: hidden;
+  overflow-y: auto;
+  // width: 92vw;
+  // padding-bottom: 16px;
+  // border-bottom: 0.0625rem solid #d8d9db;
+}
+
+
 .landing-cards{
   margin: auto 0;
   padding: 0 32px 32px 32px;
@@ -260,7 +272,7 @@
 .landing-cards-title h2{
   margin: 0 0 4px;
   color: #2d333f;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 32px;
 }
@@ -297,6 +309,8 @@
     z-index: 0;
     margin: 0;
     cursor: pointer;
+    margin: 0 8px;
+    // padding: 16px 0;
 }
 
 .landing-cards-item-img{
@@ -311,6 +325,17 @@
   position: absolute;
   min-width: 100%;
   min-height: 100%;
+  -webkit-filter: brightness(60%)
   // top: 50%;
   // transform: translateY(-50%);
+}
+
+.landing-cards-item-title{
+  position: absolute;
+  top: 40%;
+  color: white;
+  text-align: center;
+  padding: 0 16px;
+  font-size: 20px;
+  font-weight: 600;
 }
