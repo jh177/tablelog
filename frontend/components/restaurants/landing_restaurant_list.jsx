@@ -47,17 +47,19 @@ class LandingRestaurantList extends React.Component {
 
     return (
       <div className="landing-restaurant-list-main">
+        <div className="landing-restaurant-list-content">
           <div>
-          <button className="scroll-btn" onClick={this.scrollLeft}>❮</button>
+            <button className="scroll-btn" onClick={this.scrollLeft}>❮</button>
             {/* <FaChevronCircleLeft size={32} onClick={this.scrollLeft}/> */}
           </div>
-        <div className="landing-restaurant-list" ref={this.listRef}>
-          {LandingListItems}
-        </div>
+          <div className="landing-restaurant-list" ref={this.listRef}>
+            {LandingListItems}
+          </div>
           <div>
-          <button className="scroll-btn" onClick={this.scrollRight}>❯</button>
+            <button className="scroll-btn" onClick={this.scrollRight}>❯</button>
             {/* <FaChevronCircleRight size={32} onClick={this.scrollRight}/> */}
           </div>
+        </div>
       </div>
     )
   }
