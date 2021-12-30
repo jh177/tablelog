@@ -11,6 +11,12 @@ json.restaurant do
   end
 end
 
+json.reservation do
+  json.set! @review.reservation.id do
+    json.partial! 'api/reservations/reservation', reservation: @review.reservation
+  end
+end
+
 json.user do
   json.set! @review.user.id do
     json.partial! 'api/users/user', user: @review.user

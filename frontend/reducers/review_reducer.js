@@ -13,7 +13,7 @@ const ReviewReducer = (state={}, action) =>{
     case RECEIVE_REVIEWS:
       return action.reviews;
     case RECEIVE_REVIEW:
-      nextState[action.review.id] = action.review
+      nextState = Object.assign({}, action.payload.review);
       return nextState;
     case REMOVE_REVIEW:
       delete nextState[action.reviewId];

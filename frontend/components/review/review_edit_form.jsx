@@ -1,9 +1,9 @@
 import React from "react";
-import { FaStar, FaVolumeDown} from "react-icons/fa";
+import { FaStar, FaVolumeDown } from "react-icons/fa";
 
 
-class ReviewForm extends React.Component{
-  constructor(props){
+class ReviewEditForm extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       overall: 0,
@@ -14,12 +14,12 @@ class ReviewForm extends React.Component{
       noise: 0,
       body: "",
       recommend: true,
-      hoveroverall:null,
-      hoverfood:null,
-      hoverservice:null,
-      hoverambience:null,
-      hovervalue:null,
-      hovernoise:null
+      hoveroverall: null,
+      hoverfood: null,
+      hoverservice: null,
+      hoverambience: null,
+      hovervalue: null,
+      hovernoise: null
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -29,20 +29,38 @@ class ReviewForm extends React.Component{
     this.resetHover = this.resetHover.bind(this);
   }
 
-  componentDidMount(){
-    this.props.requestReservation(this.props.match.params.reservationId)
-    // this.props.requestUser(this.props.currentUser.id);
+  componentDidMount() {
+    this.props.requestReview(this.props.match.params.reviewId)
+      .then((res)=>{
+        let review = Object.values(res.payload.review)[0]
+        this.setState({
+          overall: review.overall,
+          food: review.food,
+          service: review.service,
+          ambience: review.ambience,
+          value: review.value,
+          noise: review.noise,
+          body: review.body,
+          recommend: review.recommend,
+          hoveroverall: review.hoveroverall,
+          hoverfood: review.hoverfood,
+          hoverservice: review.hoverservice,
+          hoverambience: review.hoverambience,
+          hovervalue: review.hovervalue,
+          hovernoise: review.hovernoise
+        })
+      })
   }
 
   componentWillUnmount() {
     this.props.removeReviewErrors();
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    // debugger
 
     const review = Object.assign({}, {
+      id: this.props.review.id,
       user_id: this.props.currentUser.id,
       restaurant_id: this.props.restaurant.id,
       reservation_id: this.props.reservation.id,
@@ -56,18 +74,21 @@ class ReviewForm extends React.Component{
       recommend: this.state.recommend
     })
 
-    this.props.createReview(review)
-      .then(() => {this.props.history.push("/profile/")})
+    // debugger
+
+
+    this.props.updateReview(review)
+      .then(() => { this.props.history.push("/profile/") })
   }
 
-  handleSelect(type){
+  handleSelect(type) {
     return (e) => {
-      this.setState({ [type]: parseInt(e.currentTarget.value)})
+      this.setState({ [type]: parseInt(e.currentTarget.value) })
     }
   }
 
-  handleSelectRecommend(e){
-    this.setState({recommend: (e.currentTarget.value === "true") ? true : false})
+  handleSelectRecommend(e) {
+    this.setState({ recommend: (e.currentTarget.value === "true") ? true : false })
   }
 
   handleInput(type) {
@@ -76,15 +97,15 @@ class ReviewForm extends React.Component{
     }
   }
 
-  setHover(hoverField, value){
+  setHover(hoverField, value) {
     this.setState({ [hoverField]: parseInt(value) })
   }
 
-  resetHover(hoverField){
+  resetHover(hoverField) {
     this.setState({ [hoverField]: null })
   }
 
-  displayRatingStars(field){
+  displayRatingStars(field) {
     const levels = ["Poor", "Fair", "Good", "Very Good", "Outstanding"];
 
     return (
@@ -107,7 +128,7 @@ class ReviewForm extends React.Component{
                     "#b8222d" : "#e4e5e9"}
                   size={40}
                   onMouseEnter={() => this.setHover(`hover${field}`, rating)}
-                  onMouseLeave={()=>this.resetHover([`hover${field}`])}
+                  onMouseLeave={() => this.resetHover([`hover${field}`])}
                 />
               </label>
             )
@@ -121,7 +142,7 @@ class ReviewForm extends React.Component{
     )
   }
 
-  displayNoise(){
+  displayNoise() {
     const noiseLevels = ["Quiet", "Moderate", "Energetic", "Too Loud"]
 
     return (
@@ -142,7 +163,7 @@ class ReviewForm extends React.Component{
                   className="music"
                   color={((i + 1) <= (this.state.hovernoise || this.state.noise)) ?
                     "#b8222d" : "#e4e5e9"}
-                    size={40}
+                  size={40}
                   onMouseEnter={() => this.setHover("hovernoise", noiseRating)}
                   onMouseLeave={() => this.resetHover("hovernoise")}
                 />
@@ -159,28 +180,55 @@ class ReviewForm extends React.Component{
   }
 
 
-  render(){
+  render() {
 
     // debugger
 
-    if (!this.props.reservation) return null;
-    
+    if (!this.props.review) return null;
+
     const errorMessage = (this.props.errors.length > 0) ? this.props.errors[0].slice(5) : null;
 
-    let dateInfo = this.props.reservation.date.split("-")
+    const {review, reservation, restaurant, currentUser} = this.props
+
+
+    let dateInfo = reservation.date.split("-")
     // let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(4, 15);
     let displayDate = dateInfo[1] + "/" + dateInfo[2] + "/" + dateInfo[0];
 
-    // debugger
-    return(
+    const recommendation = (review.recommend) ? (
+      <div className="review-recommend-button-container">
+        <label>
+          <input type="radio" name="recommend" value="true" checked onChange={this.handleSelectRecommend} />
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="recommend" value="false" onChange={this.handleSelectRecommend} />
+          No
+        </label>
+      </div>
+    ) : (
+      <div className="review-recommend-button-container">
+        <label>
+          <input type="radio" name="recommend" value="true" onChange={this.handleSelectRecommend} />
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="recommend" value="false" checked onChange={this.handleSelectRecommend} />
+          No
+        </label>
+      </div>
+    )
+
+    return (
+
 
       <div className="review-form-main-container">
         <div className="review-form-main">
 
           <div className="review-form-info">
             <div className="review-form-info-prompt">
-              <h1>{this.props.currentUser.fname}, how was your experience at</h1>
-              <h1>{this.props.restaurant.name}</h1>
+              <h1>{currentUser.fname}, edit your review for</h1>
+              <h1>{restaurant.name}</h1>
             </div>
             <div>
               <p>Rate your dinning experience (required)</p>
@@ -192,7 +240,7 @@ class ReviewForm extends React.Component{
 
 
           <div className="review-form-container">
-            <form className="review-form" onSubmit={this.handleSubmit}>  
+            <form className="review-form" onSubmit={this.handleSubmit}>
               <div className="rating-container">
                 <div className="rating-bar-container">
                   <div>
@@ -240,14 +288,15 @@ class ReviewForm extends React.Component{
               <div className="review-text-container">
                 <div className="review-form-info-prompt">
                   <h1>Write a review</h1>
-                </div>  
-                  <p>Help diners decide where to eat. Remember to keep it short, simple and specific.</p>
+                </div>
+                <p>Help diners decide where to eat. Remember to keep it short, simple and specific.</p>
                 <div className="review-text-input">
                   <textarea
                     name="review-body"
                     cols="30"
                     rows="10"
                     placeholder="Write your review"
+                    defaultValue={review.body}
                     onChange={this.handleInput("body")}>
                   </textarea>
                 </div>
@@ -255,30 +304,21 @@ class ReviewForm extends React.Component{
 
               <div className="review-recommend-container">
                 <div>
-                  <p>Would you recommend {this.props.restaurant.name} to a friend?</p>
+                  <p>Would you recommend {restaurant.name} to a friend?</p>
                 </div>
-                <div className="review-recommend-button-container">
-                  <label>
-                    <input type="radio" name="recommend" value="true" checked onChange={this.handleSelectRecommend} />
-                    Yes
-                  </label>
-                  <label>
-                    <input type="radio" name="recommend" value="false" onChange={this.handleSelectRecommend} />
-                    No
-                  </label>
-                </div>
+                {recommendation}
               </div>
 
               <div className="review-error">{errorMessage}</div>
 
-              <input id="review-form-submit-button" type="submit" value="Submit Review" />
+              <input id="review-form-submit-button" type="submit" value="Update Review" />
             </form>
           </div>
-          
+
         </div>
       </div>
     )
   }
 }
 
-export default ReviewForm;
+export default ReviewEditForm;

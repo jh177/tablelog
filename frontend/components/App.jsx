@@ -20,6 +20,7 @@ import SearchPageContainer from "./search/search_page_container";
 import SearchPage from "./search/search_page";
 import Landing from "./landing/landing";
 import ReviewFormContainer from "./review/review_form_container";
+import ReviewEditFormContainer from "./review/review_edit_form_container";
 import Footer from "./footer";
 
 
@@ -54,6 +55,7 @@ const App = () => (
       <ProtectedRoute exact path="/booking/cancel/:reservationId" component={ReservationCancelContainer}/>
       <ProtectedRoute exact path="/profile" component={ProfileContainer}/>
       <ProtectedRoute exact path="/feedback/:reservationId" component={ReviewFormContainer}/>
+      <ProtectedRoute exact path="/feedback/edit/:reviewId" component={ReviewEditFormContainer}/>
       {/* <Route exact path="/search/:searchTerm" component={SearchPage}/> */}
       <Route exact path="/search/:query" component={SearchPageContainer}/>
       <Route exact path="/search" component={SearchPageContainer}/>

@@ -98,6 +98,12 @@ class ProfileReservationItem extends React.Component {
             <p>Comments:</p>
             <p>{this.props.review.body}</p>
           </div>
+
+          <div>
+            <div>
+              <Link to={`/feedback/edit/${this.props.review.id}`}>Edit Review</Link></div>
+            <div>delete button</div>
+          </div>
         </div>
       </div>
       ) : null;

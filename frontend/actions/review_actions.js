@@ -11,9 +11,9 @@ const receiveAllReviews = (reviews) => ({
   reviews
 })
 
-const receiveReview = (review) => ({
+const receiveReview = (payload) => ({
   type: RECEIVE_REVIEW,
-  review
+  payload
 })
 
 const removeReview = (reviewId) => ({
@@ -50,7 +50,9 @@ export const createReview = (review) => dispatch => (
 
 export const updateReview = (review) => dispatch => (
   ReviewAPIUtil.updateReview(review)
-    .then(review => dispatch(receiveReview(review)))
+    .then(review => dispatch(receiveReview(review)),
+      errors => dispatch(receiveReviewErrors(errors.responseJSON))
+    )
 )
 
 export const deleteReview = (reviewId) => dispatch => (
