@@ -10,7 +10,7 @@ import { requestRestaurant } from "../../actions/restaurant_actions";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
+  restaurant: Object.values(state.entities.restaurants.single)[0],
   errors: state.errors.reservation
 })
 

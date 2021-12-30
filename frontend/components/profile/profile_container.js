@@ -7,8 +7,8 @@ import { deleteReview } from "../../actions/review_actions";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  reservations: Object.values(state.entities.reservations),
-  restaurants: Object.values(state.entities.restaurants),
+  reservations: Object.values(state.entities.reservations.all),
+  restaurants: Object.values(state.entities.restaurants.all),
   reviews: Object.values(state.entities.reviews)
 })
 

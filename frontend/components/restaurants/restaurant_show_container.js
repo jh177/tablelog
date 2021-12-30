@@ -4,7 +4,7 @@ import RestaurantShow from "./restaurant_show";
 import { openModal } from "../../actions/modal_actions";
 
 const mSTP = (state, ownProps) => ({
-  restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
+  restaurant: Object.values(state.entities.restaurants.single)[0],
   reviews: Object.values(state.entities.reviews)
 })
 

@@ -27,6 +27,7 @@ class ReviewEditForm extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.setHover = this.setHover.bind(this);
     this.resetHover = this.resetHover.bind(this);
+    this.handleDeleteReview = this.handleDeleteReview.bind(this);
   }
 
   componentDidMount() {
@@ -78,6 +79,11 @@ class ReviewEditForm extends React.Component {
 
 
     this.props.updateReview(review)
+      .then(() => { this.props.history.push("/profile/") })
+  }
+
+  handleDeleteReview(){
+    this.props.deleteReview(this.props.review.id)
       .then(() => { this.props.history.push("/profile/") })
   }
 
@@ -192,8 +198,10 @@ class ReviewEditForm extends React.Component {
 
 
     let dateInfo = reservation.date.split("-")
-    // let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(4, 15);
     let displayDate = dateInfo[1] + "/" + dateInfo[2] + "/" + dateInfo[0];
+
+    // dateInfo = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+    // let displayDate = dateInfo.slice(0,3) + "," + dateInfo.slice(3,10) + "," + dateInfo.slice(10,15);
 
     const recommendation = (review.recommend) ? (
       <div className="review-recommend-button-container">
@@ -312,6 +320,7 @@ class ReviewEditForm extends React.Component {
               <div className="review-error">{errorMessage}</div>
 
               <input id="review-form-submit-button" type="submit" value="Update Review" />
+              <button id="review-form-delete-button" onClick={this.handleDeleteReview}>Delete Review</button>
             </form>
           </div>
 

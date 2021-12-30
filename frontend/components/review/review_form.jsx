@@ -168,8 +168,9 @@ class ReviewForm extends React.Component{
     const errorMessage = (this.props.errors.length > 0) ? this.props.errors[0].slice(5) : null;
 
     let dateInfo = this.props.reservation.date.split("-")
-    // let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(4, 15);
     let displayDate = dateInfo[1] + "/" + dateInfo[2] + "/" + dateInfo[0];
+    // dateInfo = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+    // let displayDate = dateInfo.slice(4, 10) + "," + dateInfo.slice(10, 15);
 
     // debugger
     return(

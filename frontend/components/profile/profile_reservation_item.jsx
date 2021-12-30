@@ -45,8 +45,14 @@ class ProfileReservationItem extends React.Component {
   render() {
     const { reservation, restaurant} = this.props
 
-    const reviewLink = (!this.props.review && this.props.past) ?
-      (<Link to={`/feedback/${reservation.id}`}>Write Review</Link>) : null
+    let reviewLink;
+    if (!this.props.review && this.props.past) {
+      reviewLink = (<Link to={`/feedback/${reservation.id}`}>Write Review</Link>);
+    } else if (this.props.review && this.props.past) {
+      reviewLink = (<Link to={`/feedback/edit/${this.props.review.id}`}>Edit Review</Link>);
+    } else {
+      reviewLink = null;
+    }
 
     const viewLink = (!this.props.past) ?
       (<Link to={`/booking/view/${reservation.id}`}>View</Link>) : null
@@ -97,12 +103,6 @@ class ProfileReservationItem extends React.Component {
           <div className="profile-reservation-review-4">
             <p>Comments:</p>
             <p>{this.props.review.body}</p>
-          </div>
-
-          <div>
-            <div>
-              <Link to={`/feedback/edit/${this.props.review.id}`}>Edit Review</Link></div>
-            <div>delete button</div>
           </div>
         </div>
       </div>

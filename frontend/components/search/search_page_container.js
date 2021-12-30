@@ -6,7 +6,7 @@ import { withRouter } from "react-router";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  restaurants: state.entities.restaurants,
+  restaurants: state.entities.restaurants.all,
   queryTerm: ownProps.match.params.query
 })
 

@@ -8,8 +8,9 @@ import {createReview, removeReviewErrors} from "../../actions/review_actions"
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  reservation: state.entities.reservations[ownProps.match.params.reservationId],
-  restaurant: Object.values(state.entities.restaurants)[0],
+  // reservation: state.entities.reservations[ownProps.match.params.reservationId],
+  reservation: Object.values(state.entities.reservations.single)[0],
+  restaurant: Object.values(state.entities.restaurants.single)[0],
   review: Object.values(state.entities.reviews)[0],
   errors: state.errors.review
 })

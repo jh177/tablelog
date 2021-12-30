@@ -2,7 +2,7 @@ import React from "react";
 import { timeSlots } from "../../util/reservation_util";
 import { Link } from "react-router-dom";
 import { FaRegCalendar, FaRegClock, FaRegUser} from "react-icons/fa"
-import { timezone, today, todayDate } from "../../util/reservation_util"
+import { timezone, today, todayDate, todayTimeSlots } from "../../util/reservation_util"
 
 class ReservationModify extends React.Component{
   constructor(props){
@@ -10,7 +10,7 @@ class ReservationModify extends React.Component{
     this.state = {
       partySize: localStorage.getItem("partySize"),
       date: todayDate,
-      time: localStorage.getItem("time"),
+      time: todayTimeSlots[0],
       timeAvails: []
     }
     this.handleInput = this.handleInput.bind(this);

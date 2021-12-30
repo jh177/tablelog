@@ -5,8 +5,9 @@ import { requestReservation, updateReservation } from "../../actions/reservation
 
 
 const mSTP = (state, ownProps) => ({
-  reservation: state.entities.reservations[ownProps.match.params.reservationId],
-  restaurant: Object.values(state.entities.restaurants)[0],
+  // reservation: state.entities.reservations[ownProps.match.params.reservationId],
+  reservation: Object.values(state.entities.reservations.single)[0],
+  restaurant: Object.values(state.entities.restaurants.single)[0],
   currentUser: state.entities.users[state.session.id]
 })
 

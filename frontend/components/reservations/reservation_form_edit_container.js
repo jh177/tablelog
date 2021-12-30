@@ -5,8 +5,9 @@ import ReservationFormEdit from "./reservation_form_edit";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  restaurant: Object.values(state.entities.restaurants)[0],
-  reservation: state.entities.reservations[ownProps.match.params.reservationId],
+  restaurant: Object.values(state.entities.restaurants.single)[0],
+  reservation: Object.values(state.entities.reservations.single)[0],
+  // reservation: state.entities.reservations[ownProps.match.params.reservationId],
   errors: state.errors.reservation
 })
 

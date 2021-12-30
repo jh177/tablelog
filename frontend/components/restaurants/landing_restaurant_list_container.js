@@ -3,7 +3,7 @@ import { requestAllRestaurants } from "../../actions/restaurant_actions";
 import LandingRestaurantList from "./landing_restaurant_list"
 
 const mSTP = (state) => ({
-  restaurants: Object.values(state.entities.restaurants)
+  restaurants: Object.values(state.entities.restaurants.all)
 })
 
 const mDTP = (dispatch) => ({
