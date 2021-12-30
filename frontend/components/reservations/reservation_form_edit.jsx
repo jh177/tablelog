@@ -77,8 +77,14 @@ class ReservationFormEdit extends React.Component {
     }
     // localStorage.setItem("restaurant", JSON.stringify(this.props.restaurant));
     // debugger
+    // let dateInfo = date.split("-")
+    // let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+
     let dateInfo = date.split("-")
-    let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+    dateInfo = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+    let displayDate = dateInfo.slice(0, 3) + "," + dateInfo.slice(3, 10) + "," + dateInfo.slice(10, 15);
+
+
 
     return (
       <div className="reservation-page-main">

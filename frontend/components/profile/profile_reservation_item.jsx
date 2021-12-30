@@ -110,7 +110,8 @@ class ProfileReservationItem extends React.Component {
       
       // debugger
     let dateInfo = reservation.date.split("-")
-    let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+    // let dayInfo = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 3);
+    let displayDate = dateInfo[1] + "/" + dateInfo[2] + "/" + dateInfo[0];
 
     return (
       <div className="profile-reservation-details">

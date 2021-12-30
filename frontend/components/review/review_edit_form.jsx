@@ -190,7 +190,7 @@ class ReviewEditForm extends React.Component {
 
     // debugger
 
-    if (!this.props.review) return null;
+    if (!this.props.review || !this.props.reservation) return null;
 
     const errorMessage = (this.props.errors.length > 0) ? this.props.errors[0].slice(5) : null;
 

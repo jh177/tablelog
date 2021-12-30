@@ -87,8 +87,8 @@ class ReservationModify extends React.Component{
     ) : (null)
 
     let dateInfo = reservation.date.split("-")
-    let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
-
+    dateInfo = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+    let displayDate = dateInfo.slice(0, 3) + "," + dateInfo.slice(3, 10) + "," + dateInfo.slice(10, 15);
         // debugger
 
     return(

@@ -28,8 +28,13 @@ class ReservationShow extends React.Component{
 
     // debugger
 
-    let dateInfo = reservation.date.split("-")
-    let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+    // let dateInfo = reservation.date.split("-")
+    // let displayDate = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+
+    let dateInfo = this.props.reservation.date.split("-")
+    dateInfo = new Date(dateInfo[0], dateInfo[1] - 1, dateInfo[2]).toString().slice(0, 15);
+    let displayDate = dateInfo.slice(0, 3) + "," + dateInfo.slice(3, 10) + "," + dateInfo.slice(10, 15);
+
 
     return(
       <div className="reservation-show-main">
