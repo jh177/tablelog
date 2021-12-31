@@ -23,8 +23,8 @@ Welcome to TableLog, an inspiration from OpenTable, is a web-based restaurant-re
 
 ![screenshot-1](app/assets/images/tablelog-preview-1.gif)
 
-## Ability to search restaurants via cuisine types or city location
-* User can navigate to profile page where the abilities of viewing, modifing, and cancelling upcoming reservations as well as creating reviews to past dining experience are provided.
+## Ability to search restaurants via cuisine type or city location
+* User can user the search box to search restaurants via cuisine type or city
 
 ![screenshot-2](app/assets/images/tablelog-preview-2.gif)
 
