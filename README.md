@@ -4,7 +4,7 @@
 
 ## [Live Site](https://tablelog.herokuapp.com/)
 
-Welcome to TableLog, an inspiration from OpenTable, is a web-based restaurant-reservation application that allows users to search restaurants, make and manage online reservations, add and read restaurant reviews.
+Welcome to TableLog, as an inspiration from OpenTable, TableLog is a web-based restaurant-reservation application that allows users to search restaurants, make and manage online reservations, add and read restaurant reviews.
 
 # Technologies
 * Ruby on Rails
