@@ -21,57 +21,64 @@ Welcome to TableLog, an inspiration from OpenTable, is a web-based restaurant-re
 * User can view restaurants and available timeslots
 * Signed-in user can select desired timeslots to make reservations
 
-![screenshot-1](app/assets/images/tablelog-ss-1.png)
+![screenshot-1](app/assets/images/tablelog-preview-1.gif)
+
+## Ability to search restaurants via cuisine types or city location
+* User can navigate to profile page where the abilities of viewing, modifing, and cancelling upcoming reservations as well as creating reviews to past dining experience are provided.
+
+![screenshot-2](app/assets/images/tablelog-preview-2.gif)
+
+```javascript
+  // search_box.jsx
+  // this code provides the dynamic search result suggestion
+
+    const filteredCuisines = cuisines.filter(cuisine => cuisine.toLowerCase().includes(this.state.query))
+    const filteredCities = cities.filter(city => city.toLowerCase().includes(this.state.query))
+
+    const cuisineList = (filteredCuisines.length === 0) ? null :
+      (<div>
+        <div className="search-suggestions-title">
+          <FaUtensils className="search-fa-utensils" size={18} />
+          Cuisines
+        </div>
+        {filteredCuisines.map((cuisine, i) => (
+          <div className="search-suggestions-list" key={i}>
+            <Link to={`/search/${cuisine}`}>{cuisine}</Link>
+          </div>
+        ))}
+      </div>)
+
+    const cityList = (filteredCities.length === 0 ) ? null : 
+      (<div>
+        <div className="search-suggestions-title">
+          <FaLocationArrow className="search-fa-location" size={18} />
+          Cities
+        </div>
+        {filteredCities.map((city,i)=>(
+          <div className="search-suggestions-list" key={i}>
+            <Link to={`/search/${city}`}>{city}</Link>
+          </div>
+        ))}
+      </div>)
+
+    const searchSuggestions = (!this.state.searching || this.state.query === "") ? null :
+      (<div className="search-suggestions">
+          <div className="search-suggestions-query">
+            <Link id="search-suggestions-query" to={`/search/${this.state.query}`}>Search: "{this.state.query}"</Link>
+          </div>
+          {cuisineList}
+          {cityList}
+        </div>)
+```
+
 
 ## Ability to view reservation history and edit reservations
 * Signed-in user can navigate to profile page where the abilities of viewing, modifing, and cancelling upcoming reservations as well as creating reviews to past dining experience are provided.
 
-![screenshot-2](app/assets/images/tablelog-ss-2.png)
-
+![screenshot-3](app/assets/images/tablelog-preview-3.gif)
 
 ## Ability to review past dining experience
-* Signed-in user can add reviews to past dining experience in user's profile page and the review will be updated in restaurant show page.
+* Signed-in user can add new reviews or edit existing reviews to past dining experience in user's profile page and the review will be updated in restaurant show page.
 * Review form provides an interactive experience for user to select ratings in several categories. Below code snippets 
 
-![screenshot-2](app/assets/images/tablelog-ss-3.png)
-
-```javascript
-  // review_form.jsx
-  // this code will provide the above dynamic rating system
-
-  displayRatingStars(field){
-      const levels = ["Poor", "Fair", "Good", "Very Good", "Outstanding"];
-
-      return (
-        <div className="rating-star-container">
-          <div className="rating-stars">
-            {[...Array(5)].map((star, i) => {
-              const rating = i + 1
-
-              return (
-                <label key={i} >
-                  <input
-                    type="radio"
-                    name={field}
-                    value={rating}
-                    onClick={this.handleSelect(field)}
-                  />
-                  <FaStar
-                    className="star"
-                    color={((i + 1) <= (this.state[`hover${field}`] || this.state[field])) ?"#b8222d" : "#e4e5e9"}
-                    size={40}
-                    onMouseEnter={() => this.setHover(`hover${field}`, rating)}
-                    onMouseLeave={()=>this.resetHover([`hover${field}`])}
-                  />
-                </label>
-              )
-            })}
-
-            <div className="rating-prompts">
-              {levels[this.state[`hover${field}`] - 1] || levels[this.state[field] - 1]}
-            </div>
-          </div>
-        </div>
-      )
-    }
-```
+![screenshot-4](app/assets/images/tablelog-preview-4.gif)
