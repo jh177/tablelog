@@ -24,7 +24,7 @@ Welcome to TableLog, an inspiration from OpenTable, is a web-based restaurant-re
 ![screenshot-1](app/assets/images/tablelog-preview-1.gif)
 
 ## Ability to search restaurants via cuisine type or city location
-* User can user the search box to search restaurants via cuisine type or city
+* User can use the search box to search restaurants in categories such as cuisine type and located city
 
 ![screenshot-2](app/assets/images/tablelog-preview-2.gif)
 
