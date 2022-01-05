@@ -20,9 +20,20 @@
 }
 
 .footer-links{
+  display: flex;
+  align-items: center;
   padding-right: 16px;
 }
 
 .footer-links a{
-  padding: 0 16px;
+  margin: 0 16px;
+  display: flex;
+  align-items: center;
 }
+
+#portfolio-logo{
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+}
+

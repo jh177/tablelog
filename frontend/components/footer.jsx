@@ -5,6 +5,9 @@ const Footer = () => {
   return(
     <div className="footer-content">
       <div className="footer-links">
+        <a href="https://jh177.github.io/portfolio/" target="_blank">
+          <img src={window.portfolioUrl} id="portfolio-logo"/>
+        </a>
         <a href={`https://github.com/jh177`} target="_blank">
           <FaGithub size={36} color="#f7f7f7"/>
         </a>
