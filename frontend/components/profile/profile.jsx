@@ -76,6 +76,9 @@ class Profile extends React.Component{
       }
     })
 
+    pastReservations.sort((a, b) => (new Date(`${a.date} ${a.time}`) >= new Date(`${b.date} ${b.time}`)) ? -1 : 1)
+    futureReservations.sort((a, b) => (new Date(`${a.date} ${a.time}`) >= new Date(`${b.date} ${b.time}`)) ? 1 : -1)
+
     const pastReservationItems = pastReservations.map((reservation) => {
       const review = (reservation.review) ? reservation.review : null;
 
