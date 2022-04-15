@@ -8,12 +8,12 @@ Welcome to TableLog, as an inspiration from OpenTable, TableLog is a web-based r
 
 # Technologies
 * Ruby on Rails
-* PostgresSQL
+* PostgreSQL
 * React
 * Redux
 * Javascript
 * Google Maps API
-* AWS S#
+* AWS S3
 
 # Key Features
 
